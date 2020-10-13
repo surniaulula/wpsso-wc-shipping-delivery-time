@@ -35,11 +35,11 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'wc_shipping_delivery_time' => 4,
+				'wc_shipping_delivery_time' => 3,
 			) );
 		}
 
-		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id, $shipping_class_id ) {
+		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id ) {
 
 			if ( $this->p->debug->enabled ) {
 
@@ -53,32 +53,18 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 				$wcsdt_transit = get_option( 'wcsdt_transit', array() );
 			}
 
-			$world_zone_id        = 0;
-			$no_shipping_class_id = 0;
-			$have_transit_opts    = false;
-			$transit_opts         = array( 'z' . $zone_id . '-m' . $method_inst_id . '-c' . $shipping_class_id );
-
-			if ( $shipping_class_id !== $no_shipping_class_id ) {
-
-				$transit_opts[] = 'z' . $zone_id . '-m' . $method_inst_id . '-c' . $no_shipping_class_id;
-			}
+			$world_zone_id     = 0;
+			$have_transit_opts = false;
+			$transit_opts      = array( 'z' . $zone_id . '-m' . $method_inst_id );
 
 			if ( $zone_id !== $world_zone_id ) {
 
-				$transit_opts[] = 'z' . $world_zone_id . '-m' . $method_inst_id . '-c' . $shipping_class_id;
-			
-				if ( $shipping_class_id !== $no_shipping_class_id ) {
-
-					$transit_opts[] = 'z' . $world_zone_id . '-m' . $method_inst_id . '-c' . $no_shipping_class_id;
-				}
+				$transit_opts[] = 'z' . $world_zone_id . '-m' . $method_inst_id;
 			}
 
 			foreach ( $transit_opts as $transit_prefix ) {
 
-				foreach ( array(
-					'min_days',
-					'max_days',
-				) as $transit_suffix ) {
+				foreach ( array( 'min_days', 'max_days' ) as $transit_suffix ) {
 
 					if ( ! empty( $wcsdt_transit[ $transit_prefix . '-' . $transit_suffix ] ) ) {
 
@@ -90,8 +76,9 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 				if ( $have_transit_opts ) {
 
-					if ( isset( $delivery_time_opts[ 'transit_min_days' ] ) && isset( $delivery_time_opts[ 'transit_max_days' ] ) &&
-						$delivery_time_opts[ 'transit_min_days' ] === $delivery_time_opts[ 'transit_max_days' ] ) {
+					if ( isset( $delivery_time_opts[ 'transit_min_days' ] ) && 
+						isset( $delivery_time_opts[ 'transit_max_days' ] ) &&
+							$delivery_time_opts[ 'transit_min_days' ] === $delivery_time_opts[ 'transit_max_days' ] ) {
 
 						$delivery_time_opts[ 'transit_days' ] = $delivery_time_opts[ 'transit_min_days' ];
 

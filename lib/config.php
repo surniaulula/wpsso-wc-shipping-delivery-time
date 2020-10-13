@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowcsdt' => array(			// Plugin acronym.
-					'version'     => '1.0.0-dev.4',	// Plugin version.
+					'version'     => '1.0.0-dev.5',	// Plugin version.
 					'opt_version' => '1',		// Increment when changing default option values.
 					'short'       => 'WPSSO WCSDT',	// Short plugin name.
 					'name'        => 'WPSSO Shipping Delivery Time for WooCommerce',
@@ -44,7 +44,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '8.8.0-dev.4',
+							'min_version'   => '8.8.0-dev.5',
 						),
 					),
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 1.0.0-"
-"dev.4\n"
+"dev.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2020-MO-DA HO:MI+ZONE\n"
@@ -38,39 +38,33 @@ msgid ""
 "and Classes."
 msgstr ""
 
-#: lib/woocommerce.php:56
-msgid "Shipping delivery time estimates"
+#: lib/woocommerce.php:55
+msgid "Shipping delivery times"
 msgstr ""
 
-#: lib/woocommerce.php:61
-msgid "Show time estimates"
+#: lib/woocommerce.php:60
+msgid "Checkout delivery estimates"
+msgstr ""
+
+#: lib/woocommerce.php:62
+msgid "Do not show delivery estimates"
 msgstr ""
 
 #: lib/woocommerce.php:63
-msgid "Do not show time estimates"
+msgid "Show delivery estimates in days"
 msgstr ""
 
-#: lib/woocommerce.php:64
-msgid "Show time estimates in days"
-msgstr ""
-
-#: lib/woocommerce.php:68
-msgid ""
-"This changes the way shipping delivery time estimates are shown to customers."
+#: lib/woocommerce.php:67
+msgid "Optionally show delivery estimates at checkout."
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce.php:143
-msgid "The minimum estimated in-transit time. Can be left blank."
+#: lib/woocommerce.php:140
+msgid "The minimum estimated transit time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce.php:147
-msgid "The maximum estimated in-transit time. Can be left blank."
-msgstr ""
-
-#. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce.php:170
-msgid "No shipping class"
+#: lib/woocommerce.php:144
+msgid "The maximum estimated transit time. Can be left blank."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
