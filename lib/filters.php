@@ -35,58 +35,40 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'wc_shipping_delivery_time' => 3,
+				'wc_shipping_delivery_time' => 4,
 			) );
 		}
 
-		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id ) {
+		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id, $shipping_class_id ) {
 
 			if ( $this->p->debug->enabled ) {
 
 				$this->p->debug->mark();
 			}
 
-			static $wcsdt_transit = null;
+			static $handling_times = null;
+			static $transit_times  = null;
 		
-			if ( null === $wcsdt_transit ) {
+			if ( null === $transit_times ) {
 
-				$wcsdt_transit = get_option( 'wcsdt_transit', array() );
+				$handling_times = get_option( 'wcsdt_transit_time', array() );
+				$transit_times  = get_option( 'wcsdt_transit_time', array() );
 			}
 
-			$world_zone_id     = 0;
-			$have_transit_opts = false;
-			$transit_opts      = array( 'z' . $zone_id . '-m' . $method_inst_id );
+			foreach ( array( 'min_days', 'max_days' ) as $opt_suffix ) {
 
-			if ( $zone_id !== $world_zone_id ) {
+				if ( ! empty( $transit_times[ 'm' . $method_inst_id . '-' . $opt_suffix ] ) ) {
 
-				$transit_opts[] = 'z' . $world_zone_id . '-m' . $method_inst_id;
+					$delivery_time_opts[ 'transit_' . $opt_suffix ] = $transit_times[ 'm' . $method_inst_id . '-' . $opt_suffix ];
+				}
 			}
 
-			foreach ( $transit_opts as $transit_prefix ) {
+			if ( isset( $delivery_time_opts[ 'transit_min_days' ] ) && isset( $delivery_time_opts[ 'transit_max_days' ] ) &&
+				$delivery_time_opts[ 'transit_min_days' ] === $delivery_time_opts[ 'transit_max_days' ] ) {
 
-				foreach ( array( 'min_days', 'max_days' ) as $transit_suffix ) {
+				$delivery_time_opts[ 'transit_days' ] = $delivery_time_opts[ 'transit_min_days' ];
 
-					if ( ! empty( $wcsdt_transit[ $transit_prefix . '-' . $transit_suffix ] ) ) {
-
-						$have_transit_opts = true;
-
-						$delivery_time_opts[ 'transit_' . $transit_suffix ] = $wcsdt_transit[ $transit_prefix . '-' . $transit_suffix ];
-					}
-				}
-
-				if ( $have_transit_opts ) {
-
-					if ( isset( $delivery_time_opts[ 'transit_min_days' ] ) && 
-						isset( $delivery_time_opts[ 'transit_max_days' ] ) &&
-							$delivery_time_opts[ 'transit_min_days' ] === $delivery_time_opts[ 'transit_max_days' ] ) {
-
-						$delivery_time_opts[ 'transit_days' ] = $delivery_time_opts[ 'transit_min_days' ];
-
-						unset( $delivery_time_opts[ 'transit_min_days' ], $delivery_time_opts[ 'transit_max_days' ] );
-					}
-
-					break;
-				}
+				unset( $delivery_time_opts[ 'transit_min_days' ], $delivery_time_opts[ 'transit_max_days' ] );
 			}
 
 			return $delivery_time_opts;
