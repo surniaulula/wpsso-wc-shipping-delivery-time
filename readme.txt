@@ -59,7 +59,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0-dev.5 (TBD)**
+**Version 1.0.0-dev.6 (2020/10/14)**
 
 **Initial release.**
 
@@ -74,12 +74,12 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
-	* WPSSO Core v8.8.0-dev.5.
+	* WPSSO Core v8.8.0-dev.6.
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
 
-= 1.0.0-dev.5 =
+= 1.0.0-dev.6 =
 
-(TBD) Initial release.
+(2020/10/14) Initial release.
 
