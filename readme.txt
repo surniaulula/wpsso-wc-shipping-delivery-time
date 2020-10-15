@@ -18,18 +18,21 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 == Description ==
 
-Extends the WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options with shipping delivery times:
+Extends the **WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options** with shipping delivery times:
 
 * Optionally show shipping handling and packaging time under the shipping methods.
 * Optionally show shipping transit time in the shipping method label. 
 * Select minimum / maximum shipping handling times for WooCommerce shipping classes.
 * Select minimum / maximum shipping transit times for WooCommerce shipping zones and methods.
+* Offers Schema ShippingDeliveryTime information to the [WPSSO Schema JSON-LD Markup add-on](https://wpsso.com/extend/plugins/wpsso-schema-json-ld/free/).
 
 <h3>WPSSO Core Plugin Required</h3>
 
 WPSSO Shipping Delivery Time for WooCommerce (aka WPSSO WCSDT) is an add-on for the [WPSSO Core plugin](https://wpsso.com/extend/plugins/wpsso/free/).
 
 WPSSO Core and its add-ons make sure your content looks great on social sites and in search results, no matter how your URLs are crawled, shared, re-shared, posted, or embedded.
+
+See the [Better Schema for WooCommerce Products](https://wpsso.com/docs/plugins/wpsso/installation/better-schema-for-woocommerce/) article for more information.
 
 == Installation ==
 
