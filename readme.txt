@@ -1,4 +1,4 @@
-=== WPSSO WC Shipping Delivery Time ===
+=== Shipping Delivery Time for WooCommerce | WPSSO Add-on ===
 Plugin Name: WPSSO Shipping Delivery Time for WooCommerce
 Plugin Slug: wpsso-wc-shipping-delivery-time
 Text Domain: wpsso-wc-shipping-delivery-time
@@ -67,7 +67,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0 (2020/10/15)**
+**Version 1.0.0-b.1 (2020/10/15)**
 
 **Initial release.**
 
@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 1.0.0-b.1 =
 
 (2020/10/15) Initial release.
 
