@@ -1,4 +1,4 @@
-=== Shipping Delivery Time for WooCommerce | WPSSO Add-on ===
+=== WPSSO WC Shipping Delivery Time ===
 Plugin Name: WPSSO Shipping Delivery Time for WooCommerce
 Plugin Slug: wpsso-wc-shipping-delivery-time
 Text Domain: wpsso-wc-shipping-delivery-time

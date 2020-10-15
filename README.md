@@ -1,4 +1,4 @@
-<h1>Shipping Delivery Time for WooCommerce</h1><h3>WPSSO Add-on</h3>
+<h1>WPSSO WC Shipping Delivery Time</h1>
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Shipping Delivery Time for WooCommerce</td></tr>
