@@ -51,6 +51,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			if ( is_admin() ) {
 
+				add_filter( 'plugin_action_links', array( $this, 'add_plugin_action_links' ), 200, 4 );
 				add_filter( 'woocommerce_shipping_settings', array( $this, 'add_options' ), 10, 1 );
 				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_handling_time' ), 10 );
 				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_transit_time' ), 20 );
@@ -58,7 +59,20 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			}
 		}
 
-		public function show_handling_time_label( $method_obj, $index ) {
+		public function add_plugin_action_links( $action_links, $plugin_base, $plugin_data, $context ) {
+
+			if ( WPSSOWCSDT_PLUGINBASE === $plugin_base ) {
+
+				$admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=options' );
+				$label_transl = esc_html__( 'WooCommerce Shipping Options', 'wpsso-wc-shipping-delivery-time' );
+
+				$action_links[] = '<a href="' . $admin_url . '">' . $label_transl . '</a>';
+			}
+
+			return $action_links;
+		}
+
+		public function show_handling_time_label( $method_obj, $pkg_index ) {
 
 			static $packages         = null;
 			static $handling_times   = null;
@@ -70,12 +84,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				$handling_times = get_option( 'wcsdt_handling_time', array() );
 			}
 
-			if ( empty( $packages[ $index ][ 'rates' ] ) ) {
+			if ( empty( $packages[ $pkg_index ][ 'rates' ] ) ) {
 
 				return;
 			}
 
-			$package       = $packages[ $index ];
+			$package       = $packages[ $pkg_index ];
 			$total_methods = count( $package[ 'rates' ] );
 			$method_count++;
 
@@ -84,11 +98,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				return;
 			}
 
-			$package_min_days_val = '';
-			$package_max_days_val = '';
+			$max_days_allowed = true;
+			$pkg_min_days     = '';
+			$pkg_max_days     = '';
 
 			/**
-			 * Determine the $package_min_days_val and $package_max_days_val values.
+			 * Determine the $pkg_min_days and $pkg_max_days values.
 			 */
 			foreach ( $package[ 'contents' ] as $item_id => $values ) {
 			
@@ -97,51 +112,49 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$opt_key           = 'c' . $shipping_class_id;
 					$opt_key_min       = $opt_key . '-min_days';
 					$opt_key_max       = $opt_key . '-max_days';
-					$min_days_val      = isset( $handling_times[ $opt_key_min ] ) ? $handling_times[ $opt_key_min ] : '';
-					$max_days_val      = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
+					$min_days          = isset( $handling_times[ $opt_key_min ] ) ? $handling_times[ $opt_key_min ] : '';
+					$max_days          = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
 
-					if ( ! empty( $min_days_val ) && ( empty( $package_min_days_val ) || $min_days_val < $package_min_days_val ) ) {
+					if ( ! empty( $min_days ) ) {
 
-						$package_min_days_val = $min_days_val;
+						if ( empty( $max_days ) ) {
+
+							$max_days_allowed = false;
+							$pkg_max_days     = '';	// Just in case.
+						}
+
+						if ( empty( $pkg_min_days ) || $min_days > $pkg_min_days ) {
+
+							$pkg_min_days = $min_days;
+
+							if ( ! empty( $pkg_max_days ) ) {
+							
+								if ( $pkg_min_days > $pkg_max_days ) {
+									
+									$pkg_max_days = $pkg_min_days;
+								}
+							}
+						}
 					}
 
-					if ( ! empty( $max_days_val ) && ( empty( $package_max_days_val ) || $max_days_val > $package_max_days_val ) ) {
+					if ( $max_days_allowed ) {
 
-						$package_max_days_val = $max_days_val;
+						if ( ! empty( $max_days ) ) {
+					
+							if ( empty( $pkg_max_days ) || $max_days > $pkg_max_days ) {
+
+								$pkg_max_days = $max_days;
+							}
+						}
 					}
 			}
 	
-			if ( empty( $package_min_days_val ) && empty( $package_max_days_val ) ) {	// Nothing to show.
+			if ( empty( $pkg_min_days ) && empty( $pkg_max_days ) ) {	// Nothing to show.
 
 				return;
 			}
 
-			if ( ! empty( $package_min_days_val ) ) {
-
-				if ( ! empty( $package_max_days_val ) ) {
-
-					if ( $package_min_days_val === $package_max_days_val ) {
-
-						$days_label =  _n( '%1$s day', '%1$s days', $package_min_days_val, 'wpsso-wc-shipping-delivery-time' );
-
-					} else {
-
-						$days_label = __( '%1$s - %2$s days', 'wpsso-wc-shipping-delivery-time' );
-					}
-
-				} else {
-
-					$days_label = _n( 'at least %1$s day', 'at least %1$s days', $package_min_days_val, 'wpsso-wc-shipping-delivery-time' );
-				}
-
-			} else {
-
-				$days_label = _n( 'up to %2$s day', 'up to %2$s days', $package_max_days_val, 'woocommerce-shipping-estimate' );
-			}
-
-			$days_label = apply_filters( 'wpsso_wcsdt_shipping_days_label', $days_label, $package_min_days_val, $package_max_days_val );
-			$days_label = sprintf( $days_label, $package_min_days_val, $package_max_days_val );
-
+			$days_label     = $this->get_days_label( $pkg_min_days, $pkg_max_days );
 			$handling_label = '<label><small>Add %s for handling &amp; packaging.</small></label>';
 			$handling_label = apply_filters( 'wpsso_wcsdt_shipping_handling_time_label', $handling_label, $days_label );
 			$handling_label = sprintf( $handling_label, $days_label );
@@ -170,21 +183,31 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$opt_key        = 'm' . $method_inst_id;
 			$opt_key_min    = $opt_key . '-min_days';
 			$opt_key_max    = $opt_key . '-max_days';
-			$min_days_val   = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
-			$max_days_val   = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
+			$min_days       = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
+			$max_days       = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
 
-			if ( empty( $min_days_val ) && empty( $max_days_val ) ) {	// Nothing to do.
+			if ( empty( $min_days ) && empty( $max_days ) ) {	// Nothing to do.
 
 				return $method_label;
 			}
 
-			if ( ! empty( $min_days_val ) ) {
+			$days_label    = $this->get_days_label( $min_days, $max_days );
+			$transit_label = ' (%s)';
+			$transit_label = apply_filters( 'wpsso_wcsdt_shipping_transit_time_label', $transit_label, $days_label );
+			$transit_label = sprintf( $transit_label, $days_label );
 
-				if ( ! empty( $max_days_val ) ) {
+			return $method_label . $transit_label;
+		}
 
-					if ( $min_days_val === $max_days_val ) {
+		private function get_days_label( $min_days, $max_days ) {
 
-						$days_label =  _n( '%1$s day', '%1$s days', $min_days_val, 'wpsso-wc-shipping-delivery-time' );
+			if ( ! empty( $min_days ) ) {
+
+				if ( ! empty( $max_days ) ) {
+
+					if ( $min_days === $max_days ) {
+
+						$days_label =  _n( '%1$s day', '%1$s days', $min_days, 'wpsso-wc-shipping-delivery-time' );
 
 					} else {
 
@@ -193,22 +216,18 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 				} else {
 
-					$days_label = _n( 'at least %1$s day', 'at least %1$s days', $min_days_val, 'wpsso-wc-shipping-delivery-time' );
+					$days_label = __( '%1$s or more days', 'wpsso-wc-shipping-delivery-time' );
 				}
 
 			} else {
 
-				$days_label = _n( 'up to %2$s day', 'up to %2$s days', $max_days_val, 'woocommerce-shipping-estimate' );
+				$days_label = _n( 'up to %2$s day', 'up to %2$s days', $max_days, 'woocommerce-shipping-estimate' );
 			}
 
-			$days_label = apply_filters( 'wpsso_wcsdt_shipping_days_label', $days_label, $min_days_val, $max_days_val );
-			$days_label = sprintf( $days_label, $min_days_val, $max_days_val );
+			$days_label = apply_filters( 'wpsso_wcsdt_shipping_days_label', $days_label, $min_days, $max_days );
+			$days_label = sprintf( $days_label, $min_days, $max_days );
 
-			$transit_label = ' (%s)';
-			$transit_label = apply_filters( 'wpsso_wcsdt_shipping_transit_time_label', $transit_label, $days_label );
-			$transit_label = sprintf( $transit_label, $days_label );
-
-			return $method_label . $transit_label;
+			return $days_label;
 		}
 
 		public function add_options( $settings ) {
@@ -224,7 +243,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				),
 				array(
 					'title'         => __( 'Show delivery estimates', 'wpsso-wc-shipping-delivery-time' ),
-					'desc'          => __( 'Show shipping handling time under the shipping methods.', 'wpsso-wc-shipping-delivery-time' ),
+					'desc'          => __( 'Show shipping handling and packaging time under the shipping methods.', 'wpsso-wc-shipping-delivery-time' ),
 					'id'            => 'wcsdt_show_handling_times',
 					'type'          => 'checkbox',
 					'default'       => 'yes',
@@ -249,7 +268,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 		public function show_handling_time() {
 
 			echo '<tr valign="top">' . "\n";
-			echo '<th scope="row" class="titledesc"><label>' . esc_html( 'Shipping handling times', 'woocommerce-shipping-estimate' ) .
+			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping handling times', 'woocommerce-shipping-estimate' ) .
 				wc_help_tip( __( 'The typical delay between the receipt of an order and the goods leaving the warehouse.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</label></th>' . "\n";
 			echo '<td class="forminp">' . "\n";
@@ -265,8 +284,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$handling_times       = get_option( 'wcsdt_handling_time', array() );
 			$shipping_classes     = WC()->shipping()->get_shipping_classes();
 			$classes_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=classes' );
-			$classes_label_transl = '<a href="' . $classes_admin_url . '">' .
-				esc_html( 'Shipping classes', 'wpsso-wc-shipping-delivery-time' ) . '</a>';
+			$classes_label_transl = '<a href="' . $classes_admin_url . '">' . esc_html__( 'Shipping classes', 'wpsso-wc-shipping-delivery-time' ) . '</a>';
 
 			echo '<table class="wc_shipping widefat wp-list-table" cellspacing="0">' . "\n";
 
@@ -278,20 +296,17 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			echo '<tr>' . "\n";
 
 			echo '<th class="shipping-class" style="padding-left:2% !important;">' .
-				esc_html( 'Shipping class', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+				esc_html__( 'Shipping class', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="shipping-class-desc">' .
-				esc_html( 'Class description', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="shipping-class-desc">' . esc_html__( 'Class description', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="handling-min-days">' .
-				esc_html( 'Minimum days', 'wpsso-wc-shipping-delivery-time' ) .
-					wc_help_tip( __( 'The estimated minimum handling time in days. Can be left blank.',
-						'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
+			echo '<th class="handling-min-days">' . esc_html__( 'Minimum days', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The estimated minimum handling and packaging time in days. Can be left blank.',
+					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
-			echo '<th class="handling-max-days">' .
-				esc_html( 'Maximum days', 'wpsso-wc-shipping-delivery-time' ) .
-					wc_help_tip( __( 'The estimated maximum handling time in days. Can be left blank.',
-						'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
+			echo '<th class="handling-max-days">' . esc_html__( 'Maximum days', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The estimated maximum handling and packaging time in days. Can be left blank.',
+					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
@@ -320,11 +335,11 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 		private function show_handling_time_table_rows( $handling_times, $shipping_class_id, $shipping_class_name, $shipping_class_desc ) {
 
-			$opt_key      = 'c' . $shipping_class_id;
-			$opt_key_min  = $opt_key . '-min_days';
-			$opt_key_max  = $opt_key . '-max_days';
-			$min_days_val = isset( $handling_times[ $opt_key_min ] ) ? $handling_times[ $opt_key_min ] : '';
-			$max_days_val = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
+			$opt_key     = 'c' . $shipping_class_id;
+			$opt_key_min = $opt_key . '-min_days';
+			$opt_key_max = $opt_key . '-max_days';
+			$min_days    = isset( $handling_times[ $opt_key_min ] ) ? $handling_times[ $opt_key_min ] : '';
+			$max_days    = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
 
 			echo '<tr>' . "\n"; 
 
@@ -334,12 +349,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			echo '<td class="handling-min-days">';
 			echo '<input type="number" step="' . $this->handling_time_step . '" min="0" ' .
-				'name="wcsdt_handling_time[' . $opt_key_min . ']" value="' . $min_days_val . '"/>';
+				'name="wcsdt_handling_time[' . $opt_key_min . ']" value="' . $min_days . '"/>';
 			echo '</td>' . "\n";
 
 			echo '<td class="handling-max-days">';
 			echo '<input type="number" step="' . $this->handling_time_step . '" min="0" ' .
-				'name="wcsdt_handling_time[' . $opt_key_max . ']" value="' . $max_days_val . '"/>';
+				'name="wcsdt_handling_time[' . $opt_key_max . ']" value="' . $max_days . '"/>';
 			echo '</td>' . "\n";
 
 			echo '</tr>' . "\n"; 
@@ -348,7 +363,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 		public function show_transit_time() {
 
 			echo '<tr valign="top">' . "\n";
-			echo '<th scope="row" class="titledesc"><label>' . esc_html( 'Shipping transit times', 'woocommerce-shipping-estimate' ) .
+			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping transit times', 'woocommerce-shipping-estimate' ) .
 				wc_help_tip( __( 'The typical delay between the goods leaving the warehouse and reaching the customer.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</label></th>' . "\n";
 			echo '<td class="forminp">' . "\n";
@@ -374,8 +389,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$zone_methods      = $zone_obj->get_shipping_methods( $enabled_only = true, $context = 'admin' );
 					$zone_name         = $zone_obj->get_zone_name( $context = 'admin' );
 					$zone_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $zone_id );
-					$zone_label_transl = '<a href="' . $zone_admin_url . '">' . esc_html( $zone_name ) . ' ' .
-						esc_html( 'shipping zone', 'wpsso-wc-shipping-delivery-time' ) . '</a>';
+					$zone_label_transl = '<a href="' . $zone_admin_url . '">' . esc_html( sprintf( __( '%s shipping zone',
+						'wpsso-wc-shipping-delivery-time' ), $zone_name ) ) . '</a>';
 
 					$this->show_transit_time_table_rows( $transit_times, $zone_label_transl, $zone_id, $zone_methods );
 				}
@@ -411,20 +426,15 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			echo '<tr>' . "\n";
 
 			echo '<th class="shipping-method" style="padding-left:2% !important;">' .
-				esc_html( 'Shipping method', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+				esc_html__( 'Shipping method', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="shipping-rate">' .
-				esc_html( 'Shipping rate', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="shipping-rate">' . esc_html__( 'Shipping rate', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="transit-min-days">' .
-				esc_html( 'Minimum days', 'wpsso-wc-shipping-delivery-time' ) .
-					wc_help_tip( __( 'The estimated minimum transit time in days. Can be left blank.',
-						'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
+			echo '<th class="transit-min-days">' . esc_html__( 'Minimum days', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The estimated minimum transit time in days. Can be left blank.', 'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
-			echo '<th class="transit-max-days">' .
-				esc_html( 'Maximum days', 'wpsso-wc-shipping-delivery-time' ) .
-					wc_help_tip( __( 'The estimated maximum transit time in days. Can be left blank.',
-						'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
+			echo '<th class="transit-max-days">' . esc_html__( 'Maximum days', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The estimated maximum transit time in days. Can be left blank.', 'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
@@ -445,11 +455,11 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					continue;
 				}
 
-				$opt_key      = 'm' . $method_inst_id;
-				$opt_key_min  = $opt_key . '-min_days';
-				$opt_key_max  = $opt_key . '-max_days';
-				$min_days_val = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
-				$max_days_val = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
+				$opt_key     = 'm' . $method_inst_id;
+				$opt_key_min = $opt_key . '-min_days';
+				$opt_key_max = $opt_key . '-max_days';
+				$min_days    = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
+				$max_days    = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
 
 				echo '<tr>' . "\n"; 
 
@@ -459,12 +469,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 				echo '<td class="transit-min-days">';
 				echo '<input type="number" step="' . $this->transit_time_step . '" min="0" ' .
-					'name="wcsdt_transit_time[' . $opt_key_min . ']" value="' . $min_days_val . '"/>';
+					'name="wcsdt_transit_time[' . $opt_key_min . ']" value="' . $min_days . '"/>';
 				echo '</td>' . "\n";
 
 				echo '<td class="transit-max-days">';
 				echo '<input type="number" step="' . $this->transit_time_step . '" min="0" ' .
-					'name="wcsdt_transit_time[' . $opt_key_max . ']" value="' . $max_days_val . '"/>';
+					'name="wcsdt_transit_time[' . $opt_key_max . ']" value="' . $max_days . '"/>';
 				echo '</td>' . "\n";
 
 				echo '</tr>' . "\n"; 
@@ -505,7 +515,18 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 	
 						$opt_key = SucomUtil::sanitize_key( $opt_key );	// Just in case.
 	
-						$save_opts[ $opt_key ] = sprintf( '%.' . $val_prec . 'f', $opt_val );
+						if ( $val_prec ) {
+
+							$opt_val = sprintf( '%.' . $val_prec . 'f', $opt_val );
+							$opt_val = preg_replace( '/^(.*\..*?)0+$/', '$1', $opt_val );
+							$opt_val = rtrim( $opt_val, '.' );
+
+						} else {
+
+							$opt_val = intval( $opt_val );
+						}
+
+						$save_opts[ $opt_key ] = $opt_val;
 					}
 	
 					$_POST[ $options_name ] = $save_opts;

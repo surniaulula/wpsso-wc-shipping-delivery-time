@@ -46,29 +46,34 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 				$this->p->debug->mark();
 			}
 
-			static $handling_times = null;
-			static $transit_times  = null;
+			static $opts = null;
 		
-			if ( null === $transit_times ) {
+			if ( null === $opts ) {
 
-				$handling_times = get_option( 'wcsdt_transit_time', array() );
-				$transit_times  = get_option( 'wcsdt_transit_time', array() );
+				$opts[ 'handling' ] = get_option( 'wcsdt_handling_time', array() );
+				$opts[ 'transit' ]  = get_option( 'wcsdt_transit_time', array() );
 			}
 
-			foreach ( array( 'min_days', 'max_days' ) as $opt_suffix ) {
+			foreach ( array(
+				'handling' => 'c' . $shipping_class_id,
+				'transit'  => 'm' . $method_inst_id,
+			) as $opt_pre => $opt_key ) {
 
-				if ( ! empty( $transit_times[ 'm' . $method_inst_id . '-' . $opt_suffix ] ) ) {
-
-					$delivery_time_opts[ 'transit_' . $opt_suffix ] = $transit_times[ 'm' . $method_inst_id . '-' . $opt_suffix ];
+				foreach ( array( 'min_days', 'max_days' ) as $opt_suffix ) {
+	
+					if ( ! empty( $opts[ $opt_pre ][ $opt_key . '-' . $opt_suffix ] ) ) {
+	
+						$delivery_time_opts[ $opt_pre . '_' . $opt_suffix ] = $opts[ $opt_pre ][ $opt_key . '-' . $opt_suffix ];
+					}
 				}
-			}
-
-			if ( isset( $delivery_time_opts[ 'transit_min_days' ] ) && isset( $delivery_time_opts[ 'transit_max_days' ] ) &&
-				$delivery_time_opts[ 'transit_min_days' ] === $delivery_time_opts[ 'transit_max_days' ] ) {
-
-				$delivery_time_opts[ 'transit_days' ] = $delivery_time_opts[ 'transit_min_days' ];
-
-				unset( $delivery_time_opts[ 'transit_min_days' ], $delivery_time_opts[ 'transit_max_days' ] );
+	
+				if ( isset( $delivery_time_opts[ $opt_pre . '_min_days' ] ) && isset( $delivery_time_opts[ $opt_pre . '_max_days' ] ) &&
+					$delivery_time_opts[ $opt_pre . '_min_days' ] === $delivery_time_opts[ $opt_pre . '_max_days' ] ) {
+	
+					$delivery_time_opts[ $opt_pre . '_days' ] = $delivery_time_opts[ $opt_pre . '_min_days' ];
+	
+					unset( $delivery_time_opts[ $opt_pre . '_min_days' ], $delivery_time_opts[ $opt_pre . '_max_days' ] );
+				}
 			}
 
 			return $delivery_time_opts;
