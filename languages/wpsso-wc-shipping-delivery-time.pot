@@ -13,13 +13,13 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: gettext/gettext-lib-abstracts-com.php:6 lib/abstracts/com/add-on.php:157
+#: gettext/gettext-lib-abstracts-com.php:6 lib/abstracts/com/add-on.php:160
 msgid ""
 "The %1$s add-on requires the %2$s plugin &mdash; please activate the missing "
 "plugin."
 msgstr ""
 
-#: gettext/gettext-lib-abstracts-com.php:7 lib/abstracts/com/add-on.php:171
+#: gettext/gettext-lib-abstracts-com.php:7 lib/abstracts/com/add-on.php:173
 msgid ""
 "The %1$s add-on requires %2$s version %3$s or newer (version %4$s is "
 "currently installed)."
@@ -37,123 +37,134 @@ msgid ""
 "and Classes."
 msgstr ""
 
-#: lib/woocommerce.php:67
+#: lib/woocommerce.php:66
 msgid "WooCommerce Shipping Options"
 msgstr ""
 
-#: lib/woocommerce.php:210
+#: lib/woocommerce.php:159
+msgid "Add %s for handling &amp; packaging."
+msgstr ""
+
+#. translators: Shipping transit time in the shipping method label.
+#: lib/woocommerce.php:198
+msgid "(%s)"
+msgstr ""
+
+#: lib/woocommerce.php:213
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:214
+#: lib/woocommerce.php:217
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:219
+#: lib/woocommerce.php:222
 msgid "%1$s or more days"
-msgstr ""
+msgid_plural "%1$s or more days"
+msgstr[0] ""
+msgstr[1] ""
 
-#: lib/woocommerce.php:224
+#: lib/woocommerce.php:227
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:240
+#: lib/woocommerce.php:243
 msgid "Shipping delivery times"
 msgstr ""
 
-#: lib/woocommerce.php:245
+#: lib/woocommerce.php:248
 msgid "Show delivery estimates"
 msgstr ""
 
-#: lib/woocommerce.php:246
+#: lib/woocommerce.php:249
 msgid "Show shipping handling and packaging time under the shipping methods."
 msgstr ""
 
-#: lib/woocommerce.php:253
+#: lib/woocommerce.php:256
 msgid "Show shipping transit time in the shipping method label."
 msgstr ""
 
-#: lib/woocommerce.php:271
+#: lib/woocommerce.php:274
 msgid "Shipping handling times"
 msgstr ""
 
-#: lib/woocommerce.php:272
+#: lib/woocommerce.php:275
 msgid ""
 "The typical delay between the receipt of an order and the goods leaving the "
 "warehouse."
 msgstr ""
 
-#: lib/woocommerce.php:287
+#: lib/woocommerce.php:290
 msgid "Shipping classes"
 msgstr ""
 
-#: lib/woocommerce.php:299
+#: lib/woocommerce.php:302
 msgid "Shipping class"
 msgstr ""
 
-#: lib/woocommerce.php:301
+#: lib/woocommerce.php:304
 msgid "Class description"
 msgstr ""
 
-#: lib/woocommerce.php:303 lib/woocommerce.php:433
+#: lib/woocommerce.php:306 lib/woocommerce.php:436
 msgid "Minimum days"
 msgstr ""
 
-#: lib/woocommerce.php:304
+#: lib/woocommerce.php:307
 msgid ""
 "The estimated minimum handling and packaging time in days. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce.php:307 lib/woocommerce.php:436
+#: lib/woocommerce.php:310 lib/woocommerce.php:439
 msgid "Maximum days"
 msgstr ""
 
-#: lib/woocommerce.php:308
+#: lib/woocommerce.php:311
 msgid ""
 "The estimated maximum handling and packaging time in days. Can be left blank."
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce.php:327
+#: lib/woocommerce.php:330
 msgid "No shipping class"
 msgstr ""
 
-#: lib/woocommerce.php:328
+#: lib/woocommerce.php:331
 msgid "Products without a shipping class"
 msgstr ""
 
-#: lib/woocommerce.php:366
+#: lib/woocommerce.php:369
 msgid "Shipping transit times"
 msgstr ""
 
-#: lib/woocommerce.php:367
+#: lib/woocommerce.php:370
 msgid ""
 "The typical delay between the goods leaving the warehouse and reaching the "
 "customer."
 msgstr ""
 
-#: lib/woocommerce.php:392
+#: lib/woocommerce.php:395
 msgid "%s shipping zone"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce.php:429
+#: lib/woocommerce.php:432
 msgid "Shipping method"
 msgstr ""
 
-#: lib/woocommerce.php:431
+#: lib/woocommerce.php:434
 msgid "Shipping rate"
 msgstr ""
 
-#: lib/woocommerce.php:434
+#: lib/woocommerce.php:437
 msgid "The estimated minimum transit time in days. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce.php:437
+#: lib/woocommerce.php:440
 msgid "The estimated maximum transit time in days. Can be left blank."
 msgstr ""
 

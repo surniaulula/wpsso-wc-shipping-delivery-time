@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-delivery-time\n"
-"POT-Creation-Date: 2020-10-07 17:05-0700\n"
-"PO-Revision-Date: 2020-10-07 17:14-0700\n"
+"POT-Creation-Date: 2020-10-15 12:23-0700\n"
+"PO-Revision-Date: 2020-10-15 12:36-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -14,61 +14,148 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: gettext/gettext-lib-abstracts-com.php:6 lib/abstracts/com/add-on.php:157
+#: gettext/gettext-lib-abstracts-com.php:6 lib/abstracts/com/add-on.php:160
 msgid "The %1$s add-on requires the %2$s plugin &mdash; please activate the missing plugin."
 msgstr "L'ajout %1$s nécessite l'extension %2$s &mdash; veuillez activer l'extension manquante."
 
-#: gettext/gettext-lib-abstracts-com.php:7 lib/abstracts/com/add-on.php:171
+#: gettext/gettext-lib-abstracts-com.php:7 lib/abstracts/com/add-on.php:173
 msgid "The %1$s add-on requires %2$s version %3$s or newer (version %4$s is currently installed)."
 msgstr "L'ajout %1$s nécessite %2$s version %3$s ou plus récente (la version %4$s est actuellement installée)."
 
 #: gettext/gettext-lib-config.php:6
 msgctxt "plugin name"
 msgid "WPSSO Shipping Delivery Time for WooCommerce"
-msgstr "WPSSO délai de livraison d'expédition WooCommerce"
+msgstr "WPSSO délai de livraison d'expédition pour WooCommerce"
 
 #: gettext/gettext-lib-config.php:7
 msgctxt "plugin description"
-msgid "Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes."
-msgstr "Estimations du délai de livraison pour les zones, méthodes et classes d'expédition WooCommerce."
-
-#: lib/woocommerce.php:54
-msgid "Shipping delivery time estimates"
-msgstr "Estimations du délai de livraison d'expédition"
-
-#: lib/woocommerce.php:59
-msgid "Delivery estimate format"
-msgstr "Format d'estimation de livraison"
-
-#: lib/woocommerce.php:61
-msgid "Show estimated delivery time in days"
-msgstr ""
-
-#: lib/woocommerce.php:62
-msgid "Show estimated delivery time using dates"
-msgstr ""
+msgid "Shipping Delivery Time Estimates for WooCommerce Shipping Zones, Methods, and Classes."
+msgstr "Estimations des temps de livraison d'expédition pour les zones, méthodes et classes WooCommerce."
 
 #: lib/woocommerce.php:66
-msgid "This changes the way shipping delivery time estimates are shown to customers."
-msgstr ""
+msgid "WooCommerce Shipping Options"
+msgstr "Options de livraison WooCommerce"
+
+#: lib/woocommerce.php:159
+msgid "Add %s for handling &amp; packaging."
+msgstr "Ajoutez %s pour la manutention et l'emballage."
+
+#. translators: Shipping transit time in the shipping method label.
+#: lib/woocommerce.php:198
+msgid "(%s)"
+msgstr "(%s)"
+
+#: lib/woocommerce.php:213
+msgid "%1$s day"
+msgid_plural "%1$s days"
+msgstr[0] "%1$s jour"
+msgstr[1] "%1$s days"
+
+#: lib/woocommerce.php:217
+msgid "%1$s - %2$s days"
+msgstr "%1$s - %2$s jours"
+
+#: lib/woocommerce.php:222
+msgid "%1$s or more days"
+msgid_plural "%1$s or more days"
+msgstr[0] "%1$s jour ou plus"
+msgstr[1] "%1$s jours ou plus"
+
+#: lib/woocommerce.php:227
+msgid "up to %2$s day"
+msgid_plural "up to %2$s days"
+msgstr[0] "jusqu'à %2$s jour"
+msgstr[1] "jusqu'à %2$s jours"
+
+#: lib/woocommerce.php:243
+msgid "Shipping delivery times"
+msgstr "Temps de livraison d'expédition"
+
+#: lib/woocommerce.php:248
+msgid "Show delivery estimates"
+msgstr "Afficher les estimations de livraison pour l'expédition"
+
+#: lib/woocommerce.php:249
+msgid "Show shipping handling and packaging time under the shipping methods."
+msgstr "Afficher le temps de manutention et d'emballage sous les méthodes d'expédition."
+
+#: lib/woocommerce.php:256
+msgid "Show shipping transit time in the shipping method label."
+msgstr "Afficher le temps de transit d'expédition dans l'étiquette de la méthode d'expédition."
+
+#: lib/woocommerce.php:274
+msgid "Shipping handling times"
+msgstr "Temps de manutention pour l'expédition"
+
+#: lib/woocommerce.php:275
+msgid "The typical delay between the receipt of an order and the goods leaving the warehouse."
+msgstr "Le délai typique entre la réception d'une commande et la sortie des marchandises de l'entrepôt."
+
+#: lib/woocommerce.php:290
+msgid "Shipping classes"
+msgstr "Classes de livraison"
+
+#: lib/woocommerce.php:302
+msgid "Shipping class"
+msgstr "Classe de livraison"
+
+#: lib/woocommerce.php:304
+msgid "Class description"
+msgstr "Description de la classe"
+
+#: lib/woocommerce.php:306 lib/woocommerce.php:436
+msgid "Minimum days"
+msgstr "Jours minimum"
+
+#: lib/woocommerce.php:307
+msgid "The estimated minimum handling and packaging time in days. Can be left blank."
+msgstr "Le temps minimum estimé de manutention et d'emballage en jours. Peut être laissé vide."
+
+#: lib/woocommerce.php:310 lib/woocommerce.php:439
+msgid "Maximum days"
+msgstr "Jours maximum"
+
+#: lib/woocommerce.php:311
+msgid "The estimated maximum handling and packaging time in days. Can be left blank."
+msgstr "Le temps maximum estimé de manutention et d'emballage en jours. Peut être laissé vide."
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce.php:112
-msgid "Locations not covered by your other zones"
-msgstr "Emplacements non couverts par vos autres zones"
-
-#: lib/woocommerce.php:145
-msgid "The earliest estimated arrival. Can be left blank."
-msgstr ""
-
-#: lib/woocommerce.php:149
-msgid "The latest estimated arrival. Can be left blank."
-msgstr ""
-
-#. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce.php:172
+#: lib/woocommerce.php:330
 msgid "No shipping class"
 msgstr "Pas de classe de livraison"
+
+#: lib/woocommerce.php:331
+msgid "Products without a shipping class"
+msgstr "Produits sans classe de livraison"
+
+#: lib/woocommerce.php:369
+msgid "Shipping transit times"
+msgstr "Temps de transit pour l'expédition"
+
+#: lib/woocommerce.php:370
+msgid "The typical delay between the goods leaving the warehouse and reaching the customer."
+msgstr "Le délai typique entre les marchandises quittant l'entrepôt et atteignant le client."
+
+#: lib/woocommerce.php:395
+msgid "%s shipping zone"
+msgstr "Zone d'expédition %s"
+
+#. translators: Please ignore - translation uses a different text domain.
+#: lib/woocommerce.php:432
+msgid "Shipping method"
+msgstr "Méthode d'expédition"
+
+#: lib/woocommerce.php:434
+msgid "Shipping rate"
+msgstr "Tarif d'expédition"
+
+#: lib/woocommerce.php:437
+msgid "The estimated minimum transit time in days. Can be left blank."
+msgstr "Le temps de transit minimum estimé en jours. Peut être laissé vide."
+
+#: lib/woocommerce.php:440
+msgid "The estimated maximum transit time in days. Can be left blank."
+msgstr "Le temps de transit maximum estimé en jours. Peut être laissé vide."
 
 #. Plugin Name of the plugin/theme
 msgid "WPSSO Shipping Delivery Time for WooCommerce"
@@ -79,8 +166,8 @@ msgid "https://wpsso.com/extend/plugins/wpsso-wc-shipping-delivery-time/"
 msgstr "https://wpsso.com/extend/plugins/wpsso-wc-shipping-delivery-time/"
 
 #. Description of the plugin/theme
-msgid "Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes."
-msgstr "Estimations du délai de livraison pour les zones, méthodes et classes d'expédition WooCommerce."
+msgid "Shipping Delivery Time Estimates for WooCommerce Shipping Zones, Methods, and Classes."
+msgstr "Estimations des temps de livraison d'expédition pour les zones, méthodes et classes WooCommerce."
 
 #. Author of the plugin/theme
 msgid "JS Morisset"

@@ -63,21 +63,12 @@ if ( ! class_exists( 'WpssoWcsdt' ) ) {
 			return self::$instance;
 		}
 
-		public function init_textdomain( $debug_enabled = false ) {
+		public function init_textdomain() {
 
-			static $local_cache = null;
-
-			if ( null === $local_cache || $debug_enabled ) {
-
-				$local_cache = 'wpsso-wc-shipping-delivery-time';
-
-				load_plugin_textdomain( 'wpsso-wc-shipping-delivery-time', false, 'wpsso-wc-shipping-delivery-time/languages/' );
-			}
-
-			return $local_cache;
+			load_plugin_textdomain( 'wpsso-wc-shipping-delivery-time', false, 'wpsso-wc-shipping-delivery-time/languages/' );
 		}
 
-		public function init_objects() {
+		public function init_objects( $is_admin, $doing_ajax, $doing_cron ) {
 
 			$this->p =& Wpsso::get_instance();
 

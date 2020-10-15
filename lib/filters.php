@@ -47,7 +47,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			}
 
 			static $opts = null;
-		
+
 			if ( null === $opts ) {
 
 				$opts[ 'handling' ] = get_option( 'wcsdt_handling_time', array() );
@@ -60,18 +60,18 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			) as $opt_pre => $opt_key ) {
 
 				foreach ( array( 'min_days', 'max_days' ) as $opt_suffix ) {
-	
+
 					if ( ! empty( $opts[ $opt_pre ][ $opt_key . '-' . $opt_suffix ] ) ) {
-	
+
 						$delivery_time_opts[ $opt_pre . '_' . $opt_suffix ] = $opts[ $opt_pre ][ $opt_key . '-' . $opt_suffix ];
 					}
 				}
-	
+
 				if ( isset( $delivery_time_opts[ $opt_pre . '_min_days' ] ) && isset( $delivery_time_opts[ $opt_pre . '_max_days' ] ) &&
 					$delivery_time_opts[ $opt_pre . '_min_days' ] === $delivery_time_opts[ $opt_pre . '_max_days' ] ) {
-	
+
 					$delivery_time_opts[ $opt_pre . '_days' ] = $delivery_time_opts[ $opt_pre . '_min_days' ];
-	
+
 					unset( $delivery_time_opts[ $opt_pre . '_min_days' ], $delivery_time_opts[ $opt_pre . '_max_days' ] );
 				}
 			}

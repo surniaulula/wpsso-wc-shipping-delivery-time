@@ -38,7 +38,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				$this->p->debug->mark();
 			}
 
-
 			if ( 'yes' === get_option( 'wcsdt_show_handling_times', $default = 'yes' ) ) {
 
 				add_action( 'woocommerce_after_shipping_rate', array( $this, 'show_handling_time_label' ), 1000, 2 );
@@ -106,7 +105,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			 * Determine the $pkg_min_days and $pkg_max_days values.
 			 */
 			foreach ( $package[ 'contents' ] as $item_id => $values ) {
-			
+
 					$product           = $values[ 'data' ];
 					$shipping_class_id = $product->get_shipping_class_id();	// 0 or a selected product "Shipping class".
 					$opt_key           = 'c' . $shipping_class_id;
@@ -128,9 +127,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 							$pkg_min_days = $min_days;
 
 							if ( ! empty( $pkg_max_days ) ) {
-							
+
 								if ( $pkg_min_days > $pkg_max_days ) {
-									
+
 									$pkg_max_days = $pkg_min_days;
 								}
 							}
@@ -140,7 +139,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					if ( $max_days_allowed ) {
 
 						if ( ! empty( $max_days ) ) {
-					
+
 							if ( empty( $pkg_max_days ) || $max_days > $pkg_max_days ) {
 
 								$pkg_max_days = $max_days;
@@ -148,14 +147,16 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 						}
 					}
 			}
-	
+
 			if ( empty( $pkg_min_days ) && empty( $pkg_max_days ) ) {	// Nothing to show.
 
 				return;
 			}
 
-			$days_label     = $this->get_days_label( $pkg_min_days, $pkg_max_days );
-			$handling_label = '<label><small>Add %s for handling &amp; packaging.</small></label>';
+			$days_label = $this->get_days_label( $pkg_min_days, $pkg_max_days );
+
+			// tranlators: Shipping handling and packaging time under the shipping methods.
+			$handling_label = '<label><small>' . __( 'Add %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small></label>';
 			$handling_label = apply_filters( 'wpsso_wcsdt_shipping_handling_time_label', $handling_label, $days_label );
 			$handling_label = sprintf( $handling_label, $days_label );
 
@@ -191,8 +192,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				return $method_label;
 			}
 
-			$days_label    = $this->get_days_label( $min_days, $max_days );
-			$transit_label = ' (%s)';
+			$days_label = $this->get_days_label( $min_days, $max_days );
+
+			// translators: Shipping transit time in the shipping method label.
+			$transit_label = ' ' . __( '(%s)', 'wpsso-wc-shipping-delivery-time' );
 			$transit_label = apply_filters( 'wpsso_wcsdt_shipping_transit_time_label', $transit_label, $days_label );
 			$transit_label = sprintf( $transit_label, $days_label );
 
@@ -216,12 +219,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 				} else {
 
-					$days_label = __( '%1$s or more days', 'wpsso-wc-shipping-delivery-time' );
+					$days_label = _n( '%1$s or more days', '%1$s or more days', $min_days, 'wpsso-wc-shipping-delivery-time' );
 				}
 
 			} else {
 
-				$days_label = _n( 'up to %2$s day', 'up to %2$s days', $max_days, 'woocommerce-shipping-estimate' );
+				$days_label = _n( 'up to %2$s day', 'up to %2$s days', $max_days, 'wpsso-wc-shipping-delivery-time' );
 			}
 
 			$days_label = apply_filters( 'wpsso_wcsdt_shipping_days_label', $days_label, $min_days, $max_days );
@@ -261,14 +264,14 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					'type' => 'sectionend',
 				),
 			);
-	
+
 			return array_merge( $settings, $new_settings );
 		}
 
 		public function show_handling_time() {
 
 			echo '<tr valign="top">' . "\n";
-			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping handling times', 'woocommerce-shipping-estimate' ) .
+			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping handling times', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The typical delay between the receipt of an order and the goods leaving the warehouse.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</label></th>' . "\n";
 			echo '<td class="forminp">' . "\n";
@@ -363,7 +366,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 		public function show_transit_time() {
 
 			echo '<tr valign="top">' . "\n";
-			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping transit times', 'woocommerce-shipping-estimate' ) .
+			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping transit times', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The typical delay between the goods leaving the warehouse and reaching the customer.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</label></th>' . "\n";
 			echo '<td class="forminp">' . "\n";
@@ -422,7 +425,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			echo '<tr style="background:#e9e9e9;">' . "\n";
 			echo '<th colspan="4" style="text-align:center; border:1px solid #e1e1e1;">' . $zone_label_transl . '</th>' . "\n";
 			echo '</tr>' . "\n";
-			
+
 			echo '<tr>' . "\n";
 
 			echo '<th class="shipping-method" style="padding-left:2% !important;">' .
@@ -501,20 +504,20 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			) as $options_name => $val_prec ) {
 
 				$save_opts = array();
-	
+
 				$post_opts = isset( $_POST[ $options_name ] ) ? $_POST[ $options_name ] : array();
-	
+
 				if ( is_array( $post_opts ) ) {	// Just in case.
-					
+
 					foreach ( $post_opts as $opt_key => $opt_val ) {
-					
+
 						if ( empty( $opt_val ) ) {
-							
+
 							continue;
 						}
-	
+
 						$opt_key = SucomUtil::sanitize_key( $opt_key );	// Just in case.
-	
+
 						if ( $val_prec ) {
 
 							$opt_val = sprintf( '%.' . $val_prec . 'f', $opt_val );
@@ -528,10 +531,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 						$save_opts[ $opt_key ] = $opt_val;
 					}
-	
+
 					$_POST[ $options_name ] = $save_opts;
 				}
-		
+
 				update_option( $options_name, $save_opts, $autoload = true );
 			}
 		}
