@@ -21,7 +21,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 					'opt_version' => '1',		// Increment when changing default option values.
 					'short'       => 'WPSSO WCSDT',	// Short plugin name.
 					'name'        => 'WPSSO Shipping Delivery Time for WooCommerce',
-					'desc'        => 'Shipping Delivery Time Estimates for WooCommerce Shipping Zones, Methods, and Classes.',
+					'desc'        => 'Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.',
 					'slug'        => 'wpsso-wc-shipping-delivery-time',
 					'base'        => 'wpsso-wc-shipping-delivery-time/wpsso-wc-shipping-delivery-time.php',
 					'update_auth' => '',		// No premium version.

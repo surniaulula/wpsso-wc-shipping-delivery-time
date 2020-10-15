@@ -33,8 +33,8 @@ msgstr ""
 #: gettext/gettext-lib-config.php:7
 msgctxt "plugin description"
 msgid ""
-"Shipping Delivery Time Estimates for WooCommerce Shipping Zones, Methods, "
-"and Classes."
+"Shipping delivery time estimates for WooCommerce shipping zones, methods, "
+"and classes."
 msgstr ""
 
 #: lib/woocommerce.php:66
@@ -178,8 +178,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Shipping Delivery Time Estimates for WooCommerce Shipping Zones, Methods, "
-"and Classes."
+"Shipping delivery time estimates for WooCommerce shipping zones, methods, "
+"and classes."
 msgstr ""
 
 #. Author of the plugin/theme
