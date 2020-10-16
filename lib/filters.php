@@ -35,11 +35,11 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'wc_shipping_delivery_time' => 4,
+				'wc_shipping_delivery_time' => 5,
 			) );
 		}
 
-		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id, $shipping_class_id ) {
+		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id, $shipping_class_id, $parent_url ) {
 
 			if ( $this->p->debug->enabled ) {
 
@@ -57,22 +57,46 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			foreach ( array(
 				'handling' => 'c' . $shipping_class_id,
 				'transit'  => 'm' . $method_inst_id,
-			) as $opt_pre => $opt_key ) {
+			) as $opts_id => $opt_key_pre ) {
 
-				foreach ( array( 'min_days', 'max_days' ) as $opt_suffix ) {
+				$delivery_time_opts[ $opts_id . '_rel' ] = $parent_url;
 
-					if ( ! empty( $opts[ $opt_pre ][ $opt_key . '-' . $opt_suffix ] ) ) {
+				foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts[ $opts_id ] ) as $opt_key => $val ) {
 
-						$delivery_time_opts[ $opt_pre . '_' . $opt_suffix ] = $opts[ $opt_pre ][ $opt_key . '-' . $opt_suffix ];
+					if ( '' !== $val ) {	// Allow for 0.
+
+						/**
+						 * Create and delivery time option key name from the handling / transit options key prefix.
+						 *
+						 * Example: 'c136_minimum' to 'handling_minimum'.
+						 */
+						$time_key = str_replace( $opt_key_pre, $opts_id, $opt_key );
+
+						$delivery_time_opts[ $time_key ] = $val;
+
+						/**
+						 * Add the name and unit text for the unit codes we use.
+						 */
+						if ( false !== strpos( $time_key, '_unit_code' ) ) {
+
+							switch ( $val ) {
+
+								case 'HUR':
+
+									 $delivery_time_opts[ $opts_id . '_unit_text' ] = 'h';
+									 $delivery_time_opts[ $opts_id . '_name' ]      = 'Hours';
+
+									 break;
+
+								case 'DAY':
+
+									 $delivery_time_opts[ $opts_id . '_unit_text' ] = 'd';
+									 $delivery_time_opts[ $opts_id . '_name' ]      = 'Days';
+
+									 break;
+							}
+						}
 					}
-				}
-
-				if ( isset( $delivery_time_opts[ $opt_pre . '_min_days' ] ) && isset( $delivery_time_opts[ $opt_pre . '_max_days' ] ) &&
-					$delivery_time_opts[ $opt_pre . '_min_days' ] === $delivery_time_opts[ $opt_pre . '_max_days' ] ) {
-
-					$delivery_time_opts[ $opt_pre . '_days' ] = $delivery_time_opts[ $opt_pre . '_min_days' ];
-
-					unset( $delivery_time_opts[ $opt_pre . '_min_days' ], $delivery_time_opts[ $opt_pre . '_max_days' ] );
 				}
 			}
 
