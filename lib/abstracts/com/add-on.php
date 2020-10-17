@@ -35,7 +35,7 @@ if ( ! class_exists( 'SucomAddOn' ) ) {
 			return SucomUtil::array_merge_recursive_distinct( $config, $this->cf );
 		}
 
-		public function init_objects( $is_admin, $doing_ajax, $doing_cron ) {}
+		public function init_objects( $is_admin ) {}
 
 		public function get_avail( array $avail ) {
 
@@ -51,7 +51,7 @@ if ( ! class_exists( 'SucomAddOn' ) ) {
 			return $avail;
 		}
 
-		public function init_plugin_notices( $is_admin, $doing_ajax, $doing_cron ) {
+		public function init_plugin_notices( $is_admin, $doing_ajax ) {
 
 			$missing_reqs = $this->get_missing_requirements();	// Returns false or an array of missing requirements.
 
