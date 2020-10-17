@@ -131,7 +131,8 @@ if ( ! class_exists( 'SucomAddOn' ) ) {
 				return $local_cache = false;
 			}
 
-			$addon_name  = $info[ 'name' ];
+			$addon_name = $info[ 'name' ];
+
 			$text_domain = $info[ 'text_domain' ];
 
 			foreach ( $info[ 'req' ] as $key => $req_info ) {
@@ -162,7 +163,12 @@ if ( ! class_exists( 'SucomAddOn' ) ) {
 
 					$req_info[ 'notice' ] = sprintf( $notice_msg, $addon_name, $req_name );
 
-				} elseif ( ! empty( $req_info[ 'version' ] ) ) {
+				}
+				
+				/**
+				 * A version value from a global variable or constant.
+				 */
+				if ( ! empty( $req_info[ 'version' ] ) ) {
 
 					if ( ! empty( $req_info[ 'min_version' ] ) ) {
 
@@ -179,6 +185,9 @@ if ( ! class_exists( 'SucomAddOn' ) ) {
 					}
 				}
 
+				/**
+				 * Possible notice for an insufficient wordpress or plugin version, or a missing plugin.
+				 */
 				if ( ! empty( $req_info[ 'notice' ] ) ) {
 
 					$local_cache[ $key ] = $req_info;
