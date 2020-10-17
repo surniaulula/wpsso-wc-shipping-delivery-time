@@ -77,7 +77,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Improvements**
 	* None.
 * **Bugfixes**
-	* Fixed backwards compatibility with WPSSO Core v8.7.1 'init_objects' and 'init_plugin' action arguments.
+	* Fixed backwards compatibility with older 'init_objects' and 'init_plugin' action arguments.
 * **Developer Notes**
 	* None.
 * **Requires At Least**
