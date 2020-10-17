@@ -12,7 +12,7 @@ Requires PHP: 5.6
 Requires At Least: 4.4
 Tested Up To: 5.5.1
 WC Tested Up To: 4.6.0
-Stable Tag: 1.0.0
+Stable Tag: 1.0.1
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
 
@@ -68,7 +68,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0 (2020/10/17)**
+**Version 1.0.1 (2020/10/17)**
 
 **Initial release.**
 
@@ -77,7 +77,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Improvements**
 	* None.
 * **Bugfixes**
-	* None.
+	* Fixed backwards compatibility with WPSSO Core v8.7.1 'init_objects' and 'init_plugin' action arguments.
 * **Developer Notes**
 	* None.
 * **Requires At Least**
@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 1.0.1 =
 
 (2020/10/17) Initial release.
 
