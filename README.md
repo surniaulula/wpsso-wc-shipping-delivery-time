@@ -15,14 +15,14 @@
 
 <h2>Description</h2>
 
-<p>Extends the <strong>WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options</strong> with shipping delivery times:</p>
+<p>Extends the <strong>WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options</strong> with additional shipping delivery times:</p>
 
 <ul>
-<li>Optionally show shipping handling and packaging time under the shipping methods.</li>
-<li>Optionally show shipping transit time in the shipping method label. </li>
-<li>Select minimum / maximum shipping handling times for WooCommerce shipping classes.</li>
-<li>Select minimum / maximum shipping transit times for WooCommerce shipping zones and methods.</li>
-<li>Increment shipping handling and transit times in half-hours or half-days.</li>
+<li>Optionally show handling and packaging times under the shipping methods.</li>
+<li>Optionally show transit times in the shipping method label. </li>
+<li>Select minimum / maximum handling times for WooCommerce shipping classes.</li>
+<li>Select minimum / maximum transit times for WooCommerce shipping zones and methods.</li>
+<li>Increment shipping handling and transit times in half-hours and/or half-days.</li>
 <li>Offers shipping delivery time information to the <a href="https://wpsso.com/extend/plugins/wpsso/">WPSSO Core Premium plugin</a> and the <a href="https://wpsso.com/extend/plugins/wpsso-schema-json-ld/free/">WPSSO Schema JSON-LD Markup add-on</a> for Schema ShippingDeliveryTime markup.</li>
 </ul>
 
