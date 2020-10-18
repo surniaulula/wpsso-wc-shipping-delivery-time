@@ -20,7 +20,7 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 Extends the **WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options** with additional shipping delivery times:
 
-* Optionally show handling and packaging times under the shipping methods.
+* Optionally show handling &amp; packaging times under the shipping methods.
 * Optionally show transit times in the shipping method label. 
 * Select minimum / maximum handling times for WooCommerce shipping classes.
 * Select minimum / maximum transit times for WooCommerce shipping zones and methods.
