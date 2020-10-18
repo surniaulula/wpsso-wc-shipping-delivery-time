@@ -50,6 +50,8 @@ See [better Schema for WooCommerce products](https://wpsso.com/docs/plugins/wpss
 
 == Screenshots ==
 
+01. The WooCommerce shipping options page with shipping delivery times.
+
 == Changelog ==
 
 <h3 class="top">Version Numbering</h3>
