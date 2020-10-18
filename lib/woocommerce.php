@@ -48,8 +48,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 				add_filter( 'plugin_action_links', array( $this, 'add_plugin_action_links' ), 200, 4 );
 				add_filter( 'woocommerce_shipping_settings', array( $this, 'add_options' ), 10, 1 );
-				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_handling_time' ), 10 );
-				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_transit_time' ), 20 );
+				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_options_stylesheet' ), 10 );
+				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_handling_time' ), 20 );
+				add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_transit_time' ), 30 );
 				add_action( 'woocommerce_settings_save_shipping', array( $this, 'save_options' ) );
 			}
 		}
@@ -210,6 +211,34 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			return array_merge( $settings, $new_settings );
 		}
 
+		public function show_options_stylesheet() {
+
+			?><style type="text/css">
+				.woocommerce table .shipping-class,
+				.woocommerce table .shipping-method {
+					width:23%;
+				}
+				.woocommerce table .class-description,
+				.woocommerce table .shipping-rate {
+					width:28%;
+				}
+				.woocommerce table .minimum-time,
+				.woocommerce table .maximum-time {
+					width:17%;
+				}
+				.woocommerce table .unit-of-time {
+					width:15%;
+				}
+				.woocommerce table.form-table table td.minimum-time input[type="number"],
+				.woocommerce table.form-table table td.maximum-time input[type="number"] {
+					width:8em;
+				}
+				.woocommerce table.form-table table td.unit-of-time select {
+					width:6em;
+				}
+			</style><?php
+		}
+
 		public function show_handling_time() {
 
 			echo '<tr valign="top">' . "\n";
@@ -240,20 +269,19 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			echo '<tr>' . "\n";
 
-			echo '<th class="shipping-class" style="padding-left:2% !important;">' .
-				esc_html__( 'Shipping class', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="shipping-class">' . esc_html__( 'Shipping class', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="shipping-class-desc">' . esc_html__( 'Class description', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="class-description">' . esc_html__( 'Class description', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="handling-minimum">' . esc_html__( 'Minimum time', 'wpsso-wc-shipping-delivery-time' ) .
+			echo '<th class="minimum-time">' . esc_html__( 'Minimum time', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The estimated minimum handling and packaging time. Can be left blank.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
-			echo '<th class="handling-maximum">' . esc_html__( 'Maximum time', 'wpsso-wc-shipping-delivery-time' ) .
+			echo '<th class="maximum-time">' . esc_html__( 'Maximum time', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The estimated maximum handling and packaging time. Can be left blank.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
-			echo '<th class="handling-unit-code">' . esc_html__( 'Unit of time', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="unit-of-time">' . esc_html__( 'Unit of time', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
@@ -295,20 +323,18 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			echo '<td class="shipping-class">' . $shipping_class_name . '</td>' . "\n";
 
-			echo '<td class="shipping-class-desc">' . $shipping_class_desc . '</td>' . "\n";
+			echo '<td class="class-description">' . $shipping_class_desc . '</td>' . "\n";
 
-			echo '<td class="handling-min-days">';
+			echo '<td class="minimum-time">';
 			echo '<input type="number" step="0.5" min="0" name="wcsdt_handling_time[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 			echo '</td>' . "\n";
 
-			echo '<td class="handling-max-days">';
+			echo '<td class="maximum-time">';
 			echo '<input type="number" step="0.5" min="0" name="wcsdt_handling_time[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 			echo '</td>' . "\n";
 
-			echo '<td>' . "\n";
-
+			echo '<td class="unit-of-time">' . "\n";
 			$this->show_unit_select( 'wcsdt_handling_time', $opt_key_unit, $unit_code );
-
 			echo '</td>' . "\n";
 
 			echo '</tr>' . "\n"; 
@@ -373,18 +399,19 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			echo '<tr>' . "\n";
 
-			echo '<th class="shipping-method" style="padding-left:2% !important;">' .
-				esc_html__( 'Shipping method', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="shipping-method">' . esc_html__( 'Shipping method', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
 			echo '<th class="shipping-rate">' . esc_html__( 'Shipping rate', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
-			echo '<th class="transit-minimum">' . esc_html__( 'Minimum time', 'wpsso-wc-shipping-delivery-time' ) .
-				wc_help_tip( __( 'The estimated minimum transit time. Can be left blank.', 'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
+			echo '<th class="minimum-time">' . esc_html__( 'Minimum time', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The estimated minimum transit time. Can be left blank.',
+					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
-			echo '<th class="transit-maximum">' . esc_html__( 'Maximum time', 'wpsso-wc-shipping-delivery-time' ) .
-				wc_help_tip( __( 'The estimated maximum transit time. Can be left blank.', 'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
+			echo '<th class="maximum-time">' . esc_html__( 'Maximum time', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The estimated maximum transit time. Can be left blank.',
+					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
 
-			echo '<th class="transit-unit-code">' . esc_html__( 'Unit of time', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="unit-of-time">' . esc_html__( 'Unit of time', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
@@ -423,25 +450,23 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$min_val   = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
 					$max_val   = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
 					$unit_code = isset( $transit_times[ $opt_key_unit ] ) ? $transit_times[ $opt_key_unit ] : 'DAY';
-	
+
 					echo '<tr>' . "\n"; 
 	
 					echo '<td class="shipping-method">' . $method_name . '</td>' . "\n";
 	
 					echo '<td class="shipping-rate">' . $rate_type . '</td>' . "\n";
 	
-					echo '<td class="transit-min-days">';
+					echo '<td class="minimum-time">';
 					echo '<input type="number" step="0.5" min="0" name="wcsdt_transit_time[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 					echo '</td>' . "\n";
 	
-					echo '<td class="transit-max-days">';
+					echo '<td class="maximum-time">';
 					echo '<input type="number" step="0.5" min="0" name="wcsdt_transit_time[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 					echo '</td>' . "\n";
 	
-					echo '<td>' . "\n";
-	
+					echo '<td class="unit-of-time">' . "\n";
 					$this->show_unit_select( 'wcsdt_transit_time', $opt_key_unit, $unit_code );
-	
 					echo '</td>' . "\n";
 	
 					echo '</tr>' . "\n"; 
