@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
-	* WPSSO Core v8.8.0.
+	* WPSSO Core v8.8.1.
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
