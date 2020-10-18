@@ -23,7 +23,7 @@
 <li>Select minimum / maximum shipping handling times for WooCommerce shipping classes.</li>
 <li>Select minimum / maximum shipping transit times for WooCommerce shipping zones and methods.</li>
 <li>Increment shipping handling and transit times in half-hours or half-days.</li>
-<li>Offers Schema ShippingDeliveryTime information to the <a href="https://wpsso.com/extend/plugins/wpsso-schema-json-ld/free/">WPSSO Schema JSON-LD Markup add-on</a>.</li>
+<li>Offers shipping delivery time information to the <a href="https://wpsso.com/extend/plugins/wpsso/">WPSSO Core Premium plugin</a> and the <a href="https://wpsso.com/extend/plugins/wpsso-schema-json-ld/free/">WPSSO Schema JSON-LD Markup add-on</a> for Schema ShippingDeliveryTime markup.</li>
 </ul>
 
 <h3>WPSSO Core Plugin Required</h3>
@@ -32,7 +32,7 @@
 
 <p>WPSSO Core and its add-ons make sure your content looks great on social sites and in search results, no matter how your URLs are crawled, shared, re-shared, posted, or embedded.</p>
 
-<p>See the <a href="https://wpsso.com/docs/plugins/wpsso/installation/better-schema-for-woocommerce/">Better Schema for WooCommerce Products</a> article for more information.</p>
+<p>See <a href="https://wpsso.com/docs/plugins/wpsso/installation/better-schema-for-woocommerce/">better Schema for WooCommerce products</a> for more information on customizing the WPSSO Core plugin, the WPSSO Schema JSON-LD Markup add-on, and the WooCommerce plugin settings for better Schema markup and Google Rich Results.</p>
 
 
 <h2>Installation</h2>
