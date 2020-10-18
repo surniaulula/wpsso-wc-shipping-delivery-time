@@ -50,7 +50,7 @@ See [better Schema for WooCommerce products](https://wpsso.com/docs/plugins/wpss
 
 == Screenshots ==
 
-01. The WooCommerce shipping options page with shipping delivery times.
+01. The WooCommerce shipping options page with additional shipping delivery times.
 
 == Changelog ==
 
