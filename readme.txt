@@ -75,7 +75,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **New Features**
 	* None.
 * **Improvements**
-	* Moved "Shipping delivery times" settings to a new Shipping section.
+	* Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
