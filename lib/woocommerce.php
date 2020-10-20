@@ -428,51 +428,51 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			} else {
 
 				foreach ( $shipping_methods as $method_inst_id => $method_obj ) {
-	
+
 					$method_url     = admin_url( 'admin.php?page=wc-settings&tab=shipping&instance_id=' . $method_inst_id );
 					$method_rate_id = $method_obj->get_rate_id();
 					$method_name    = $method_obj->get_title();
 					$method_data    = $method_obj->instance_settings;
-	
+
 					$rate_ids  = explode( ':', $method_rate_id );
 					$rate_type = reset( $rate_ids );
-	
+
 					if ( 'local_pickup' === $rate_type ) {	// Pickup is not a shipping method.
-	
+
 						continue;
 					}
-	
+
 					$opt_key_pre  = 'm' . $method_inst_id;
 					$opt_key_min  = $opt_key_pre . '_minimum';
 					$opt_key_max  = $opt_key_pre . '_maximum';
 					$opt_key_unit = $opt_key_pre . '_unit_code';
-	
+
 					$min_val   = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
 					$max_val   = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
 					$unit_code = isset( $transit_times[ $opt_key_unit ] ) ? $transit_times[ $opt_key_unit ] : 'DAY';
 
 					echo '<tr>' . "\n"; 
-	
+
 					echo '<td class="shipping-method">' . $method_name . '</td>' . "\n";
-	
+
 					echo '<td class="shipping-rate">' . $rate_type . '</td>' . "\n";
-	
+
 					echo '<td class="minimum-time">';
 					echo '<input type="number" step="0.5" min="0" name="wcsdt_transit_time[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 					echo '</td>' . "\n";
-	
+
 					echo '<td class="maximum-time">';
 					echo '<input type="number" step="0.5" min="0" name="wcsdt_transit_time[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 					echo '</td>' . "\n";
-	
+
 					echo '<td class="unit-of-time">' . "\n";
 					$this->show_unit_select( 'wcsdt_transit_time', $opt_key_unit, $unit_code );
 					echo '</td>' . "\n";
-	
+
 					echo '</tr>' . "\n"; 
 				}
 			}
-	
+
 			echo '</tbody>' . "\n";
 		}
 
