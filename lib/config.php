@@ -90,12 +90,12 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 			/**
 			 * Define fixed constants.
 			 */
-			define( 'WPSSOWCSDT_FILEPATH', $plugin_file );						
+			define( 'WPSSOWCSDT_FILEPATH', $plugin_file );
 			define( 'WPSSOWCSDT_PLUGINBASE', $info[ 'base' ] );	// Example: wpsso-wc-shipping-delivery-time/wpsso-wc-shipping-delivery-time.php.
 			define( 'WPSSOWCSDT_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_file ) ) ) );
 			define( 'WPSSOWCSDT_PLUGINSLUG', $info[ 'slug' ] );	// Example: wpsso-wc-shipping-delivery-time.
 			define( 'WPSSOWCSDT_URLPATH', trailingslashit( plugins_url( '', $plugin_file ) ) );
-			define( 'WPSSOWCSDT_VERSION', $info[ 'version' ] );						
+			define( 'WPSSOWCSDT_VERSION', $info[ 'version' ] );
 		}
 
 		public static function require_libs( $plugin_file ) {

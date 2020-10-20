@@ -319,7 +319,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$max_val   = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
 			$unit_code = isset( $handling_times[ $opt_key_unit ] ) ? $handling_times[ $opt_key_unit ] : 'DAY';
 
-			echo '<tr>' . "\n"; 
+			echo '<tr>' . "\n";
 
 			echo '<td class="shipping-class">' . $shipping_class_name . '</td>' . "\n";
 
@@ -337,7 +337,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$this->show_unit_select( 'wcsdt_handling_time', $opt_key_unit, $unit_code );
 			echo '</td>' . "\n";
 
-			echo '</tr>' . "\n"; 
+			echo '</tr>' . "\n";
 		}
 
 		public function show_transit_time() {
@@ -451,7 +451,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$max_val   = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
 					$unit_code = isset( $transit_times[ $opt_key_unit ] ) ? $transit_times[ $opt_key_unit ] : 'DAY';
 
-					echo '<tr>' . "\n"; 
+					echo '<tr>' . "\n";
 
 					echo '<td class="shipping-method">' . $method_name . '</td>' . "\n";
 
@@ -469,7 +469,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$this->show_unit_select( 'wcsdt_transit_time', $opt_key_unit, $unit_code );
 					echo '</td>' . "\n";
 
-					echo '</tr>' . "\n"; 
+					echo '</tr>' . "\n";
 				}
 			}
 
