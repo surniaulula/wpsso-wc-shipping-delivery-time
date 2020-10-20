@@ -70,6 +70,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.0.0-dev.2 (TBD)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Moved "Shipping delivery times" settings to a new Shipping section.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Added a new lib/woocommerce-admin.php library file.
+* **Requires At Least**
+	* PHP v5.6.
+	* WordPress v4.4.
+	* WPSSO Core v8.8.1.
+	* WooCommerce v3.6.4.
+
 **Version 1.0.1 (2020/10/17)**
 
 **Initial release.**
