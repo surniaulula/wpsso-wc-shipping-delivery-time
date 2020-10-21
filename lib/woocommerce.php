@@ -58,16 +58,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 		public function show_handling_time_label( $method_obj, $pkg_index ) {
 
-			static $opts         = null;
 			static $packages     = null;
 			static $method_count = 0;
 
-			if ( null === $opts ) {
-
-				foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
-
-					$opts[ 'wcsdt_handling_' . $key ] = $val;
-				}
+			if ( null === $packages ) {
 
 				$packages = WC()->shipping()->get_packages();
 			}
@@ -82,9 +76,28 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			$method_count++;
 
-			if ( $method_count < $total_methods ) {	// Wait for last shipping method.
+			if ( $method_count < $total_methods ) {	// Wait for the last shipping method.
 
 				return;
+			}
+
+			if ( isset( $this->p->options[ 'wcsdt_combined_options' ] ) ) {	// Since WPSSO WCSDT v2.0.0.
+
+				$opts =& $this->p->options;
+
+			} else {	// Check for deprecated WPSSO WCSDT v1 options.
+
+				static $opts = null;
+
+				if ( null === $opts ) {
+
+					$opts = array();
+
+					foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
+
+						$opts[ 'wcsdt_handling_' . $key ] = $val;
+					}
+				}
 			}
 
 			$pkg_min_val   = '';
@@ -119,7 +132,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$times_label = $this->get_times_label( $pkg_min_val, $pkg_max_val, $pkg_unit_code );
 
 			// tranlators: Shipping handling and packaging time under the shipping methods.
-			$handling_label = '<label><small>' . __( 'Estimated %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small></label>';
+			$handling_label = '<label><small>' . __( 'Add %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small></label>';
 			$handling_label = apply_filters( 'wpsso_wcsdt_shipping_handling_time_label', $handling_label, $times_label );
 			$handling_label = sprintf( $handling_label, $times_label );
 
@@ -136,13 +149,22 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				return $method_label;
 			}
 
-			static $opts = null;
+			if ( isset( $this->p->options[ 'wcsdt_combined_options' ] ) ) {	// Since WPSSO WCSDT v2.0.0.
 
-			if ( null === $opts ) {
+				$opts =& $this->p->options;
 
-				foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+			} else {	// Check for deprecated WPSSO WCSDT v1 options.
 
-					$opts[ 'wcsdt_transit_' . $key ] = $val;
+				static $opts = null;
+
+				if ( null === $opts ) {
+
+					$opts = array();
+
+					foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+
+						$opts[ 'wcsdt_transit_' . $key ] = $val;
+					}
 				}
 			}
 

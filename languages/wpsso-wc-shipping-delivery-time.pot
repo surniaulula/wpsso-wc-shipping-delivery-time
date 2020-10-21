@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.0.0-"
-"dev.3\n"
+"dev.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2020-MO-DA HO:MI+ZONE\n"
@@ -51,98 +51,98 @@ msgstr ""
 msgid "Show delivery estimates"
 msgstr ""
 
-#: lib/woocommerce-admin.php:95
+#: lib/woocommerce-admin.php:99
 msgid "Show shipping handling and packaging time under the shipping methods."
 msgstr ""
 
-#: lib/woocommerce-admin.php:102
+#: lib/woocommerce-admin.php:106
 msgid "Show shipping transit time in the shipping method label."
 msgstr ""
 
-#: lib/woocommerce-admin.php:148
+#: lib/woocommerce-admin.php:152
 msgid "Shipping handling times"
 msgstr ""
 
-#: lib/woocommerce-admin.php:149
+#: lib/woocommerce-admin.php:153
 msgid ""
 "The typical delay between the receipt of an order and the goods leaving the "
 "warehouse."
 msgstr ""
 
-#: lib/woocommerce-admin.php:164
+#: lib/woocommerce-admin.php:167
 msgid "Shipping classes"
 msgstr ""
 
-#: lib/woocommerce-admin.php:175
+#: lib/woocommerce-admin.php:178
 msgid "Shipping class"
 msgstr ""
 
-#: lib/woocommerce-admin.php:177
+#: lib/woocommerce-admin.php:180
 msgid "Class description"
 msgstr ""
 
-#: lib/woocommerce-admin.php:179 lib/woocommerce-admin.php:309
+#: lib/woocommerce-admin.php:182 lib/woocommerce-admin.php:349
 msgid "Minimum time"
 msgstr ""
 
-#: lib/woocommerce-admin.php:180
+#: lib/woocommerce-admin.php:183
 msgid "The estimated minimum handling and packaging time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce-admin.php:183 lib/woocommerce-admin.php:313
+#: lib/woocommerce-admin.php:186 lib/woocommerce-admin.php:353
 msgid "Maximum time"
 msgstr ""
 
-#: lib/woocommerce-admin.php:184
+#: lib/woocommerce-admin.php:187
 msgid "The estimated maximum handling and packaging time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce-admin.php:187 lib/woocommerce-admin.php:317
+#: lib/woocommerce-admin.php:190 lib/woocommerce-admin.php:357
 msgid "Unit of time"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:205
+#: lib/woocommerce-admin.php:208
 msgid "No shipping class"
 msgstr ""
 
-#: lib/woocommerce-admin.php:206
+#: lib/woocommerce-admin.php:209
 msgid "Products without a shipping class"
 msgstr ""
 
-#: lib/woocommerce-admin.php:249
+#: lib/woocommerce-admin.php:271
 msgid "Shipping transit times"
 msgstr ""
 
-#: lib/woocommerce-admin.php:250
+#: lib/woocommerce-admin.php:272
 msgid ""
 "The typical delay between the goods leaving the warehouse and reaching the "
 "customer."
 msgstr ""
 
-#: lib/woocommerce-admin.php:273
+#: lib/woocommerce-admin.php:294
 msgid "%s shipping zone"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:305
+#: lib/woocommerce-admin.php:345
 msgid "Shipping method"
 msgstr ""
 
-#: lib/woocommerce-admin.php:307
+#: lib/woocommerce-admin.php:347
 msgid "Shipping rate"
 msgstr ""
 
-#: lib/woocommerce-admin.php:310
+#: lib/woocommerce-admin.php:350
 msgid "The estimated minimum transit time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce-admin.php:314
+#: lib/woocommerce-admin.php:354
 msgid "The estimated maximum transit time. Can be left blank."
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:328
+#: lib/woocommerce-admin.php:368
 msgid "No shipping methods offered to this zone."
 msgstr ""
 
@@ -154,54 +154,54 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-#: lib/woocommerce.php:122
-msgid "Estimated %s for handling &amp; packaging."
+#: lib/woocommerce.php:135
+msgid "Add %s for handling &amp; packaging."
 msgstr ""
 
 #. translators: Shipping transit time in the shipping method label.
-#: lib/woocommerce.php:168
+#: lib/woocommerce.php:190
 msgid "(%s)"
 msgstr ""
 
-#: lib/woocommerce.php:185
+#: lib/woocommerce.php:207
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:186
+#: lib/woocommerce.php:208
 msgid "%1$s - %2$s hours"
 msgstr ""
 
-#: lib/woocommerce.php:187
+#: lib/woocommerce.php:209
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:188
+#: lib/woocommerce.php:210
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:197
+#: lib/woocommerce.php:219
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:198
+#: lib/woocommerce.php:220
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:199
+#: lib/woocommerce.php:221
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:200
+#: lib/woocommerce.php:222
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""

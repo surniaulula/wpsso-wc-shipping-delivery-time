@@ -39,36 +39,69 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			) );
 		}
 
-		public function filter_wc_shipping_delivery_time( $delivery_time_opts, $zone_id, $method_inst_id, $shipping_class_id, $parent_url ) {
+		public function filter_wc_shipping_delivery_time( $sdt_opts, $zone_id, $method_inst_id, $shipping_class_id, $parent_url ) {
 
 			if ( $this->p->debug->enabled ) {
 
 				$this->p->debug->mark();
 			}
 
-			static $opts = null;
+			if ( isset( $this->p->options[ 'wcsdt_combined_options' ] ) ) {	// Since WPSSO WCSDT v2.
 
-			if ( null === $opts ) {
+				$opts =& $this->p->options;
 
-				foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
+			} else {	// Check for deprecated WPSSO WCSDT v1 options.
 
-					$opts[ 'wcsdt_handling_' . $key ] = $val;
-				}
+				static $opts = null;
 
-				foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+				if ( null === $opts ) {
 
-					$opts[ 'wcsdt_transit_' . $key ] = $val;
+					$opts = array();
+
+					foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
+
+						$opts[ 'wcsdt_handling_' . $key ] = $val;
+					}
+
+					foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+
+						$opts[ 'wcsdt_transit_' . $key ] = $val;
+					}
 				}
 			}
 
-			foreach ( array(
+			/**
+			 * Include handling and transit options for $shipping_class_id and $method_inst_id.
+			 *
+			 * Array (
+			 *  	[handling_rel] => http://adm.surniaulula.com/produit/a-variable-product/
+			 * 	[handling_maximum] => 1.5
+			 * 	[handling_unit_code] => DAY
+			 * 	[handling_unit_text] => d
+			 * 	[handling_name] => Days
+			 * 	[transit_rel] => http://adm.surniaulula.com/produit/a-variable-product/
+			 * 	[transit_minimum] => 5
+			 * 	[transit_maximum] => 7
+			 * 	[transit_unit_code] => DAY
+			 * 	[transit_unit_text] => d
+			 * 	[transit_name] => Days
+			 * )
+			 */
+			$std_type_keys = array(
 				'handling' => 'wcsdt_handling_c' . $shipping_class_id,
 				'transit'  => 'wcsdt_transit_m' . $method_inst_id,
-			) as $opts_id => $opt_key_pre ) {
+			);
 
-				$delivery_time_opts[ $opts_id . '_rel' ] = $parent_url;
+			foreach ( $std_type_keys as $sdt_type => $opt_key_pre ) {
 
-				foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts ) as $opt_key => $val ) {
+				$sdt_opts[ $sdt_type . '_rel' ] = $parent_url;
+
+			 	/**
+				 * Get handling options for the $shipping_class_id, or transit options for the $method_inst_id.
+				 */
+				$sdt_type_opts = SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts );
+
+				foreach ( $sdt_type_opts as $opt_key => $val ) {
 
 					if ( '' !== $val ) {	// Allow for 0.
 
@@ -77,12 +110,12 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 						 *
 						 * Example: 'wcsdt_handling_c136_minimum' to 'handling_minimum'.
 						 */
-						$time_key = str_replace( $opt_key_pre, $opts_id, $opt_key );
+						$time_key = str_replace( $opt_key_pre, $sdt_type, $opt_key );
 
-						$delivery_time_opts[ $time_key ] = $val;
+						$sdt_opts[ $time_key ] = $val;
 
 						/**
-						 * Add the name and unit text for the unit codes we use.
+						 * If this is a unit code, add the name and unit text.
 						 */
 						if ( false !== strpos( $time_key, '_unit_code' ) ) {
 
@@ -90,15 +123,15 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 								case 'HUR':
 
-									 $delivery_time_opts[ $opts_id . '_unit_text' ] = 'h';
-									 $delivery_time_opts[ $opts_id . '_name' ]      = 'Hours';
+									 $sdt_opts[ $sdt_type . '_unit_text' ] = 'h';
+									 $sdt_opts[ $sdt_type . '_name' ]      = 'Hours';
 
 									 break;
 
 								case 'DAY':
 
-									 $delivery_time_opts[ $opts_id . '_unit_text' ] = 'd';
-									 $delivery_time_opts[ $opts_id . '_name' ]      = 'Days';
+									 $sdt_opts[ $sdt_type . '_unit_text' ] = 'd';
+									 $sdt_opts[ $sdt_type . '_name' ]      = 'Days';
 
 									 break;
 							}
@@ -107,7 +140,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 				}
 			}
 
-			return $delivery_time_opts;
+			return $sdt_opts;
 		}
 	}
 }

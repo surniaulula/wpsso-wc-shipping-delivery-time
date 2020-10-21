@@ -92,6 +92,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				),
 				array(
 					'title'         => __( 'Show delivery estimates', 'wpsso-wc-shipping-delivery-time' ),
+
+					/**
+					 * Start of 'Show delivery estimates' checkbox group.
+					 */
 					'desc'          => __( 'Show shipping handling and packaging time under the shipping methods.', 'wpsso-wc-shipping-delivery-time' ),
 					'id'            => 'wcsdt_show_handling_times',
 					'type'          => 'checkbox',
@@ -158,7 +162,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 		private function show_handling_time_table() {
 
-			$opts                 = get_option( 'wcsdt_handling_time', array() );
 			$shipping_classes     = WC()->shipping()->get_shipping_classes();
 			$classes_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=classes' );
 			$classes_label_transl = '<a href="' . $classes_admin_url . '">' . esc_html__( 'Shipping classes', 'wpsso-wc-shipping-delivery-time' ) . '</a>';
@@ -196,7 +199,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				$shipping_class_name = $shipping_class_obj->name;
 				$shipping_class_desc = $shipping_class_obj->description;
 
-				$this->show_handling_time_table_rows( $opts, $shipping_class_id, $shipping_class_name, $shipping_class_desc );
+				$this->show_handling_time_table_rows( $shipping_class_id, $shipping_class_name, $shipping_class_desc );
 
 			}
 
@@ -205,15 +208,34 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$shipping_class_name = __( 'No shipping class', 'woocommerce' );
 			$shipping_class_desc = __( 'Products without a shipping class', 'wpsso-wc-shipping-delivery-time' ) ;
 
-			$this->show_handling_time_table_rows( $opts, $shipping_class_id, $shipping_class_name, $shipping_class_desc );
+			$this->show_handling_time_table_rows( $shipping_class_id, $shipping_class_name, $shipping_class_desc );
 
 			echo '</tbody>' . "\n";
 			echo '</table><!-- .wc_shipping.widefat.wp-list-table -->' . "\n";
 		}
 
-		private function show_handling_time_table_rows( $opts, $shipping_class_id, $shipping_class_name, $shipping_class_desc ) {
+		private function show_handling_time_table_rows( $shipping_class_id, $shipping_class_name, $shipping_class_desc ) {
 
-			$opt_key_pre  = 'c' . $shipping_class_id;
+			if ( isset( $this->p->options[ 'wcsdt_combined_options' ] ) ) {	// Since WPSSO WCSDT v2.0.0.
+
+				$opts =& $this->p->options;
+
+			} else {	// Check for deprecated WPSSO WCSDT v1 options.
+
+				static $opts = null;
+
+				if ( null === $opts ) {
+
+					$opts = array();
+
+					foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
+
+						$opts[ 'wcsdt_handling_' . $key ] = $val;
+					}
+				}
+			}
+
+			$opt_key_pre  = 'wcsdt_handling_c' . $shipping_class_id;
 			$opt_key_min  = $opt_key_pre . '_minimum';
 			$opt_key_max  = $opt_key_pre . '_maximum';
 			$opt_key_unit = $opt_key_pre . '_unit_code';
@@ -229,15 +251,15 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			echo '<td class="class-description">' . $shipping_class_desc . '</td>' . "\n";
 
 			echo '<td class="minimum-time">';
-			echo '<input type="number" step="0.5" min="0" name="wcsdt_handling_time[' . $opt_key_min . ']" value="' . $min_val . '"/>';
+			echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 			echo '</td>' . "\n";
 
 			echo '<td class="maximum-time">';
-			echo '<input type="number" step="0.5" min="0" name="wcsdt_handling_time[' . $opt_key_max . ']" value="' . $max_val . '"/>';
+			echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 			echo '</td>' . "\n";
 
 			echo '<td class="unit-of-time">' . "\n";
-			$this->show_unit_select( 'wcsdt_handling_time', $opt_key_unit, $unit_code );
+			$this->show_opt_key_unit_select( $opt_key_unit, $unit_code );
 			echo '</td>' . "\n";
 
 			echo '</tr>' . "\n";
@@ -261,7 +283,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			echo '<table class="wc_shipping widefat wp-list-table" cellspacing="0">' . "\n";
 
-			$opts  = get_option( 'wcsdt_transit_time', array() );
 			$zones = WC_Shipping_Zones::get_zones( $context = 'admin' );	// Since WC v2.6.0.
 
 			foreach ( $zones as $zone_id => $zone ) {
@@ -273,7 +294,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				$zone_label_transl = '<a href="' . $zone_admin_url . '">' . esc_html( sprintf( __( '%s shipping zone',
 					'wpsso-wc-shipping-delivery-time' ), $zone_name ) ) . '</a>';
 
-				$this->show_transit_time_table_rows( $opts, $zone_label_transl, $zone_id, $zone_methods );
+				$this->show_transit_time_table_rows( $zone_label_transl, $zone_id, $zone_methods );
 			}
 
 			/**
@@ -288,12 +309,31 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$zone_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $world_zone_id );
 			$zone_label_transl = '<a href="' . $zone_admin_url . '">' . esc_html( $zone_name ) . '</a> ';
 
-			$this->show_transit_time_table_rows( $opts, $zone_label_transl, $world_zone_id, $world_zone_methods );
+			$this->show_transit_time_table_rows( $zone_label_transl, $world_zone_id, $world_zone_methods );
 
 			echo '</table><!-- .wc_shipping.widefat.wp-list-table -->' . "\n";
 		}
 
-		private function show_transit_time_table_rows( $opts, $zone_label_transl, $zone_id, $shipping_methods ) {
+		private function show_transit_time_table_rows( $zone_label_transl, $zone_id, $shipping_methods ) {
+
+			if ( isset( $this->p->options[ 'wcsdt_combined_options' ] ) ) {	// Since WPSSO WCSDT v2.0.0.
+
+				$opts =& $this->p->options;
+
+			} else {	// Check for deprecated WPSSO WCSDT v1 options.
+
+				static $opts = null;
+
+				if ( null === $opts ) {
+
+					$opts = array();
+
+					foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+
+						$opts[ 'wcsdt_transit_' . $key ] = $val;
+					}
+				}
+			}
 
 			echo '<thead>' . "\n";
 			echo '<tr style="background:#e9e9e9;">' . "\n";
@@ -345,7 +385,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 						continue;
 					}
 
-					$opt_key_pre  = 'm' . $method_inst_id;
+					$opt_key_pre  = 'wcsdt_transit_m' . $method_inst_id;
 					$opt_key_min  = $opt_key_pre . '_minimum';
 					$opt_key_max  = $opt_key_pre . '_maximum';
 					$opt_key_unit = $opt_key_pre . '_unit_code';
@@ -361,15 +401,15 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					echo '<td class="shipping-rate">' . $rate_type . '</td>' . "\n";
 
 					echo '<td class="minimum-time">';
-					echo '<input type="number" step="0.5" min="0" name="wcsdt_transit_time[' . $opt_key_min . ']" value="' . $min_val . '"/>';
+					echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 					echo '</td>' . "\n";
 
 					echo '<td class="maximum-time">';
-					echo '<input type="number" step="0.5" min="0" name="wcsdt_transit_time[' . $opt_key_max . ']" value="' . $max_val . '"/>';
+					echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 					echo '</td>' . "\n";
 
 					echo '<td class="unit-of-time">' . "\n";
-					$this->show_unit_select( 'wcsdt_transit_time', $opt_key_unit, $unit_code );
+					$this->show_opt_key_unit_select( $opt_key_unit, $unit_code );
 					echo '</td>' . "\n";
 
 					echo '</tr>' . "\n";
@@ -379,49 +419,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			echo '</tbody>' . "\n";
 		}
 
-		/**
-		 * Action called by WC_Admin_Settings->save() in woocommerce/includes/admin/class-wc-admin-settings.php.
-		 */
-		public function save_settings() {
+		private function show_opt_key_unit_select( $opt_key, $unit_code ) {
 
-			global $current_section;
-
-			if ( 'wcsdt' !== $current_section ) {	// Just in case.
-
-				return;
-			}
-
-			foreach ( array(
-				'wcsdt_handling_time',
-				'wcsdt_transit_time',
-			) as $options_name ) {
-
-				$save_opts = array();
-
-				$post_opts = isset( $_POST[ $options_name ] ) ? $_POST[ $options_name ] : array();
-
-				if ( is_array( $post_opts ) ) {	// Just in case.
-
-					foreach ( $post_opts as $opt_key => $val ) {
-
-						if ( '' !== $val ) {	// Allow for 0.
-
-							$opt_key = SucomUtil::sanitize_key( $opt_key );	// Just in case.
-
-							$save_opts[ $opt_key ] = $val;
-						}
-					}
-
-					$_POST[ $options_name ] = $save_opts;
-				}
-
-				update_option( $options_name, $save_opts, $autoload = true );
-			}
-		}
-
-		private function show_unit_select( $opt_name, $opt_key, $unit_code ) {
-
-			echo '<select name="'. $opt_name . '[' . $opt_key . ']">' . "\n";
+			echo '<select name="'. WPSSO_OPTIONS_NAME . '[' . $opt_key . ']">' . "\n";
 
 			foreach ( array(
 				'HUR' => __( 'Hours', 'wpsso-wc-shipping-delivery-time' ),
@@ -436,6 +436,58 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			}
 
 			echo '</select>' . "\n";
+		}
+
+		/**
+		 * Action called by WC_Admin_Settings->save() in woocommerce/includes/admin/class-wc-admin-settings.php.
+		 */
+		public function save_settings() {
+
+			global $current_section;
+
+			if ( 'wcsdt' !== $current_section ) {	// Just in case.
+
+				return;
+			}
+
+			$pre_combined_options = empty( $this->p->options[ 'wcsdt_combined_options' ] ) ? false : true;
+
+			$opts = SucomUtil::preg_grep_keys( '/^wcsdt_/', $this->p->options, $invert = true );
+
+			$post_opts = isset( $_POST[ WPSSO_OPTIONS_NAME ] ) ? $_POST[ WPSSO_OPTIONS_NAME ] : array();
+
+			$wcsdt_opts = array();
+
+			if ( is_array( $post_opts ) ) {	// Just in case.
+
+				foreach ( $post_opts as $opt_key => $val ) {
+
+					if ( '' !== $val ) {	// Allow for 0.
+
+						$opt_key = SucomUtil::sanitize_key( $opt_key );	// Just in case.
+
+						$opts[ $opt_key ] = $wcsdt_opts[ $opt_key ] = $val;
+					}
+				}
+
+				$_POST[ WPSSO_OPTIONS_NAME ] = $wcsdt_opts;
+			}
+
+			$opts[ 'wcsdt_combined_options' ] = 1;
+
+			$saved = update_option( WPSSO_OPTIONS_NAME, $opts, $autoload = true );
+
+			if ( $saved ) {	// Just in case.
+
+				$this->p->options = $opts;
+
+				if ( ! $pre_combined_options ) {	// Remove deprecated WPSSO WCSDT v1 options.
+
+					delete_option( 'wcsdt_handling_time' );
+
+					delete_option( 'wcsdt_transit_time' );
+				}
+			}
 		}
 	}
 }
