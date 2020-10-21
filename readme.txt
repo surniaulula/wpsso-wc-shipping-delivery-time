@@ -70,7 +70,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-dev.2 (TBD)**
+**Version 2.0.0-dev.3 (2020/10/21)**
 
 * **New Features**
 	* None.
@@ -105,6 +105,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
+
+= 2.0.0-dev.3 =
+
+(2020/10/21) Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
 
 = 1.0.1 =
 
