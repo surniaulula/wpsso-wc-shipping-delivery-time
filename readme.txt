@@ -70,7 +70,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-dev.3 (2020/10/21)**
+**Version 2.0.0-dev.4 (2020/10/21)**
 
 * **New Features**
 	* None.
@@ -80,6 +80,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 * **Developer Notes**
 	* Added a new lib/woocommerce-admin.php library file.
+	* Moved the 'wcsdt_handling_time' and 'wcsdt_transit_time' database options to the WPSSO Core settings array.
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
@@ -106,7 +107,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-dev.3 =
+= 2.0.0-dev.4 =
 
 (2020/10/21) Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
 
