@@ -58,14 +58,18 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 		public function show_handling_time_label( $method_obj, $pkg_index ) {
 
-			static $packages         = null;
-			static $handling_times   = null;
-			static $method_count     = 0;
+			static $opts         = null;
+			static $packages     = null;
+			static $method_count = 0;
 
-			if ( null === $packages ) {
+			if ( null === $opts ) {
 
-				$packages       = WC()->shipping()->get_packages();
-				$handling_times = get_option( 'wcsdt_handling_time', array() );
+				foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
+
+					$opts[ 'wcsdt_handling_' . $key ] = $val;
+				}
+
+				$packages = WC()->shipping()->get_packages();
 			}
 
 			if ( empty( $packages[ $pkg_index ][ 'rates' ] ) ) {	// Shipping methods.
@@ -75,9 +79,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			$package       = $packages[ $pkg_index ];
 			$total_methods = count( $package[ 'rates' ] );
+
 			$method_count++;
 
-			if ( $method_count !== $total_methods ) {	// Check for last shipping method.
+			if ( $method_count < $total_methods ) {	// Wait for last shipping method.
 
 				return;
 			}
@@ -94,14 +99,14 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$product           = $values[ 'data' ];
 					$shipping_class_id = $product->get_shipping_class_id();	// 0 or a selected product "Shipping class".
 
-					$opt_key_pre  = 'c' . $shipping_class_id;
+					$opt_key_pre  = 'wcsdt_handling_c' . $shipping_class_id;
 					$opt_key_min  = $opt_key_pre . '_minimum';
 					$opt_key_max  = $opt_key_pre . '_maximum';
 					$opt_key_unit = $opt_key_pre . '_unit_code';
 
-					$min_val   = isset( $handling_times[ $opt_key_min ] ) ? $handling_times[ $opt_key_min ] : '';
-					$max_val   = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
-					$unit_code = isset( $handling_times[ $opt_key_unit ] ) ? $handling_times[ $opt_key_unit ] : '';
+					$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
+					$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+					$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : '';
 
 					list( $pkg_min_val, $pkg_max_val, $pkg_unit_code ) = $this->get_package_times( $min_val, $max_val, $unit_code );
 			}
@@ -114,7 +119,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$times_label = $this->get_times_label( $pkg_min_val, $pkg_max_val, $pkg_unit_code );
 
 			// tranlators: Shipping handling and packaging time under the shipping methods.
-			$handling_label = '<label><small>' . __( 'Add %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small></label>';
+			$handling_label = '<label><small>' . __( 'Estimated %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small></label>';
 			$handling_label = apply_filters( 'wpsso_wcsdt_shipping_handling_time_label', $handling_label, $times_label );
 			$handling_label = sprintf( $handling_label, $times_label );
 
@@ -131,23 +136,26 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				return $method_label;
 			}
 
-			static $transit_times = null;
+			static $opts = null;
 
-			if ( null === $transit_times ) {
+			if ( null === $opts ) {
 
-				$transit_times = get_option( 'wcsdt_transit_time', array() );
+				foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+
+					$opts[ 'wcsdt_transit_' . $key ] = $val;
+				}
 			}
 
 			$method_inst_id = $method_obj->get_instance_id();
 
-			$opt_key_pre  = 'm' . $method_inst_id;
+			$opt_key_pre  = 'wcsdt_transit_m' . $method_inst_id;
 			$opt_key_min  = $opt_key_pre . '_minimum';
 			$opt_key_max  = $opt_key_pre . '_maximum';
 			$opt_key_unit = $opt_key_pre . '_unit_code';
 
-			$min_val   = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
-			$max_val   = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
-			$unit_code = isset( $transit_times[ $opt_key_unit ] ) ? $transit_times[ $opt_key_unit ] : '';
+			$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
+			$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+			$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : '';
 
 			if ( empty( $min_val ) && empty( $max_val ) ) {	// Nothing to do.
 

@@ -158,7 +158,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 		private function show_handling_time_table() {
 
-			$handling_times       = get_option( 'wcsdt_handling_time', array() );
+			$opts                 = get_option( 'wcsdt_handling_time', array() );
 			$shipping_classes     = WC()->shipping()->get_shipping_classes();
 			$classes_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=classes' );
 			$classes_label_transl = '<a href="' . $classes_admin_url . '">' . esc_html__( 'Shipping classes', 'wpsso-wc-shipping-delivery-time' ) . '</a>';
@@ -196,7 +196,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				$shipping_class_name = $shipping_class_obj->name;
 				$shipping_class_desc = $shipping_class_obj->description;
 
-				$this->show_handling_time_table_rows( $handling_times, $shipping_class_id, $shipping_class_name, $shipping_class_desc );
+				$this->show_handling_time_table_rows( $opts, $shipping_class_id, $shipping_class_name, $shipping_class_desc );
 
 			}
 
@@ -205,22 +205,22 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$shipping_class_name = __( 'No shipping class', 'woocommerce' );
 			$shipping_class_desc = __( 'Products without a shipping class', 'wpsso-wc-shipping-delivery-time' ) ;
 
-			$this->show_handling_time_table_rows( $handling_times, $shipping_class_id, $shipping_class_name, $shipping_class_desc );
+			$this->show_handling_time_table_rows( $opts, $shipping_class_id, $shipping_class_name, $shipping_class_desc );
 
 			echo '</tbody>' . "\n";
 			echo '</table><!-- .wc_shipping.widefat.wp-list-table -->' . "\n";
 		}
 
-		private function show_handling_time_table_rows( $handling_times, $shipping_class_id, $shipping_class_name, $shipping_class_desc ) {
+		private function show_handling_time_table_rows( $opts, $shipping_class_id, $shipping_class_name, $shipping_class_desc ) {
 
 			$opt_key_pre  = 'c' . $shipping_class_id;
 			$opt_key_min  = $opt_key_pre . '_minimum';
 			$opt_key_max  = $opt_key_pre . '_maximum';
 			$opt_key_unit = $opt_key_pre . '_unit_code';
 
-			$min_val   = isset( $handling_times[ $opt_key_min ] ) ? $handling_times[ $opt_key_min ] : '';
-			$max_val   = isset( $handling_times[ $opt_key_max ] ) ? $handling_times[ $opt_key_max ] : '';
-			$unit_code = isset( $handling_times[ $opt_key_unit ] ) ? $handling_times[ $opt_key_unit ] : 'DAY';
+			$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
+			$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+			$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : 'DAY';
 
 			echo '<tr>' . "\n";
 
@@ -261,10 +261,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			echo '<table class="wc_shipping widefat wp-list-table" cellspacing="0">' . "\n";
 
-			$transit_times  = get_option( 'wcsdt_transit_time', array() );
-			$shipping_zones = WC_Shipping_Zones::get_zones( $context = 'admin' );	// Since WC v2.6.0.
+			$opts  = get_option( 'wcsdt_transit_time', array() );
+			$zones = WC_Shipping_Zones::get_zones( $context = 'admin' );	// Since WC v2.6.0.
 
-			foreach ( $shipping_zones as $zone_id => $zone ) {
+			foreach ( $zones as $zone_id => $zone ) {
 
 				$zone_obj          = WC_Shipping_Zones::get_zone( $zone_id );	// Since WC v2.6.0.
 				$zone_methods      = $zone_obj->get_shipping_methods( $enabled_only = true, $context = 'admin' );
@@ -273,7 +273,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				$zone_label_transl = '<a href="' . $zone_admin_url . '">' . esc_html( sprintf( __( '%s shipping zone',
 					'wpsso-wc-shipping-delivery-time' ), $zone_name ) ) . '</a>';
 
-				$this->show_transit_time_table_rows( $transit_times, $zone_label_transl, $zone_id, $zone_methods );
+				$this->show_transit_time_table_rows( $opts, $zone_label_transl, $zone_id, $zone_methods );
 			}
 
 			/**
@@ -288,12 +288,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$zone_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $world_zone_id );
 			$zone_label_transl = '<a href="' . $zone_admin_url . '">' . esc_html( $zone_name ) . '</a> ';
 
-			$this->show_transit_time_table_rows( $transit_times, $zone_label_transl, $world_zone_id, $world_zone_methods );
+			$this->show_transit_time_table_rows( $opts, $zone_label_transl, $world_zone_id, $world_zone_methods );
 
 			echo '</table><!-- .wc_shipping.widefat.wp-list-table -->' . "\n";
 		}
 
-		private function show_transit_time_table_rows( $transit_times, $zone_label_transl, $zone_id, $shipping_methods ) {
+		private function show_transit_time_table_rows( $opts, $zone_label_transl, $zone_id, $shipping_methods ) {
 
 			echo '<thead>' . "\n";
 			echo '<tr style="background:#e9e9e9;">' . "\n";
@@ -350,9 +350,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					$opt_key_max  = $opt_key_pre . '_maximum';
 					$opt_key_unit = $opt_key_pre . '_unit_code';
 
-					$min_val   = isset( $transit_times[ $opt_key_min ] ) ? $transit_times[ $opt_key_min ] : '';
-					$max_val   = isset( $transit_times[ $opt_key_max ] ) ? $transit_times[ $opt_key_max ] : '';
-					$unit_code = isset( $transit_times[ $opt_key_unit ] ) ? $transit_times[ $opt_key_unit ] : 'DAY';
+					$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
+					$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+					$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : 'DAY';
 
 					echo '<tr>' . "\n";
 

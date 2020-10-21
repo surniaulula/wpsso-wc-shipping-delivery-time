@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.0.0-"
-"dev.2\n"
+"dev.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2020-MO-DA HO:MI+ZONE\n"
@@ -154,54 +154,54 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-#: lib/woocommerce.php:117
-msgid "Add %s for handling &amp; packaging."
+#: lib/woocommerce.php:122
+msgid "Estimated %s for handling &amp; packaging."
 msgstr ""
 
 #. translators: Shipping transit time in the shipping method label.
-#: lib/woocommerce.php:160
+#: lib/woocommerce.php:168
 msgid "(%s)"
 msgstr ""
 
-#: lib/woocommerce.php:177
+#: lib/woocommerce.php:185
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:178
+#: lib/woocommerce.php:186
 msgid "%1$s - %2$s hours"
 msgstr ""
 
-#: lib/woocommerce.php:179
+#: lib/woocommerce.php:187
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:180
+#: lib/woocommerce.php:188
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:189
+#: lib/woocommerce.php:197
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:190
+#: lib/woocommerce.php:198
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:191
+#: lib/woocommerce.php:199
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:192
+#: lib/woocommerce.php:200
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""

@@ -50,25 +50,32 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 			if ( null === $opts ) {
 
-				$opts[ 'handling' ] = get_option( 'wcsdt_handling_time', array() );
-				$opts[ 'transit' ]  = get_option( 'wcsdt_transit_time', array() );
+				foreach ( get_option( 'wcsdt_handling_time', array() ) as $key => $val ) {
+
+					$opts[ 'wcsdt_handling_' . $key ] = $val;
+				}
+
+				foreach ( get_option( 'wcsdt_transit_time', array() ) as $key => $val ) {
+
+					$opts[ 'wcsdt_transit_' . $key ] = $val;
+				}
 			}
 
 			foreach ( array(
-				'handling' => 'c' . $shipping_class_id,
-				'transit'  => 'm' . $method_inst_id,
+				'handling' => 'wcsdt_handling_c' . $shipping_class_id,
+				'transit'  => 'wcsdt_transit_m' . $method_inst_id,
 			) as $opts_id => $opt_key_pre ) {
 
 				$delivery_time_opts[ $opts_id . '_rel' ] = $parent_url;
 
-				foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts[ $opts_id ] ) as $opt_key => $val ) {
+				foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts ) as $opt_key => $val ) {
 
 					if ( '' !== $val ) {	// Allow for 0.
 
 						/**
 						 * Create and delivery time option key name from the handling / transit options key prefix.
 						 *
-						 * Example: 'c136_minimum' to 'handling_minimum'.
+						 * Example: 'wcsdt_handling_c136_minimum' to 'handling_minimum'.
 						 */
 						$time_key = str_replace( $opt_key_pre, $opts_id, $opt_key );
 
