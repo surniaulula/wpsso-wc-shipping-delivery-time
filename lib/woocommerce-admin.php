@@ -20,6 +20,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 	class WpssoWcsdtWooCommerceAdmin {
 
 		private $p;	// Wpsso object.
+		private $form;	// SucomForm object.
 
 		/**
 		 * Instantiated by WpssoWcsdtWooCommerce->__construct().
@@ -47,8 +48,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			add_filter( 'woocommerce_get_settings_shipping', array( $this, 'add_settings' ), 10, 2 );
 
 			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_stylesheet' ), 10 );
-			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_handling_time' ), 20 );
-			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_transit_time' ), 30 );
+			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_shipping_dept' ), 20 );
+			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_handling_time' ), 30 );
+			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_transit_time' ), 40 );
 			add_action( 'woocommerce_settings_save_shipping', array( $this, 'save_settings' ) );
 		}
 
@@ -81,6 +83,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				return $settings;
 			}
 
+			$def_opts = $this->p->opt->get_defaults();
+
+			$menu_ext = $this->p->lca;	// Lowercase acronyn for plugin or add-on (required for text_domain).
+
+			$this->form = new SucomForm( $this->p, WPSSO_OPTIONS_NAME, $this->p->options, $def_opts, $menu_ext );
+
 			/**
 			 * See woocommerce/includes/admin/settings/class-wc-settings-shipping.php for examples.
 			 */
@@ -97,14 +105,14 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					 * Start of 'Show delivery estimates' checkbox group.
 					 */
 					'desc'          => __( 'Show shipping handling and packaging time under the shipping methods.', 'wpsso-wc-shipping-delivery-time' ),
-					'id'            => 'wcsdt_show_handling_times',
+					'id'            => 'wcsdt_show_handling_times',	// Option name with yes/no value.
 					'type'          => 'checkbox',
 					'default'       => 'yes',
 					'checkboxgroup' => 'start',
 				),
 				array(
 					'desc'          => __( 'Show shipping transit time in the shipping method label.', 'wpsso-wc-shipping-delivery-time' ),
-					'id'            => 'wcsdt_show_transit_times',
+					'id'            => 'wcsdt_show_transit_times',	// Option name with yes/no value.
 					'type'          => 'checkbox',
 					'default'       => 'yes',
 					'checkboxgroup' => 'end',
@@ -121,29 +129,129 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 		public function show_stylesheet() {
 
 			?><style type="text/css">
-				.woocommerce table .shipping-class,
-				.woocommerce table .shipping-method {
-					width:23%;
+				.woocommerce table.form-table .shipdept-day,
+				.woocommerce table.form-table .shipping-class,
+				.woocommerce table.form-table .shipping-method {
+					width:10em;
 				}
-				.woocommerce table .class-description,
-				.woocommerce table .shipping-rate {
-					width:28%;
+				.woocommerce table.form-table .class-description,
+				.woocommerce table.form-table .shipping-rate {
+					width:16em;
 				}
-				.woocommerce table .minimum-time,
-				.woocommerce table .maximum-time {
-					width:17%;
+				.woocommerce table.form-table .minimum-time,
+				.woocommerce table.form-table .maximum-time {
+					width:auto;
 				}
-				.woocommerce table .unit-of-time {
-					width:15%;
+				.woocommerce table.form-table .minimum-time input[type="number"],
+				.woocommerce table.form-table .maximum-time input[type="number"] {
+					width:90px;
 				}
-				.woocommerce table.form-table table td.minimum-time input[type="number"],
-				.woocommerce table.form-table table td.maximum-time input[type="number"] {
-					width:8em;
+				.woocommerce table.form-table .shipdept-time,
+				.woocommerce table.form-table .unit-of-time {
+					width:auto;
 				}
-				.woocommerce table.form-table table td.unit-of-time select {
-					width:6em;
+				.woocommerce table.form-table .shipdept-time select,
+				.woocommerce table.form-table .unit-of-time select {
+					width:90px;
+				}
+				.woocommerce table.form-table .shipdept-time-and {
+					padding:0;
 				}
 			</style><?php
+		}
+
+		public function show_shipping_dept() {
+
+			echo '<tr valign="top">' . "\n";
+			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping department', 'wpsso-wc-shipping-delivery-time' ) .
+				wc_help_tip( __( 'The operational details for the shipping department.',
+					'wpsso-wc-shipping-delivery-time' ) ) . '</label></th>' . "\n";
+			echo '<td class="forminp">' . "\n";
+
+			$this->show_shipping_dept_table();
+
+			echo '</td><!-- .forminp -->' . "\n";
+			echo '</tr>' . "\n";
+			echo '<tr valign="top">' . "\n";
+			echo '<th></th>' . "\n";
+			echo '<td class="forminp">' . "\n";
+
+			$this->show_shipping_dept_hours_table();
+
+			echo '</td><!-- .forminp -->' . "\n";
+			echo '</tr>' . "\n";
+		}
+
+		public function show_shipping_dept_table() {
+
+			echo '<table class="shipping-dept">' . "\n";
+
+			echo '<tr>' . "\n";
+			echo '<td align="right">' . _x( 'Shipping department timezone', 'option label', 'wpsso-wc-shipping-delivery-time' ) . '</td>' . "\n";
+			echo '<td colspan="3">' . $this->form->get_select_timezone( 'wcsdt_shipdept_timezone' ) . '</td>' . "\n";
+			echo '</tr>' . "\n";
+
+			echo '<tr>' . "\n";
+			echo '<td align="right"><p>' . __( 'Closes every midday between', 'wpsso-wc-shipping-delivery-time' ) . '</p></td>' . "\n";
+			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_midday_close' ) . '</td>' . "\n";
+			echo '<td class="shipdept-time-and"><p>' . __( 'and', 'wpsso-wc-shipping-delivery-time' ) . '</p></td>' .  "\n";
+			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_midday_open' ) . '</td>' . "\n";
+			echo '</tr>' . "\n";
+
+			echo '<tr>' . "\n";
+			echo '<td align="right"><p>' . __( 'Cutoff time for new orders', 'wpsso-wc-shipping-delivery-time' ) . '</p></td>' . "\n";
+			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_cutoff' ) . '</td>' . "\n";
+			echo '</tr>' . "\n";
+
+			echo '</table>' . "\n";
+		}
+
+		public function show_shipping_dept_hours_table() {
+			
+			$weekdays =& $this->p->cf[ 'form' ][ 'weekdays' ];
+
+			echo '<table class="wc_shipping wp-list-table" cellspacing="0">' . "\n";
+			echo '<thead>' . "\n";
+			echo '<tr style="background:#e9e9e9;">' . "\n";
+			echo '<th colspan="3" style="text-align:center; border:1px solid #e1e1e1;">' .
+				_x( 'Shipping department hours', 'option label', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '</tr>' . "\n";
+			echo '<tr>' . "\n";
+			echo '<th class="shipdept-day">' . esc_html__( 'Day', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="shipdept-time">' . esc_html__( 'Opens at', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '<th class="shipdept-time">' . esc_html__( 'Closes at', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+			echo '</tr>' . "\n";
+			echo '</thead>' . "\n";
+
+			/**
+			 * Example $weekdays = array(
+			 *	'sunday'         => 'Sunday',
+			 *	'monday'         => 'Monday',
+			 *	'tuesday'        => 'Tuesday',
+			 *	'wednesday'      => 'Wednesday',
+			 *	'thursday'       => 'Thursday',
+			 *	'friday'         => 'Friday',
+			 *	'saturday'       => 'Saturday',
+			 *	'publicholidays' => 'Public Holidays',
+			 * );
+			 */
+			foreach ( $weekdays as $day_name => $day_label ) {
+
+				$day_opt_pre   = 'wcsdt_shipdept_day_' . $day_name;
+				$open_opt_key  = $day_opt_pre . '_open';
+				$close_opt_key = $day_opt_pre . '_close';
+
+				// translators: Please ignore - translation uses a different text domain.
+				$day_label_transl = _x( $day_label, 'option value', 'wpsso' );
+
+				echo '<tr>' . "\n";
+				echo '<td class="shipdept-day"><p>' . $day_label_transl . '</p></td>' . "\n";
+				echo '<td class="shipdept-time">' . $this->form->get_select_time( $open_opt_key ) . '</td>' . "\n";
+				echo '<td class="shipdept-time">' . $this->form->get_select_time( $close_opt_key ) . '</td>' . "\n";
+				echo '</tr>' . "\n";
+			}
+
+			echo '</table><!-- .wc_shipping.wp-list-table -->' . "\n";
 		}
 
 		public function show_handling_time() {
@@ -166,29 +274,21 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$classes_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=classes' );
 			$classes_label_transl = '<a href="' . $classes_admin_url . '">' . esc_html__( 'Shipping classes', 'wpsso-wc-shipping-delivery-time' ) . '</a>';
 
-			echo '<table class="wc_shipping widefat wp-list-table" cellspacing="0">' . "\n";
-
+			echo '<table class="wc_shipping wp-list-table" cellspacing="0">' . "\n";
 			echo '<thead>' . "\n";
 			echo '<tr style="background:#e9e9e9;">' . "\n";
 			echo '<th colspan="5" style="text-align:center; border:1px solid #e1e1e1;">' . $classes_label_transl . '</th>' . "\n";
 			echo '</tr>' . "\n";
-
 			echo '<tr>' . "\n";
-
 			echo '<th class="shipping-class">' . esc_html__( 'Shipping class', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
-
 			echo '<th class="class-description">' . esc_html__( 'Class description', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
-
 			echo '<th class="minimum-time">' . esc_html__( 'Minimum time', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The estimated minimum handling and packaging time. Can be left blank.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
-
 			echo '<th class="maximum-time">' . esc_html__( 'Maximum time', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The estimated maximum handling and packaging time. Can be left blank.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
-
 			echo '<th class="unit-of-time">' . esc_html__( 'Unit of time', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
-
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
 			echo '<tbody>' . "\n";
@@ -211,7 +311,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$this->show_handling_time_table_rows( $shipping_class_id, $shipping_class_name, $shipping_class_desc );
 
 			echo '</tbody>' . "\n";
-			echo '</table><!-- .wc_shipping.widefat.wp-list-table -->' . "\n";
+			echo '</table><!-- .wc_shipping.wp-list-table -->' . "\n";
 		}
 
 		private function show_handling_time_table_rows( $shipping_class_id, $shipping_class_name, $shipping_class_desc ) {
@@ -245,23 +345,19 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : 'DAY';
 
 			echo '<tr>' . "\n";
-
 			echo '<td class="shipping-class">' . $shipping_class_name . '</td>' . "\n";
-
 			echo '<td class="class-description">' . $shipping_class_desc . '</td>' . "\n";
-
 			echo '<td class="minimum-time">';
 			echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 			echo '</td>' . "\n";
-
 			echo '<td class="maximum-time">';
 			echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 			echo '</td>' . "\n";
-
 			echo '<td class="unit-of-time">' . "\n";
-			$this->show_opt_key_unit_select( $opt_key_unit, $unit_code );
-			echo '</td>' . "\n";
 
+			$this->show_opt_key_unit_select( $opt_key_unit, $unit_code );
+
+			echo '</td>' . "\n";
 			echo '</tr>' . "\n";
 		}
 
@@ -281,7 +377,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 		private function show_transit_time_table() {
 
-			echo '<table class="wc_shipping widefat wp-list-table" cellspacing="0">' . "\n";
+			echo '<table class="wc_shipping wp-list-table" cellspacing="0">' . "\n";
 
 			$zones = WC_Shipping_Zones::get_zones( $context = 'admin' );	// Since WC v2.6.0.
 
@@ -311,7 +407,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			$this->show_transit_time_table_rows( $zone_label_transl, $world_zone_id, $world_zone_methods );
 
-			echo '</table><!-- .wc_shipping.widefat.wp-list-table -->' . "\n";
+			echo '</table><!-- .wc_shipping.wp-list-table -->' . "\n";
 		}
 
 		private function show_transit_time_table_rows( $zone_label_transl, $zone_id, $shipping_methods ) {
@@ -339,23 +435,16 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			echo '<tr style="background:#e9e9e9;">' . "\n";
 			echo '<th colspan="5" style="text-align:center; border:1px solid #e1e1e1;">' . $zone_label_transl . '</th>' . "\n";
 			echo '</tr>' . "\n";
-
 			echo '<tr>' . "\n";
-
 			echo '<th class="shipping-method">' . esc_html__( 'Shipping method', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
-
 			echo '<th class="shipping-rate">' . esc_html__( 'Shipping rate', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
-
 			echo '<th class="minimum-time">' . esc_html__( 'Minimum time', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The estimated minimum transit time. Can be left blank.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
-
 			echo '<th class="maximum-time">' . esc_html__( 'Maximum time', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The estimated maximum transit time. Can be left blank.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</th>' . "\n";
-
 			echo '<th class="unit-of-time">' . esc_html__( 'Unit of time', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
-
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
 			echo '<tbody>' . "\n";
@@ -395,23 +484,19 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : 'DAY';
 
 					echo '<tr>' . "\n";
-
 					echo '<td class="shipping-method">' . $method_name . '</td>' . "\n";
-
 					echo '<td class="shipping-rate">' . $rate_type . '</td>' . "\n";
-
 					echo '<td class="minimum-time">';
 					echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 					echo '</td>' . "\n";
-
 					echo '<td class="maximum-time">';
 					echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 					echo '</td>' . "\n";
-
 					echo '<td class="unit-of-time">' . "\n";
-					$this->show_opt_key_unit_select( $opt_key_unit, $unit_code );
-					echo '</td>' . "\n";
 
+					$this->show_opt_key_unit_select( $opt_key_unit, $unit_code );
+
+					echo '</td>' . "\n";
 					echo '</tr>' . "\n";
 				}
 			}
