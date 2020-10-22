@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires PHP: 5.6
 Requires At Least: 4.4
 Tested Up To: 5.5.1
-WC Tested Up To: 4.6.0
+WC Tested Up To: 4.6.1
 Stable Tag: 1.0.1
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
@@ -70,7 +70,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-dev.4 (2020/10/21)**
+**Version 2.0.0-dev.5 (2020/10/22)**
 
 * **New Features**
 	* None.
@@ -107,9 +107,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-dev.4 =
+= 2.0.0-dev.5 =
 
-(2020/10/21) Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
+(2020/10/22) Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
 
 = 1.0.1 =
 
