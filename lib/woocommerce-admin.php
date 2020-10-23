@@ -83,6 +83,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				return $settings;
 			}
 
+			wp_enqueue_script( 'sucom-metabox' );
+
 			$def_opts = $this->p->opt->get_defaults();
 
 			$menu_ext = $this->p->lca;	// Lowercase acronyn for plugin or add-on (required for text_domain).
