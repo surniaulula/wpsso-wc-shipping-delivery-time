@@ -70,12 +70,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-dev.5 (2020/10/22)**
+**Version 2.0.0-dev.6 (2020/10/23)**
 
 * **New Features**
 	* None.
 * **Improvements**
 	* Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
+	* Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
@@ -107,9 +108,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-dev.5 =
+= 2.0.0-dev.6 =
 
-(2020/10/22) Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
+(2020/10/23) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 
 = 1.0.1 =
 
