@@ -19,8 +19,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 	class WpssoWcsdtWooCommerceAdmin {
 
-		private $p;	// Wpsso object.
-		private $form;	// SucomForm object.
+		private $p;	// Wpsso class object.
+		private $form;	// SucomForm class object.
 
 		/**
 		 * Instantiated by WpssoWcsdtWooCommerce->__construct().
@@ -129,6 +129,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 		public function show_stylesheet() {
 
 			?><style type="text/css">
+				.woocommerce table.form-table table.shipdept tr.first-row td {
+					padding-top:0;
+				}
 				.woocommerce table.form-table .shipdept-day,
 				.woocommerce table.form-table .shipping-class,
 				.woocommerce table.form-table .shipping-method {
@@ -163,7 +166,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 		public function show_shipping_dept() {
 
 			echo '<tr valign="top">' . "\n";
-			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping department', 'wpsso-wc-shipping-delivery-time' ) .
+			echo '<th scope="row" class="titledesc"><label>' . esc_html__( 'Shipping department hours', 'wpsso-wc-shipping-delivery-time' ) .
 				wc_help_tip( __( 'The operational details for the shipping department.',
 					'wpsso-wc-shipping-delivery-time' ) ) . '</label></th>' . "\n";
 			echo '<td class="forminp">' . "\n";
@@ -184,9 +187,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 		public function show_shipping_dept_table() {
 
-			echo '<table class="shipping-dept">' . "\n";
+			echo '<table class="shipdept">' . "\n";
 
-			echo '<tr>' . "\n";
+			echo '<tr class="first-row">' . "\n";
 			echo '<td align="right">' . _x( 'Shipping department timezone', 'option label', 'wpsso-wc-shipping-delivery-time' ) . '</td>' . "\n";
 			echo '<td colspan="3">' . $this->form->get_select_timezone( 'wcsdt_shipdept_timezone' ) . '</td>' . "\n";
 			echo '</tr>' . "\n";
@@ -214,7 +217,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			echo '<thead>' . "\n";
 			echo '<tr style="background:#e9e9e9;">' . "\n";
 			echo '<th colspan="3" style="text-align:center; border:1px solid #e1e1e1;">' .
-				_x( 'Shipping department hours', 'option label', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
+				_x( 'Shipping department business hours', 'option label', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";
 			echo '</tr>' . "\n";
 			echo '<tr>' . "\n";
 			echo '<th class="shipdept-day">' . esc_html__( 'Day', 'wpsso-wc-shipping-delivery-time' ) . '</th>' . "\n";

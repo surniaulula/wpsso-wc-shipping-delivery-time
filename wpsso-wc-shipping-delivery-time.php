@@ -15,7 +15,7 @@
  * Requires At Least: 4.4
  * Tested Up To: 5.5.1
  * WC Tested Up To: 4.6.1
- * Version: 2.0.0-dev.5
+ * Version: 2.0.0-dev.6
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -41,12 +41,12 @@ if ( ! class_exists( 'WpssoWcsdt' ) ) {
 
 	class WpssoWcsdt extends WpssoAddOn {
 
-		public $filters;	// WpssoWcsdtFilters class.
-		public $wc;		// WpssoWcsdtWooCommerce class.
+		public $filters;	// WpssoWcsdtFilters class object.
+		public $wc;		// WpssoWcsdtWooCommerce class object.
 
-		protected $p;
+		protected $p;	// Wpsso class object.
 
-		private static $instance = null;
+		private static $instance = null;	// WpssoWcsdt class object.
 
 		public function __construct() {
 

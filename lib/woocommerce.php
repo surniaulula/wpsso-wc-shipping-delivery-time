@@ -14,8 +14,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 	class WpssoWcsdtWooCommerce {
 
-		private $p;	// Wpsso object.
-		private $admin;	// WpssoWcsdtWooCommerceAdmin object.
+		private $p;	// Wpsso class object.
+		private $admin;	// WpssoWcsdtWooCommerceAdmin class object.
 
 		public function __construct( &$plugin ) {
 
