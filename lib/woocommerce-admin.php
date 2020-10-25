@@ -212,7 +212,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 		}
 
 		public function show_shipping_dept_hours_table() {
-			
+
 			$weekdays =& $this->p->cf[ 'form' ][ 'weekdays' ];
 
 			echo '<table class="wc_shipping wp-list-table" cellspacing="0">' . "\n";
