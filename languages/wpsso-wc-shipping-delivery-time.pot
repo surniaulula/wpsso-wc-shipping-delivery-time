@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.0.0-"
-"dev.8\n"
+"dev.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2020-MO-DA HO:MI+ZONE\n"
@@ -48,15 +48,15 @@ msgid "Shipping delivery times"
 msgstr ""
 
 #: lib/woocommerce-admin.php:104
-msgid "Show delivery estimates"
+msgid "Show shipping estimates"
 msgstr ""
 
 #: lib/woocommerce-admin.php:109
-msgid "Show shipping handling and packaging time under the shipping methods."
+msgid "Show handling and packaging times in the cart and checkout pages."
 msgstr ""
 
 #: lib/woocommerce-admin.php:116
-msgid "Show shipping transit time in the shipping method label."
+msgid "Show transit times in the cart and checkout pages."
 msgstr ""
 
 #: lib/woocommerce-admin.php:175

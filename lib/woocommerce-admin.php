@@ -101,19 +101,19 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					'type'  => 'title',
 				),
 				array(
-					'title'         => __( 'Show delivery estimates', 'wpsso-wc-shipping-delivery-time' ),
+					'title'         => __( 'Show shipping estimates', 'wpsso-wc-shipping-delivery-time' ),
 
 					/**
 					 * Start of 'Show delivery estimates' checkbox group.
 					 */
-					'desc'          => __( 'Show shipping handling and packaging time under the shipping methods.', 'wpsso-wc-shipping-delivery-time' ),
+					'desc'          => __( 'Show handling and packaging times in the cart and checkout pages.', 'wpsso-wc-shipping-delivery-time' ),
 					'id'            => 'wcsdt_show_handling_times',	// Option name with yes/no value.
 					'type'          => 'checkbox',
 					'default'       => 'yes',
 					'checkboxgroup' => 'start',
 				),
 				array(
-					'desc'          => __( 'Show shipping transit time in the shipping method label.', 'wpsso-wc-shipping-delivery-time' ),
+					'desc'          => __( 'Show transit times in the cart and checkout pages.', 'wpsso-wc-shipping-delivery-time' ),
 					'id'            => 'wcsdt_show_transit_times',	// Option name with yes/no value.
 					'type'          => 'checkbox',
 					'default'       => 'yes',

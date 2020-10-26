@@ -39,6 +39,44 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			) );
 		}
 
+		/**
+		 * Returns shipping department, handling, and transit options for $shipping_class_id and $method_inst_id.
+		 *
+		 * Array (
+		 * 	[shipdept_rel] => http://adm.surniaulula.com/produit/a-variable-product/
+		 * 	[shipdept_timezone] => America/Vancouver
+		 * 	[shipdept_midday_close] => 12:00
+		 * 	[shipdept_midday_open] => 13:00
+		 * 	[shipdept_cutoff] => 16:00
+		 * 	[shipdept_day_sunday_open] => none
+		 * 	[shipdept_day_sunday_close] => none
+		 * 	[shipdept_day_monday_open] => 09:00
+		 * 	[shipdept_day_monday_close] => 17:00
+		 * 	[shipdept_day_tuesday_open] => 09:00
+		 * 	[shipdept_day_tuesday_close] => 17:00
+		 * 	[shipdept_day_wednesday_open] => 09:00
+		 * 	[shipdept_day_wednesday_close] => 17:00
+		 * 	[shipdept_day_thursday_open] => 09:00
+		 * 	[shipdept_day_thursday_close] => 17:00
+		 * 	[shipdept_day_friday_open] => 09:00
+		 * 	[shipdept_day_friday_close] => 17:00
+		 * 	[shipdept_day_saturday_open] => none
+		 * 	[shipdept_day_saturday_close] => none
+		 * 	[shipdept_day_publicholidays_open] => 09:00
+		 * 	[shipdept_day_publicholidays_close] => 12:00
+		 *  	[handling_rel] => http://adm.surniaulula.com/produit/a-variable-product/
+		 * 	[handling_maximum] => 1.5
+		 * 	[handling_unit_code] => DAY
+		 * 	[handling_unit_text] => d
+		 * 	[handling_name] => Days
+		 * 	[transit_rel] => http://adm.surniaulula.com/produit/a-variable-product/
+		 * 	[transit_minimum] => 5
+		 * 	[transit_maximum] => 7
+		 * 	[transit_unit_code] => DAY
+		 * 	[transit_unit_text] => d
+		 * 	[transit_name] => Days
+		 * )
+		 */
 		public function filter_wc_shipping_delivery_time( $sdt_opts, $zone_id, $method_inst_id, $shipping_class_id, $parent_url ) {
 
 			if ( $this->p->debug->enabled ) {
@@ -70,24 +108,8 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 				}
 			}
 
-			/**
-			 * Include handling and transit options for $shipping_class_id and $method_inst_id.
-			 *
-			 * Array (
-			 *  	[handling_rel] => http://adm.surniaulula.com/produit/a-variable-product/
-			 * 	[handling_maximum] => 1.5
-			 * 	[handling_unit_code] => DAY
-			 * 	[handling_unit_text] => d
-			 * 	[handling_name] => Days
-			 * 	[transit_rel] => http://adm.surniaulula.com/produit/a-variable-product/
-			 * 	[transit_minimum] => 5
-			 * 	[transit_maximum] => 7
-			 * 	[transit_unit_code] => DAY
-			 * 	[transit_unit_text] => d
-			 * 	[transit_name] => Days
-			 * )
-			 */
 			$std_type_keys = array(
+				'shipdept' => 'wcsdt_shipdept',
 				'handling' => 'wcsdt_handling_c' . $shipping_class_id,
 				'transit'  => 'wcsdt_transit_m' . $method_inst_id,
 			);
