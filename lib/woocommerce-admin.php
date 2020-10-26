@@ -143,21 +143,25 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				.woocommerce table.form-table .shipping-rate {
 					width:16em;
 				}
+				.woocommerce table.form-table .shipdept-timezone,
 				.woocommerce table.form-table .minimum-time,
 				.woocommerce table.form-table .maximum-time {
 					width:auto;
 				}
 				.woocommerce table.form-table .minimum-time input[type="number"],
 				.woocommerce table.form-table .maximum-time input[type="number"] {
-					width:90px;
+					width:82px;
 				}
 				.woocommerce table.form-table .shipdept-time,
 				.woocommerce table.form-table .unit-of-time {
 					width:auto;
 				}
+				.woocommerce table.form-table .shipdept-timezone select {
+					width:220px;
+				}
 				.woocommerce table.form-table .shipdept-time select,
 				.woocommerce table.form-table .unit-of-time select {
-					width:90px;
+					width:82px;
 				}
 				.woocommerce table.form-table .shipdept-time-and {
 					padding:0;
@@ -193,19 +197,20 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			echo '<tr class="first-row">' . "\n";
 			echo '<td align="right">' . _x( 'Shipping department timezone', 'option label', 'wpsso-wc-shipping-delivery-time' ) . '</td>' . "\n";
-			echo '<td colspan="3">' . $this->form->get_select_timezone( 'wcsdt_shipdept_timezone' ) . '</td>' . "\n";
+			echo '<td colspan="3" class="shipdept-timezone">' . $this->form->get_select_timezone( 'wcsdt_shipdept_timezone',
+				$css_class = 'timezone' ) . '</td>' . "\n";
 			echo '</tr>' . "\n";
 
 			echo '<tr>' . "\n";
 			echo '<td align="right"><p>' . __( 'Closes every midday between', 'wpsso-wc-shipping-delivery-time' ) . '</p></td>' . "\n";
-			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_midday_close' ) . '</td>' . "\n";
+			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_midday_close', $css_class = 'time-hh-mm' ) . '</td>' . "\n";
 			echo '<td class="shipdept-time-and"><p>' . __( 'and', 'wpsso-wc-shipping-delivery-time' ) . '</p></td>' .  "\n";
-			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_midday_open' ) . '</td>' . "\n";
+			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_midday_open', $css_class = 'time-hh-mm' ) . '</td>' . "\n";
 			echo '</tr>' . "\n";
 
 			echo '<tr>' . "\n";
 			echo '<td align="right"><p>' . __( 'Cutoff time for new orders', 'wpsso-wc-shipping-delivery-time' ) . '</p></td>' . "\n";
-			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_cutoff' ) . '</td>' . "\n";
+			echo '<td class="shipdept-time">' . $this->form->get_select_time_none( 'wcsdt_shipdept_cutoff', $css_class = 'time-hh-mm' ) . '</td>' . "\n";
 			echo '</tr>' . "\n";
 
 			echo '</table>' . "\n";
@@ -251,8 +256,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 				echo '<tr>' . "\n";
 				echo '<td class="shipdept-day"><p>' . $day_label_transl . '</p></td>' . "\n";
-				echo '<td class="shipdept-time">' . $this->form->get_select_time( $open_opt_key ) . '</td>' . "\n";
-				echo '<td class="shipdept-time">' . $this->form->get_select_time( $close_opt_key ) . '</td>' . "\n";
+				echo '<td class="shipdept-time">' . $this->form->get_select_time_none( $open_opt_key, $css_class = 'time-hh-mm' ) . '</td>' . "\n";
+				echo '<td class="shipdept-time">' . $this->form->get_select_time_none( $close_opt_key, $css_class = 'time-hh-mm' ) . '</td>' . "\n";
 				echo '</tr>' . "\n";
 			}
 
