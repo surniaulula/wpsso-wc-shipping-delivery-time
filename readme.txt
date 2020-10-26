@@ -70,7 +70,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-dev.9 (2020/10/26)**
+**Version 2.0.0-dev.10 (2020/10/26)**
 
 * **New Features**
 	* None.
@@ -108,7 +108,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-dev.9 =
+= 2.0.0-dev.10 =
 
 (2020/10/26) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 
