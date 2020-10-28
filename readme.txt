@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-rc.1 (2020/10/28)**
+**Version 2.0.0 (2020/10/28)**
 
 * **New Features**
 	* None.
@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
-	* WPSSO Core v8.10.0-rc.1
+	* WPSSO Core v8.10.0
 	* WooCommerce v3.6.4.
 
 **Version 1.0.1 (2020/10/17)**
@@ -111,7 +111,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-rc.1 =
+= 2.0.0 =
 
 (2020/10/28) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 
