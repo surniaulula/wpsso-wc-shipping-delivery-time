@@ -10,7 +10,7 @@ Tags: woocommerce, shipping, delivery, schema, schema.org, OfferShippingDetails,
 Contributors: jsmoriss
 Requires PHP: 5.6
 Requires At Least: 4.4
-Tested Up To: 5.5
+Tested Up To: 5.5.2
 WC Tested Up To: 4.6.1
 Stable Tag: 1.0.1
 
@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-rc.1 (2020/10/28)**
+**Version 2.0.0 (2020/10/28)**
 
 * **New Features**
 	* None.
@@ -111,7 +111,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-rc.1 =
+= 2.0.0 =
 
 (2020/10/28) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 
