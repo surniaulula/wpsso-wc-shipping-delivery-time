@@ -18,10 +18,11 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 == Description ==
 
-Extends the **WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options** with additional shipping delivery times:
+Seamessly integrates and extends the **WooCommerce &gt; Settings &gt; Shipping** page with additional shipping delivery times:
 
-* Optionally show handling &amp; packaging times under the shipping methods.
-* Optionally show transit times in the shipping method label. 
+* Optionally show handling and packaging times in the cart and checkout pages.
+* Optionally show transit times in the cart and checkout pages.
+* Select shipping department hours (cutoff time for new orders and business hours).
 * Select min / max handling times for WooCommerce shipping classes.
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
@@ -70,7 +71,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-b.1 (2020/10/27)**
+**Version 2.0.0-rc.1 (2020/10/28)**
 
 * **New Features**
 	* None.
@@ -81,11 +82,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 * **Developer Notes**
 	* Added a new lib/woocommerce-admin.php library file.
-	* Moved the 'wcsdt_handling_time' and 'wcsdt_transit_time' database options to the WPSSO Core settings array.
+	* Moved the 'wcsdt_handling_time' and 'wcsdt_transit_time' options to the WPSSO Core settings array.
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
-	* WPSSO Core v8.10.0-b.1
+	* WPSSO Core v8.10.0-rc.1
 	* WooCommerce v3.6.4.
 
 **Version 1.0.1 (2020/10/17)**
@@ -108,9 +109,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-b.1 =
+= 2.0.0-rc.1 =
 
-(2020/10/27) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
+(2020/10/28) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 
 = 1.0.1 =
 

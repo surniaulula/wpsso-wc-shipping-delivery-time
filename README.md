@@ -15,11 +15,12 @@
 
 <h2>Description</h2>
 
-<p>Extends the <strong>WooCommerce &gt; Settings &gt; Shipping &gt; Shipping options</strong> with additional shipping delivery times:</p>
+<p>Seamessly integrates and extends the <strong>WooCommerce &gt; Settings &gt; Shipping</strong> page with additional shipping delivery times:</p>
 
 <ul>
-<li>Optionally show handling &amp; packaging times under the shipping methods.</li>
-<li>Optionally show transit times in the shipping method label.</li>
+<li>Optionally show handling and packaging times in the cart and checkout pages.</li>
+<li>Optionally show transit times in the cart and checkout pages.</li>
+<li>Select shipping department hours (cutoff time for new orders and business hours).</li>
 <li>Select min / max handling times for WooCommerce shipping classes.</li>
 <li>Select min / max transit times for WooCommerce shipping zones and methods.</li>
 <li>Increment handling and transit times in half-hours and/or half-days.</li>
