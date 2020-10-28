@@ -43,7 +43,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 				$this->p->debug->mark();
 			}
 
-			add_filter( 'plugin_action_links', array( $this, 'add_plugin_action_links' ), 200, 4 );
 			add_filter( 'woocommerce_get_sections_shipping', array( $this, 'add_sections' ), 10, 1 );
 			add_filter( 'woocommerce_get_settings_shipping', array( $this, 'add_settings' ), 10, 2 );
 
@@ -52,21 +51,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_handling_time' ), 30 );
 			add_action( 'woocommerce_settings_wcsdt_options_end', array( $this, 'show_transit_time' ), 40 );
 			add_action( 'woocommerce_settings_save_shipping', array( $this, 'save_settings' ) );
-		}
-
-		public function add_plugin_action_links( $action_links, $plugin_base, $plugin_data, $context ) {
-
-			if ( WPSSOWCSDT_PLUGINBASE === $plugin_base ) {
-
-				$admin_url = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=wcsdt' );
-
-				// translators: Please ignore - translation uses a different text domain.
-				$label_transl = esc_html__( 'Add-on Settings', 'wpsso' );
-
-				$action_links[] = '<a href="' . $admin_url . '">' . $label_transl . '</a>';
-			}
-
-			return $action_links;
 		}
 
 		public function add_sections( $sections ) {

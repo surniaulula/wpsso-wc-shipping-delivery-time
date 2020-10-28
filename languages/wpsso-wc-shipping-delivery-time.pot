@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Shipping Delivery Time for WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.0.0-b.1\n"
+"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.0.0-rc.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2020-MO-DA HO:MI+ZONE\n"
@@ -26,172 +26,172 @@ msgid ""
 msgstr ""
 
 #: gettext/gettext-lib-config.php:6
+msgctxt "lib file description"
+msgid "WooCommerce Shipping"
+msgstr ""
+
+#: gettext/gettext-lib-config.php:7
 msgctxt "plugin name"
 msgid "WPSSO Shipping Delivery Time for WooCommerce"
 msgstr ""
 
-#: gettext/gettext-lib-config.php:7
+#: gettext/gettext-lib-config.php:8
 msgctxt "plugin description"
 msgid ""
 "Shipping delivery time estimates for WooCommerce shipping zones, methods, "
 "and classes."
 msgstr ""
 
-#. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:64
-msgid "Add-on Settings"
-msgstr ""
-
-#: lib/woocommerce-admin.php:74 lib/woocommerce-admin.php:99
+#: lib/woocommerce-admin.php:58 lib/woocommerce-admin.php:83
 msgid "Shipping delivery times"
 msgstr ""
 
-#: lib/woocommerce-admin.php:104
+#: lib/woocommerce-admin.php:88
 msgid "Show shipping estimates"
 msgstr ""
 
-#: lib/woocommerce-admin.php:109
+#: lib/woocommerce-admin.php:93
 msgid "Show handling and packaging times in the cart and checkout pages."
 msgstr ""
 
-#: lib/woocommerce-admin.php:116
+#: lib/woocommerce-admin.php:100
 msgid "Show transit times in the cart and checkout pages."
 msgstr ""
 
-#: lib/woocommerce-admin.php:175
+#: lib/woocommerce-admin.php:159
 msgid "Shipping department hours"
 msgstr ""
 
-#: lib/woocommerce-admin.php:176
+#: lib/woocommerce-admin.php:160
 msgid "The operational details for the shipping department."
 msgstr ""
 
-#: lib/woocommerce-admin.php:199
+#: lib/woocommerce-admin.php:183
 msgctxt "option label"
 msgid "Shipping department timezone"
 msgstr ""
 
-#: lib/woocommerce-admin.php:205
+#: lib/woocommerce-admin.php:189
 msgid "Closes every midday between"
 msgstr ""
 
-#: lib/woocommerce-admin.php:207
+#: lib/woocommerce-admin.php:191
 msgid "and"
 msgstr ""
 
-#: lib/woocommerce-admin.php:212
+#: lib/woocommerce-admin.php:196
 msgid "Cutoff time for new orders"
 msgstr ""
 
-#: lib/woocommerce-admin.php:227
+#: lib/woocommerce-admin.php:211
 msgctxt "option label"
 msgid "Shipping department business hours"
 msgstr ""
 
-#: lib/woocommerce-admin.php:230
+#: lib/woocommerce-admin.php:214
 msgid "Day"
 msgstr ""
 
-#: lib/woocommerce-admin.php:231
+#: lib/woocommerce-admin.php:215
 msgid "Opens at"
 msgstr ""
 
-#: lib/woocommerce-admin.php:232
+#: lib/woocommerce-admin.php:216
 msgid "Closes at"
 msgstr ""
 
-#: lib/woocommerce-admin.php:270
+#: lib/woocommerce-admin.php:254
 msgid "Shipping handling times"
 msgstr ""
 
-#: lib/woocommerce-admin.php:271
+#: lib/woocommerce-admin.php:255
 msgid ""
 "The typical delay between the receipt of an order and the goods leaving the "
 "warehouse."
 msgstr ""
 
-#: lib/woocommerce-admin.php:285
+#: lib/woocommerce-admin.php:269
 msgid "Shipping classes"
 msgstr ""
 
-#: lib/woocommerce-admin.php:293
+#: lib/woocommerce-admin.php:277
 msgid "Shipping class"
 msgstr ""
 
-#: lib/woocommerce-admin.php:294
+#: lib/woocommerce-admin.php:278
 msgid "Class description"
 msgstr ""
 
-#: lib/woocommerce-admin.php:295 lib/woocommerce-admin.php:451
+#: lib/woocommerce-admin.php:279 lib/woocommerce-admin.php:435
 msgid "Minimum time"
 msgstr ""
 
-#: lib/woocommerce-admin.php:296
+#: lib/woocommerce-admin.php:280
 msgid "The estimated minimum handling and packaging time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce-admin.php:298 lib/woocommerce-admin.php:454
+#: lib/woocommerce-admin.php:282 lib/woocommerce-admin.php:438
 msgid "Maximum time"
 msgstr ""
 
-#: lib/woocommerce-admin.php:299
+#: lib/woocommerce-admin.php:283
 msgid "The estimated maximum handling and packaging time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce-admin.php:301 lib/woocommerce-admin.php:457
+#: lib/woocommerce-admin.php:285 lib/woocommerce-admin.php:441
 msgid "Unit of time"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:318
+#: lib/woocommerce-admin.php:302
 msgid "No shipping class"
 msgstr ""
 
-#: lib/woocommerce-admin.php:319
+#: lib/woocommerce-admin.php:303
 msgid "Products without a shipping class"
 msgstr ""
 
-#: lib/woocommerce-admin.php:377
+#: lib/woocommerce-admin.php:361
 msgid "Shipping transit times"
 msgstr ""
 
-#: lib/woocommerce-admin.php:378
+#: lib/woocommerce-admin.php:362
 msgid ""
 "The typical delay between the goods leaving the warehouse and reaching the "
 "customer."
 msgstr ""
 
-#: lib/woocommerce-admin.php:400
+#: lib/woocommerce-admin.php:384
 msgid "%s shipping zone"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:449
+#: lib/woocommerce-admin.php:433
 msgid "Shipping method"
 msgstr ""
 
-#: lib/woocommerce-admin.php:450
+#: lib/woocommerce-admin.php:434
 msgid "Shipping rate"
 msgstr ""
 
-#: lib/woocommerce-admin.php:452
+#: lib/woocommerce-admin.php:436
 msgid "The estimated minimum transit time. Can be left blank."
 msgstr ""
 
-#: lib/woocommerce-admin.php:455
+#: lib/woocommerce-admin.php:439
 msgid "The estimated maximum transit time. Can be left blank."
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/woocommerce-admin.php:467
+#: lib/woocommerce-admin.php:451
 msgid "No shipping methods offered to this zone."
 msgstr ""
 
-#: lib/woocommerce-admin.php:522
+#: lib/woocommerce-admin.php:506
 msgid "Hours"
 msgstr ""
 
-#: lib/woocommerce-admin.php:523
+#: lib/woocommerce-admin.php:507
 msgid "Days"
 msgstr ""
 
