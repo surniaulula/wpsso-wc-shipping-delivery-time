@@ -16,9 +16,9 @@ if ( ! class_exists( 'WpssoWcsdtRegister' ) ) {
 
 		public function __construct() {
 
-			register_activation_hook( WPSSOWCMD_FILEPATH, array( $this, 'network_activate' ) );
+			register_activation_hook( WPSSOWCSDT_FILEPATH, array( $this, 'network_activate' ) );
 
-			//register_deactivation_hook( WPSSOWCMD_FILEPATH, array( $this, 'network_deactivate' ) );
+			//register_deactivation_hook( WPSSOWCSDT_FILEPATH, array( $this, 'network_deactivate' ) );
 
 			if ( is_multisite() ) {
 
