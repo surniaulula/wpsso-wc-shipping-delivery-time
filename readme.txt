@@ -73,6 +73,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.0.1-dev.1 (2020/10/29)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* Fixed incorrect WPSSOWCSDT_FILEPATH constant reference in WpssoWcsdtRegister.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v5.6.
+	* WordPress v4.4.
+	* WPSSO Core v8.10.0
+	* WooCommerce v3.6.4.
+
 **Version 2.0.0 (2020/10/28)**
 
 * **New Features**
@@ -110,6 +126,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
+
+= 2.0.1-dev.1 =
+
+(2020/10/29) Fixed incorrect WPSSOWCSDT_FILEPATH constant reference in WpssoWcsdtRegister.
 
 = 2.0.0 =
 
