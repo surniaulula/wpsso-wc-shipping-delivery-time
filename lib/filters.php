@@ -35,8 +35,9 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
+				'og_add_mt_shipping_offers' => '__return_true',
 				'wc_shipping_delivery_time' => 5,
-			) );
+			), $prio = -1000 );	// Make sure we run first.
 		}
 
 		/**
