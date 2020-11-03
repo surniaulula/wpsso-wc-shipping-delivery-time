@@ -73,6 +73,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.1.0-dev.1 (2020/11/03)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* Moved the activation of shipping offers for Schema JSON-LD from WPSSO JSON to WPSSO WCSDT.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v5.6.
+	* WordPress v4.4.
+	* WPSSO Core v8.10.0
+	* WooCommerce v3.6.4.
+
 **Version 2.0.1 (2020/10/29)**
 
 * **New Features**
@@ -126,6 +142,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
+
+= 2.1.0-dev.1 =
+
+(2020/11/03) Moved the activation of shipping offers for Schema JSON-LD from WPSSO JSON to WPSSO WCSDT.
 
 = 2.0.1 =
 
