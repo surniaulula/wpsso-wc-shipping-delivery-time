@@ -49,7 +49,7 @@ See the [much better Schema for WooCommerce products](https://wpsso.com/docs/plu
 
 <h3 class="top">Frequently Asked Questions</h3>
 
-* None.
+* [How do I exclude shipping details from JSON-LD markup?](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/faqs/how-do-i-exclude-offer-shipping-details-from-the-markup/)
 
 == Screenshots ==
 
