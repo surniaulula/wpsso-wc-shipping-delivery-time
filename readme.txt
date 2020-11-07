@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.1.0-dev.2 (2020/11/04)**
+**Version 2.1.0-b.1 (2020/11/07)**
 
 * **New Features**
 	* None.
@@ -143,9 +143,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-11/04.0-dev.2 =
+= 2.1.0-b.1 =
 
-(2020/11/04) Moved the activation of shipping offers for Schema JSON-LD from WPSSO JSON to WPSSO WCSDT.
+(2020/11/07) Moved the activation of shipping offers for Schema JSON-LD from WPSSO JSON to WPSSO WCSDT.
 
 = 2.0.1 =
 
