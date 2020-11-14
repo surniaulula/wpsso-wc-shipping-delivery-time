@@ -13,7 +13,7 @@
  * Description: Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
  * Requires PHP: 5.6
  * Requires At Least: 4.4
- * Tested Up To: 5.5.4
+ * Tested Up To: 5.6
  * WC Tested Up To: 4.6.2
  * Version: 2.1.0
  *
