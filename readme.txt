@@ -86,7 +86,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
-	* WPSSO Core v8.12.1.
+	* WPSSO Core v8.13.0.
 	* WooCommerce v3.6.4.
 
 **Version 2.0.1 (2020/10/29)**
