@@ -69,11 +69,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			wp_enqueue_script( 'sucom-metabox' );
 
-			$def_opts = $this->p->opt->get_defaults();
+			$def_opts = $this->p->opt->get_defaults();	// Passed by reference.
 
-			$menu_ext = $this->p->lca;	// Lowercase acronyn for plugin or add-on (required for text_domain).
-
-			$this->form = new SucomForm( $this->p, WPSSO_OPTIONS_NAME, $this->p->options, $def_opts, $menu_ext );
+			$this->form = new SucomForm( $this->p, WPSSO_OPTIONS_NAME, $this->p->options, $def_opts, $menu_ext = 'wpsso' );
 
 			/**
 			 * See woocommerce/includes/admin/settings/class-wc-settings-shipping.php for examples.
