@@ -28,15 +28,14 @@ Integrates and extends the **WooCommerce &gt; Settings &gt; Shipping** page with
 * Select min / max handling times for WooCommerce shipping classes.
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
-* Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/extend/plugins/wpsso/) and the [WPSSO Schema JSON-LD Markup add-on](https://wpsso.com/extend/plugins/wpsso-schema-json-ld/free/) for Schema ShippingDeliveryTime markup.
+
+Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/extend/plugins/wpsso/) and the [WPSSO Schema JSON-LD Markup add-on](https://wordpress.org/plugins/wpsso-schema-json-ld/) for Schema ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is especially important if you offer free or low-cost shipping options as this will make your products more appealing in Google search results.
 
 <h3>WPSSO Core Plugin Required</h3>
 
-WPSSO Shipping Delivery Time for WooCommerce (aka WPSSO WCSDT) is an add-on for the [WPSSO Core plugin](https://wpsso.com/extend/plugins/wpsso/free/).
+WPSSO Shipping Delivery Time for WooCommerce (aka WPSSO WCSDT) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
 
-WPSSO Core and its add-ons make sure your content looks great on social sites and in search results, no matter how your URLs are crawled, shared, re-shared, posted, or embedded.
-
-See the [much better Schema for WooCommerce products](https://wpsso.com/docs/plugins/wpsso/installation/better-schema-for-woocommerce/) article for more information on customizing the WPSSO Core plugin, the WPSSO Schema JSON-LD Markup add-on, and the WooCommerce plugin settings for better Schema markup and Google Rich Results.
+WPSSO Core and its add-ons make sure your content looks best on social sites and in search results, no matter how your webpages are shared, re-shared, messaged, posted, embedded, or crawled.
 
 == Installation ==
 
