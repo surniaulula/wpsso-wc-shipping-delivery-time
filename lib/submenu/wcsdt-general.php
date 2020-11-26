@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoWcsdtSubmenuWcsdtGeneral' ) && class_exists( 'WpssoAd
 			$this->menu_lib  = $lib;
 			$this->menu_ext  = $ext;
 		}
-	
+
 		public function show_setting_page() {
 
 			$admin_url = admin_url( 'admin.php?page=wc-settings&tab=shipping&section=wcsdt' );
