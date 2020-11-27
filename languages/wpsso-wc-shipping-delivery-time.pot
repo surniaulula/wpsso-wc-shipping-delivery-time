@@ -195,54 +195,54 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-#: lib/woocommerce.php:135
+#: lib/woocommerce.php:132
 msgid "Add %s for handling &amp; packaging."
 msgstr ""
 
 #. translators: Shipping transit time in the shipping method label.
-#: lib/woocommerce.php:190
+#: lib/woocommerce.php:187
 msgid "(%s)"
 msgstr ""
 
-#: lib/woocommerce.php:207
+#: lib/woocommerce.php:204
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:208
+#: lib/woocommerce.php:205
 msgid "%1$s - %2$s hours"
 msgstr ""
 
-#: lib/woocommerce.php:209
+#: lib/woocommerce.php:206
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:210
+#: lib/woocommerce.php:207
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:219
+#: lib/woocommerce.php:216
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:220
+#: lib/woocommerce.php:217
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:221
+#: lib/woocommerce.php:218
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:222
+#: lib/woocommerce.php:219
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""

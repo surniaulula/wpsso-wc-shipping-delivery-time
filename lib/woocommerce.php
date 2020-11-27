@@ -47,10 +47,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			if ( is_admin() ) {
 
-				if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
-
-					require_once WPSSOWCSDT_PLUGINDIR . 'lib/woocommerce-admin.php';
-				}
+				require_once WPSSOWCSDT_PLUGINDIR . 'lib/woocommerce-admin.php';
 
 				$this->admin = new WpssoWcsdtWooCommerceAdmin( $plugin );
 			}
