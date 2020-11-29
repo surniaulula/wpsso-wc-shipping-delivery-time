@@ -29,7 +29,7 @@ Integrates and extends the **WooCommerce &gt; Settings &gt; Shipping** page with
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
 
-Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/extend/plugins/wpsso/) and the [WPSSO Schema JSON-LD Markup add-on](https://wordpress.org/plugins/wpsso-schema-json-ld/) for Schema ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is especially important if you offer free or low-cost shipping options as this will make your products more appealing in Google search results.
+**Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/extend/plugins/wpsso/) and the [WPSSO Schema JSON-LD Markup add-on](https://wordpress.org/plugins/wpsso-schema-json-ld/) for Schema (aka Schema.org) ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is especially important if you offer free or low-cost shipping options as this will make your products more appealing in Google search results.**
 
 <h3>WPSSO Core Plugin Required</h3>
 
