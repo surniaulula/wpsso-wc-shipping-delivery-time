@@ -85,8 +85,8 @@ if ( ! class_exists( 'WpssoWcsdt' ) ) {
 				return;	// Stop here.
 			}
 
-			$this->filters = new WpssoWcsdtFilters( $this->p );
-			$this->wc      = new WpssoWcsdtWooCommerce( $this->p );
+			$this->filters = new WpssoWcsdtFilters( $this->p, $this );
+			$this->wc      = new WpssoWcsdtWooCommerce( $this->p, $this );
 		}
 	}
 

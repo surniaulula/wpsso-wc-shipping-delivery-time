@@ -15,8 +15,9 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 	class WpssoWcsdtFilters {
 
 		private $p;	// Wpsso class object.
+		private $a;     // WpssoWcsdt class object.
 
-		public function __construct( &$plugin ) {
+		public function __construct( &$plugin, &$addon ) {
 
 			static $do_once = null;
 
@@ -28,6 +29,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			$do_once = true;
 
 			$this->p =& $plugin;
+			$this->a =& $addon;
 
 			if ( $this->p->debug->enabled ) {
 

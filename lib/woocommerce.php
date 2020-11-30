@@ -15,9 +15,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 	class WpssoWcsdtWooCommerce {
 
 		private $p;	// Wpsso class object.
+		private $a;     // WpssoWcsdt class object.
 		private $admin;	// WpssoWcsdtWooCommerceAdmin class object.
 
-		public function __construct( &$plugin ) {
+		public function __construct( &$plugin, &$addon ) {
 
 			static $do_once = null;
 
@@ -29,6 +30,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$do_once = true;
 
 			$this->p =& $plugin;
+			$this->a =& $addon;
 
 			if ( $this->p->debug->enabled ) {
 
