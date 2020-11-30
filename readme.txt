@@ -74,6 +74,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.2.0 (2020/11/30)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Included the `$addon` argument for library class constructors.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v5.6.
+	* WordPress v4.4.
+	* WPSSO Core v8.14.0.
+	* WooCommerce v3.6.4.
+
 **Version 2.1.0 (2020/11/07)**
 
 * **New Features**
@@ -143,6 +159,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
+
+= 2.2.0 =
+
+(2020/11/30) Included the `$addon` argument for library class constructors.
 
 = 2.1.0 =
 
