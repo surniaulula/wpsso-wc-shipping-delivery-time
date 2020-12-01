@@ -18,6 +18,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 		private $a;     // WpssoWcsdt class object.
 		private $admin;	// WpssoWcsdtWooCommerceAdmin class object.
 
+		/**
+		 * Instantiated by WpssoWcsdt->init_objects().
+		 */
 		public function __construct( &$plugin, &$addon ) {
 
 			static $do_once = null;
@@ -31,11 +34,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 			$this->p =& $plugin;
 			$this->a =& $addon;
-
-			if ( $this->p->debug->enabled ) {
-
-				$this->p->debug->mark();
-			}
 
 			if ( 'yes' === get_option( 'wcsdt_show_handling_times', $default = 'yes' ) ) {
 
@@ -51,7 +49,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 				require_once WPSSOWCSDT_PLUGINDIR . 'lib/woocommerce-admin.php';
 
-				$this->admin = new WpssoWcsdtWooCommerceAdmin( $plugin );
+				$this->admin = new WpssoWcsdtWooCommerceAdmin( $plugin, $addon );
 			}
 		}
 

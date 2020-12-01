@@ -17,6 +17,9 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 		private $p;	// Wpsso class object.
 		private $a;     // WpssoWcsdt class object.
 
+		/**
+		 * Instantiated by WpssoWcsdt->init_objects().
+		 */
 		public function __construct( &$plugin, &$addon ) {
 
 			static $do_once = null;
@@ -30,11 +33,6 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 			$this->p =& $plugin;
 			$this->a =& $addon;
-
-			if ( $this->p->debug->enabled ) {
-
-				$this->p->debug->mark();
-			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'og_add_mt_shipping_offers' => '__return_true',
@@ -81,11 +79,6 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 		 * )
 		 */
 		public function filter_wc_shipping_delivery_time( $sdt_opts, $zone_id, $method_inst_id, $shipping_class_id, $parent_url ) {
-
-			if ( $this->p->debug->enabled ) {
-
-				$this->p->debug->mark();
-			}
 
 			if ( isset( $this->p->options[ 'wcsdt_combined_options' ] ) ) {	// Since WPSSO WCSDT v2.
 

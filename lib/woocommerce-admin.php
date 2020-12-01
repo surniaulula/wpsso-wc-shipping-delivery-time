@@ -20,6 +20,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 	class WpssoWcsdtWooCommerceAdmin {
 
 		private $p;	// Wpsso class object.
+		private $a;     // WpssoWcsdt class object.
 		private $form;	// SucomForm class object.
 
 		/**
@@ -27,21 +28,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 		 */
 		public function __construct( &$plugin ) {
 
-			static $do_once = null;
-
-			if ( true === $do_once ) {
-
-				return;	// Stop here.
-			}
-
-			$do_once = true;
-
 			$this->p =& $plugin;
-
-			if ( $this->p->debug->enabled ) {
-
-				$this->p->debug->mark();
-			}
+			$this->a =& $addon;
 
 			add_filter( 'woocommerce_get_sections_shipping', array( $this, 'add_sections' ), 10, 1 );
 			add_filter( 'woocommerce_get_settings_shipping', array( $this, 'add_settings' ), 10, 2 );
