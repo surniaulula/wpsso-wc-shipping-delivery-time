@@ -79,11 +79,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **New Features**
 	* None.
 * **Improvements**
-	* Included the `$addon` argument for library class constructors.
+	* None.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* None.
+	* Included the `$addon` argument for library class constructors.
 * **Requires At Least**
 	* PHP v5.6.
 	* WordPress v4.4.
@@ -140,24 +140,6 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v8.10.0
 	* WooCommerce v3.6.4.
 
-**Version 1.0.1 (2020/10/17)**
-
-**Initial release.**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* Fixed backwards compatibility with older 'init_objects' and 'init_plugin' action arguments.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v5.6.
-	* WordPress v4.4.
-	* WPSSO Core v8.8.1.
-	* WooCommerce v3.6.4.
-
 == Upgrade Notice ==
 
 = 2.2.0 =
@@ -175,8 +157,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 2.0.0 =
 
 (2020/10/28) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
-
-= 1.0.1 =
-
-(2020/10/17) Initial release.
 
