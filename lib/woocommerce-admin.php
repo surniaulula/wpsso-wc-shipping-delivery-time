@@ -359,11 +359,11 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			echo '<table class="wc_shipping wp-list-table" cellspacing="0">' . "\n";
 
-			$zones = WC_Shipping_Zones::get_zones( $context = 'admin' );	// Since WC v2.6.0.
+			$zones = WC_Shipping_Zones::get_zones( $context = 'admin' );	// Since WooCommerce v2.6.0.
 
 			foreach ( $zones as $zone_id => $zone ) {
 
-				$zone_obj          = WC_Shipping_Zones::get_zone( $zone_id );	// Since WC v2.6.0.
+				$zone_obj          = WC_Shipping_Zones::get_zone( $zone_id );	// Since WooCommerce v2.6.0.
 				$zone_methods      = $zone_obj->get_shipping_methods( $enabled_only = true, $context = 'admin' );
 				$zone_name         = $zone_obj->get_zone_name( $context = 'admin' );
 				$zone_admin_url    = admin_url( 'admin.php?page=wc-settings&tab=shipping&zone_id=' . $zone_id );
