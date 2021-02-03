@@ -18,9 +18,7 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 == Description ==
 
-<p style="margin:0;"><img class="readme-icon" src="https://surniaulula.github.io/wpsso-wc-shipping-delivery-time/assets/icon-256x256.png"></p>
-
-Integrates and extends the **WooCommerce &gt; Settings &gt; Shipping** page with additional shipping delivery times:
+<p><img class="readme-icon" src="https://surniaulula.github.io/wpsso-wc-shipping-delivery-time/assets/icon-256x256.png"> Integrates and extends the **WooCommerce &gt; Settings &gt; Shipping** page with additional shipping delivery times:</p>
 
 * Optionally show handling and packaging times in the cart and checkout pages.
 * Optionally show transit times in the cart and checkout pages.
