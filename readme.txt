@@ -70,6 +70,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.2.1 (2021/02/25)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Updated the banners and icons of WPSSO Core and its add-ons.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.0.
+	* WordPress v4.5.
+	* WPSSO Core v8.23.0.
+	* WooCommerce v3.8.0.
+
 **Version 2.2.0 (2020/11/30)**
 
 * **New Features**
@@ -137,6 +153,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
+
+= 2.2.1 =
+
+(2021/02/25) Updated the banners and icons of WPSSO Core and its add-ons.
 
 = 2.2.0 =
 
