@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires PHP: 7.0
 Requires At Least: 4.5
 Tested Up To: 5.7.2
-WC Tested Up To: 5.4.0
+WC Tested Up To: 5.4.1
 Stable Tag: 2.2.1
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
