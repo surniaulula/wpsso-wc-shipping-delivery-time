@@ -30,9 +30,9 @@
 
 <p>Adding shipping details to your Schema Product markup is especially important if you offer free or low-cost shipping options as this will make your products more appealing in Google search results.</p>
 
-<h3>WPSSO Core Plugin Required</h3>
+<h3>WPSSO Core Required</h3>
 
-<p>WPSSO Shipping Delivery Time for WooCommerce (aka WPSSO WCSDT) is an add-on for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>. WPSSO Core and its add-ons make sure your content looks best on social sites and in search results, no matter how webpages are shared, re-shared, messaged, posted, embedded, or crawled.</p>
+<p>WPSSO Shipping Delivery Time for WooCommerce (WPSSO WCSDT) is an add-on for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>.</p>
 
 
 <h2>Installation</h2>
