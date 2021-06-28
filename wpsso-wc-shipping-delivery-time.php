@@ -9,7 +9,7 @@
  * Author: JS Morisset
  * Author URI: https://wpsso.com/
  * License: GPLv3
- * License URI: http://www.gnu.org/licenses/gpl.txt
+ * License URI: https://www.gnu.org/licenses/gpl.txt
  * Description: Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
  * Requires PHP: 7.0
  * Requires At Least: 4.5
