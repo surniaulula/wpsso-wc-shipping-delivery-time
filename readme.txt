@@ -10,7 +10,7 @@ Tags: woocommerce, shipping, delivery, schema, schema.org, OfferShippingDetails,
 Contributors: jsmoriss
 Requires PHP: 7.0
 Requires At Least: 5.0
-Tested Up To: 5.7.2
+Tested Up To: 5.8
 WC Tested Up To: 5.4.1
 Stable Tag: 2.2.1
 
