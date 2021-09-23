@@ -27,9 +27,7 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
 
-**Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/extend/plugins/wpsso/) and the [WPSSO Schema JSON-LD Markup add-on](https://wordpress.org/plugins/wpsso-schema-json-ld/) for Schema (aka Schema.org) ShippingDeliveryTime markup.**
-
-Adding shipping details to your Schema Product markup is especially important if you offer free or low-cost shipping options as this will make your products more appealing in Google search results.
+Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/extend/plugins/wpsso/) for Schema (aka Schema.org) ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.
 
 <h3>WPSSO Core Required</h3>
 
@@ -70,7 +68,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.3.0-rc.1 (2021/09/23)**
+**Version 2.3.0-rc.2 (2021/09/23)**
 
 Maintenance release for WPSSO Core v9.0.0.
 
@@ -85,7 +83,7 @@ Maintenance release for WPSSO Core v9.0.0.
 * **Requires At Least**
 	* PHP v7.0.
 	* WordPress v5.0.
-	* WPSSO Core v9.0.0-rc.1.
+	* WPSSO Core v9.0.0-rc.2.
 	* WooCommerce v3.8.0.
 
 **Version 2.2.1 (2021/02/25)**
@@ -172,7 +170,7 @@ Maintenance release for WPSSO Core v9.0.0.
 
 == Upgrade Notice ==
 
-= 2.3.0-rc.1 =
+= 2.3.0-rc.2 =
 
 (2021/09/23) Maintenance release for WPSSO Core v9.0.0.
 
