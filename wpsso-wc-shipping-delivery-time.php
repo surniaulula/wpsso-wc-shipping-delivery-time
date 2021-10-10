@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WPSSO Shipping Delivery Time for WooCommerce
+ * Plugin Name: WPSSO Shipping Delivery Time for WooCommerce SEO
  * Plugin Slug: wpsso-wc-shipping-delivery-time
  * Text Domain: wpsso-wc-shipping-delivery-time
  * Domain Path: /languages
