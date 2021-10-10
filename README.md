@@ -1,7 +1,7 @@
-<h1>WPSSO Shipping Delivery Time for WooCommerce</h1>
+<h1>WPSSO Shipping Delivery Time for WooCommerce SEO</h1>
 
 <table>
-<tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Shipping Delivery Time for WooCommerce</td></tr>
+<tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Shipping Delivery Time for WooCommerce SEO</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.3.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.0 or newer</td></tr>
@@ -30,7 +30,7 @@
 
 <h3>WPSSO Core Required</h3>
 
-<p>WPSSO Shipping Delivery Time for WooCommerce (WPSSO WCSDT) is an add-on for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>.</p>
+<p>WPSSO Shipping Delivery Time for WooCommerce SEO (WPSSO WCSDT) is an add-on for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>.</p>
 
 
 <h2>Installation</h2>
@@ -38,8 +38,8 @@
 <h3 class="top">Install and Uninstall</h3>
 
 <ul>
-<li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/install-the-plugin/">Install the WPSSO Shipping Delivery Time for WooCommerce add-on</a>.</li>
-<li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/">Uninstall the WPSSO Shipping Delivery Time for WooCommerce add-on</a>.</li>
+<li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/install-the-plugin/">Install the WPSSO Shipping Delivery Time for WooCommerce SEO add-on</a>.</li>
+<li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/">Uninstall the WPSSO Shipping Delivery Time for WooCommerce SEO add-on</a>.</li>
 </ul>
 
 

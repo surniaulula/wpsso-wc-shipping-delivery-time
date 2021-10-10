@@ -1,5 +1,5 @@
-=== WPSSO Shipping Delivery Time for WooCommerce ===
-Plugin Name: WPSSO Shipping Delivery Time for WooCommerce
+=== WPSSO Shipping Delivery Time for WooCommerce SEO ===
+Plugin Name: WPSSO Shipping Delivery Time for WooCommerce SEO
 Plugin Slug: wpsso-wc-shipping-delivery-time
 Text Domain: wpsso-wc-shipping-delivery-time
 Domain Path: /languages
@@ -31,14 +31,14 @@ Provides shipping delivery time information to the [WPSSO Core Premium plugin](h
 
 <h3>WPSSO Core Required</h3>
 
-WPSSO Shipping Delivery Time for WooCommerce (WPSSO WCSDT) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
+WPSSO Shipping Delivery Time for WooCommerce SEO (WPSSO WCSDT) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
 
 == Installation ==
 
 <h3 class="top">Install and Uninstall</h3>
 
-* [Install the WPSSO Shipping Delivery Time for WooCommerce add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/install-the-plugin/).
-* [Uninstall the WPSSO Shipping Delivery Time for WooCommerce add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/).
+* [Install the WPSSO Shipping Delivery Time for WooCommerce SEO add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/install-the-plugin/).
+* [Uninstall the WPSSO Shipping Delivery Time for WooCommerce SEO add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/).
 
 == Frequently Asked Questions ==
 
