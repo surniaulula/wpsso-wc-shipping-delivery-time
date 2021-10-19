@@ -15,6 +15,8 @@
 
 <h2>Description</h2>
 
+<!-- about -->
+
 <p>Integrates and extends the <em>WooCommerce &gt; Settings &gt; Shipping</em> page with additional shipping delivery times:</p>
 
 <ul>
@@ -27,6 +29,8 @@
 </ul>
 
 <p>Provides shipping delivery time information to the <a href="https://wpsso.com/extend/plugins/wpsso/">WPSSO Core Premium plugin</a> for Schema (aka Schema.org) ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.</p>
+
+<!-- /about -->
 
 <h3>WPSSO Core Required</h3>
 
