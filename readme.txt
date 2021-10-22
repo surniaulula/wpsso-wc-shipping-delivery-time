@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.4.0-rc.1 (2021/10/22)**
+**Version 2.4.0 (2021/10/22)**
 
 * **New Features**
 	* None.
@@ -196,7 +196,7 @@ Maintenance release for WPSSO Core v9.0.0.
 
 == Upgrade Notice ==
 
-= 2.4.0-rc.1 =
+= 2.4.0 =
 
 (2021/10/22) Changed the shipping and handling time container from '&lt;label&gt;&lt;/label&gt;' to '&lt;span class="shipping-handling-time"&gt;&lt;/span&gt;'.
 
