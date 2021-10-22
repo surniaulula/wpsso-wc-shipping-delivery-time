@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **New Features**
 	* None.
 * **Improvements**
-	* Changed the shipping and handling time container from '<label></label>' to '<span class="shipping-handling-time"></span>'.
+	* Changed the shipping and handling time container from '&lt;label&gt;&lt;/label&gt;' to '&lt;span class="shipping-handling-time"&gt;&lt;/span&gt;'.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
@@ -198,7 +198,7 @@ Maintenance release for WPSSO Core v9.0.0.
 
 = 2.4.0-rc.1 =
 
-(2021/10/22) Changed the shipping and handling time container from '<label></label>' to '<span class="shipping-handling-time"></span>'.
+(2021/10/22) Changed the shipping and handling time container from '&lt;label&gt;&lt;/label&gt;' to '&lt;span class="shipping-handling-time"&gt;&lt;/span&gt;'.
 
 = 2.3.0 =
 
