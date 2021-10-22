@@ -2,7 +2,8 @@
 # This file is distributed under the same license as the WPSSO Shipping Delivery Time for WooCommerce SEO package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 2.3.0\n"
+"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 2.4.0-"
+"rc.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2021-MO-DA HO:MI+ZONE\n"
@@ -195,54 +196,54 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-#: lib/woocommerce.php:132
+#: lib/woocommerce.php:133
 msgid "Add %s for handling &amp; packaging."
 msgstr ""
 
 #. translators: Shipping transit time in the shipping method label.
-#: lib/woocommerce.php:187
+#: lib/woocommerce.php:190
 msgid "(%s)"
 msgstr ""
 
-#: lib/woocommerce.php:204
+#: lib/woocommerce.php:209
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:205
+#: lib/woocommerce.php:210
 msgid "%1$s - %2$s hours"
 msgstr ""
 
-#: lib/woocommerce.php:206
+#: lib/woocommerce.php:211
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:207
+#: lib/woocommerce.php:212
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:216
+#: lib/woocommerce.php:221
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:217
+#: lib/woocommerce.php:222
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:218
+#: lib/woocommerce.php:223
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:219
+#: lib/woocommerce.php:224
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""

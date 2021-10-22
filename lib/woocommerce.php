@@ -129,9 +129,12 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$times_label = $this->get_times_label( $pkg_min_val, $pkg_max_val, $pkg_unit_code );
 
 			// tranlators: Shipping handling and packaging time under the shipping methods.
-			$handling_label = '<label><small>' . __( 'Add %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small></label>';
+			$handling_label = '<span class="shipping-handling-time"><small>' .
+				__( 'Add %s for handling &amp; packaging.', 'wpsso-wc-shipping-delivery-time' ) . '</small><span>';
+
 			$handling_label = apply_filters( 'wpsso_wcsdt_shipping_handling_time_label', $handling_label, $times_label );
-			$handling_label = sprintf( $handling_label, $times_label );
+
+			$handling_label = ' ' . sprintf( $handling_label, $times_label );
 
 			echo $handling_label;
 		}
@@ -184,9 +187,11 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$times_label = $this->get_times_label( $min_val, $max_val, $unit_code );
 
 			// translators: Shipping transit time in the shipping method label.
-			$transit_label = ' ' . __( '(%s)', 'wpsso-wc-shipping-delivery-time' );
+			$transit_label = __( '(%s)', 'wpsso-wc-shipping-delivery-time' );
+
 			$transit_label = apply_filters( 'wpsso_wcsdt_shipping_transit_time_label', $transit_label, $times_label );
-			$transit_label = sprintf( $transit_label, $times_label );
+
+			$transit_label = ' ' . sprintf( $transit_label, $times_label );
 
 			return $method_label . $transit_label;
 		}
@@ -246,7 +251,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			}
 
 			$times_label = apply_filters( 'wpsso_wcsdt_shipping_times_label', $times_label, $min_val, $max_val, $unit_code );
-			$times_label = sprintf( $times_label, $min_val, $max_val );
+
+			$times_label = trim( sprintf( $times_label, $min_val, $max_val ) );
 
 			return $times_label;
 		}
