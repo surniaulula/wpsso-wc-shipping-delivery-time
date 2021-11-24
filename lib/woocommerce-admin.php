@@ -54,7 +54,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			$def_opts = $this->p->opt->get_defaults();	// Passed by reference.
 
-			$this->form = new SucomForm( $this->p, WPSSO_OPTIONS_NAME, $this->p->options, $def_opts, $menu_ext = 'wpsso' );
+			$this->form = new SucomForm( $this->p, WPSSO_OPTIONS_NAME, $this->p->options, $def_opts, $this->p->id );
 
 			/**
 			 * See woocommerce/includes/admin/settings/class-wc-settings-shipping.php for examples.
