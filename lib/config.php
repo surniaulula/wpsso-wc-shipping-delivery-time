@@ -107,12 +107,25 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 			require_once WPSSOWCSDT_PLUGINDIR . 'lib/register.php';
 			require_once WPSSOWCSDT_PLUGINDIR . 'lib/woocommerce.php';
 
-			add_filter( 'wpssowcsdt_load_lib', array( 'WpssoWcsdtConfig', 'load_lib' ), 10, 3 );
+			add_filter( 'wpssowcsdt_load_lib', array( __CLASS__, 'load_lib' ), 10, 3 );
 		}
 
 		public static function load_lib( $success = false, $filespec = '', $classname = '' ) {
 
-			if ( false === $success && ! empty( $filespec ) ) {
+			if ( false !== $success ) {
+
+				return $success;
+			}
+
+			if ( ! empty( $classname ) ) {
+
+				if ( class_exists( $classname ) ) {
+
+					return $classname;
+				}
+			}
+
+			if ( ! empty( $filespec ) ) {
 
 				$file_path = WPSSOWCSDT_PLUGINDIR . 'lib/' . $filespec . '.php';
 
