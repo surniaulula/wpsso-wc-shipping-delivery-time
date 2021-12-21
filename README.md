@@ -28,7 +28,7 @@
 <li>Increment handling and transit times in half-hours and/or half-days.</li>
 </ul>
 
-<p>Provides shipping delivery time information to the <a href="https://wpsso.com/extend/plugins/wpsso/">WPSSO Core Premium plugin</a> for Schema (aka Schema.org) ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.</p>
+<p>Provides shipping delivery time information to the <a href="https://wpsso.com/">WPSSO Core Premium plugin</a> for Schema (aka Schema.org) ShippingDeliveryTime markup. Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.</p>
 
 <!-- /about -->
 
