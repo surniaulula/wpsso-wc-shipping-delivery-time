@@ -36,7 +36,6 @@
 
 <p>WPSSO Shipping Delivery Time for WooCommerce SEO (WPSSO WCSDT) is an add-on for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>.</p>
 
-
 <h2>Installation</h2>
 
 <h3 class="top">Install and Uninstall</h3>
@@ -46,7 +45,6 @@
 <li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/">Uninstall the WPSSO Shipping Delivery Time for WooCommerce SEO add-on</a>.</li>
 </ul>
 
-
 <h2>Frequently Asked Questions</h2>
 
 <h3 class="top">Frequently Asked Questions</h3>
@@ -54,5 +52,4 @@
 <ul>
 <li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/faqs/how-do-i-exclude-offer-shipping-details-from-the-markup/">How do I exclude shipping details from JSON-LD markup?</a></li>
 </ul>
-
 
