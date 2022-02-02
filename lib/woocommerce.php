@@ -198,6 +198,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 		private function get_times_label( $min_val, $max_val, $unit_code ) {
 
+			$min_val_transl = wc_format_localized_decimal( $min_val );
+			$max_val_transl = wc_format_localized_decimal( $max_val );
+
 			/**
 			 * UN/CEFACT Common Code (3 characters).
 			 */
@@ -206,10 +209,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				case 'HUR':
 
 					$times_transl = array(
-						'equal'   => _n( '%1$s hour', '%1$s hours', $min_val, 'wpsso-wc-shipping-delivery-time' ),
+						'equal'   => _n( '%1$s hour', '%1$s hours', $min_val_transl, 'wpsso-wc-shipping-delivery-time' ),
 						'min_max' => __( '%1$s - %2$s hours', 'wpsso-wc-shipping-delivery-time' ),
-						'min'     => _n( '%1$s or more hours', '%1$s or more hours', $min_val, 'wpsso-wc-shipping-delivery-time' ),
-						'max'     => _n( 'up to %2$s hour', 'up to %2$s hours', $max_val, 'wpsso-wc-shipping-delivery-time' ),
+						'min'     => _n( '%1$s or more hours', '%1$s or more hours', $min_val_transl, 'wpsso-wc-shipping-delivery-time' ),
+						'max'     => _n( 'up to %2$s hour', 'up to %2$s hours', $max_val_transl, 'wpsso-wc-shipping-delivery-time' ),
 					);
 
 					break;
@@ -218,10 +221,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 				default:
 
 					$times_transl = array(
-						'equal'   => _n( '%1$s day', '%1$s days', $min_val, 'wpsso-wc-shipping-delivery-time' ),
+						'equal'   => _n( '%1$s day', '%1$s days', $min_val_transl, 'wpsso-wc-shipping-delivery-time' ),
 						'min_max' => __( '%1$s - %2$s days', 'wpsso-wc-shipping-delivery-time' ),
-						'min'     => _n( '%1$s or more days', '%1$s or more days', $min_val, 'wpsso-wc-shipping-delivery-time' ),
-						'max'     => _n( 'up to %2$s day', 'up to %2$s days', $max_val, 'wpsso-wc-shipping-delivery-time' ),
+						'min'     => _n( '%1$s or more days', '%1$s or more days', $min_val_transl, 'wpsso-wc-shipping-delivery-time' ),
+						'max'     => _n( 'up to %2$s day', 'up to %2$s days', $max_val_transl, 'wpsso-wc-shipping-delivery-time' ),
 					);
 
 					break;

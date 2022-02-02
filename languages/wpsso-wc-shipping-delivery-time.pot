@@ -2,7 +2,8 @@
 # This file is distributed under the same license as the WPSSO Shipping Delivery Time for WooCommerce SEO package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 2.5.0\n"
+"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 2.6.0-"
+"dev.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2022-MO-DA HO:MI+ZONE\n"
@@ -212,45 +213,45 @@ msgstr ""
 msgid "(%s)"
 msgstr ""
 
-#: lib/woocommerce.php:209
+#: lib/woocommerce.php:212
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:210
+#: lib/woocommerce.php:213
 msgid "%1$s - %2$s hours"
 msgstr ""
 
-#: lib/woocommerce.php:211
+#: lib/woocommerce.php:214
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:212
+#: lib/woocommerce.php:215
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:221
+#: lib/woocommerce.php:224
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:222
+#: lib/woocommerce.php:225
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:223
+#: lib/woocommerce.php:226
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:224
+#: lib/woocommerce.php:227
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""
