@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.5.0\n"
+"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 2.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-delivery-time\n"
 "POT-Creation-Date: 2022-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-01-18 15:08-0800\n"
+"PO-Revision-Date: 2022-02-04 21:33-0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -205,45 +205,45 @@ msgstr "Ajoutez %s pour la manutention et l'emballage."
 msgid "(%s)"
 msgstr "(%s)"
 
-#: lib/woocommerce.php:209
+#: lib/woocommerce.php:212
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] "%1$s heures"
 msgstr[1] "%1$s hours"
 
-#: lib/woocommerce.php:210
+#: lib/woocommerce.php:213
 msgid "%1$s - %2$s hours"
 msgstr "%1$s - %2$s heures"
 
-#: lib/woocommerce.php:211
+#: lib/woocommerce.php:214
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] "%1$s heur ou plus"
 msgstr[1] "%1$s heures ou plus"
 
-#: lib/woocommerce.php:212
+#: lib/woocommerce.php:215
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] "jusqu'à %2$s heure"
 msgstr[1] "jusqu'à %2$s heures"
 
-#: lib/woocommerce.php:221
+#: lib/woocommerce.php:224
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] "%1$s jour"
 msgstr[1] "%1$s days"
 
-#: lib/woocommerce.php:222
+#: lib/woocommerce.php:225
 msgid "%1$s - %2$s days"
 msgstr "%1$s - %2$s jours"
 
-#: lib/woocommerce.php:223
+#: lib/woocommerce.php:226
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] "%1$s jour ou plus"
 msgstr[1] "%1$s jours ou plus"
 
-#: lib/woocommerce.php:224
+#: lib/woocommerce.php:227
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] "jusqu'à %2$s jour"
