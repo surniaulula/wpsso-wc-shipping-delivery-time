@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.6.0-dev.6 (2022/02/04)**
+**Version 2.6.0-b.1 (2022/02/04)**
 
 * **New Features**
 	* None.
@@ -91,7 +91,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.2.
-	* WPSSO Core v10.1.0-dev.6.
+	* WPSSO Core v10.1.0-b.1.
 	* WooCommerce v5.0.
 
 **Version 2.5.0 (2022/01/19)**
@@ -247,7 +247,7 @@ Maintenance release for WPSSO Core v9.0.0.
 
 == Upgrade Notice ==
 
-= 2.6.0-dev.6 =
+= 2.6.0-b.1 =
 
 (2022/02/04) Added a call to `wc_format_localized_decimal()` for displayed shipping times.
 
