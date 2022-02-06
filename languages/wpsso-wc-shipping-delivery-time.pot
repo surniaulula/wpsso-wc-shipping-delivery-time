@@ -212,45 +212,45 @@ msgstr ""
 msgid "(%s)"
 msgstr ""
 
-#: lib/woocommerce.php:212
+#: lib/woocommerce.php:215
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:213
+#: lib/woocommerce.php:216
 msgid "%1$s - %2$s hours"
 msgstr ""
 
-#: lib/woocommerce.php:214
+#: lib/woocommerce.php:217
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:215
+#: lib/woocommerce.php:218
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:224
+#: lib/woocommerce.php:227
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:225
+#: lib/woocommerce.php:228
 msgid "%1$s - %2$s days"
 msgstr ""
 
-#: lib/woocommerce.php:226
+#: lib/woocommerce.php:229
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/woocommerce.php:227
+#: lib/woocommerce.php:230
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] ""

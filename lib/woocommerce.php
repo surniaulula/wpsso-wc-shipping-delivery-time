@@ -198,6 +198,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 		private function get_times_label( $min_val, $max_val, $unit_code ) {
 
+			/**
+			 * See https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-formatting-functions.html#source-view.353.
+			 */
 			$min_val_transl = wc_format_localized_decimal( $min_val );
 			$max_val_transl = wc_format_localized_decimal( $max_val );
 
