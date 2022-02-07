@@ -199,10 +199,27 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 		private function get_times_label( $min_val, $max_val, $unit_code ) {
 
 			/**
+			 * The wc_format_localized_decimal() function uses the 'woocommerce_format_localized_decimal' filter.
+			 *
+			 * See https://www.php.net/manual/en/function.setlocale.php.
+			 * See https://www.php.net/manual/en/function.localeconv.php (used by wc_format_localized_decimal()).
 			 * See https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-formatting-functions.html#source-view.353.
 			 */
+			$wp_locale  = SucomUtil::get_locale( 'current' );
+			$php_locale = setlocale( LC_NUMERIC, 0 );
+
+			if ( $wp_locale !== $php_locale ) {	// Just in case.
+
+				setlocale( LC_NUMERIC, $wp_locale );
+			}
+
 			$min_val_transl = wc_format_localized_decimal( $min_val );
 			$max_val_transl = wc_format_localized_decimal( $max_val );
+
+			if ( $wp_locale !== $php_locale ) {
+
+				setlocale( LC_NUMERIC, $php_locale );
+			}
 
 			/**
 			 * UN/CEFACT Common Code (3 characters).
