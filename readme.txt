@@ -78,6 +78,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.6.1-b.1 (2022/02/07)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Added PHP `setlocale()` calls before/after using `wc_format_localized_decimal()`.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.2.
+	* WPSSO Core v10.1.0.
+	* WooCommerce v5.0.
+
 **Version 2.6.0 (2022/02/05)**
 
 * **New Features**
@@ -246,6 +262,10 @@ Maintenance release for WPSSO Core v9.0.0.
 	* WooCommerce v3.6.4.
 
 == Upgrade Notice ==
+
+= 2.6.1-b.1 =
+
+(2022/02/07) Added PHP `setlocale()` calls before/after using `wc_format_localized_decimal()`.
 
 = 2.6.0 =
 
