@@ -199,26 +199,25 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 		private function get_times_label( $min_val, $max_val, $unit_code ) {
 
 			/**
-			 * The wc_format_localized_decimal() function uses the 'woocommerce_format_localized_decimal' filter.
+			 * Format the $min_val and $max_val strings using the localized PHP decimal separators.
 			 *
 			 * See https://www.php.net/manual/en/function.setlocale.php.
-			 * See https://www.php.net/manual/en/function.localeconv.php (used by wc_format_localized_decimal()).
 			 * See https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-formatting-functions.html#source-view.353.
 			 */
-			$wp_locale  = SucomUtil::get_locale( 'current' );
-			$php_locale = setlocale( LC_NUMERIC, 0 );
+			$wp_locale  = SucomUtil::get_locale( 'current' );		// Get the current WordPress locale.
+			$php_locale = setlocale( LC_NUMERIC, 0 );			// Get the current PHP locale.
 
-			if ( $wp_locale !== $php_locale ) {	// Just in case.
+			if ( $wp_locale !== $php_locale ) {				// Check if we're already using the WordPress locale.
 
-				setlocale( LC_NUMERIC, $wp_locale );
+				setlocale( LC_NUMERIC, $wp_locale );			// Set the PHP decimal separators based on the WordPress locale.
 			}
 
-			$min_val_transl = wc_format_localized_decimal( $min_val );
-			$max_val_transl = wc_format_localized_decimal( $max_val );
+			$min_val_transl = wc_format_localized_decimal( $min_val );	// Format $min_val using PHP decimal separators.
+			$max_val_transl = wc_format_localized_decimal( $max_val );	// Format $max_val using PHP decimal separators.
 
-			if ( $wp_locale !== $php_locale ) {
+			if ( $wp_locale !== $php_locale ) {				// Check if we need to restore the original PHP locale.
 
-				setlocale( LC_NUMERIC, $php_locale );
+				setlocale( LC_NUMERIC, $php_locale );			// Restore the original PHP decimal separators.
 			}
 
 			/**
