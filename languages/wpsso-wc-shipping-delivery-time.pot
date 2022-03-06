@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 2.7.1-"
-"b.1\n"
+"b.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2022-MO-DA HO:MI+ZONE\n"
@@ -43,12 +43,12 @@ msgstr ""
 
 #: gettext/gettext-lib-config.php:9
 msgctxt "plugin name"
-msgid "WooCommerce"
+msgid "WPSSO Core"
 msgstr ""
 
 #: gettext/gettext-lib-config.php:10
 msgctxt "plugin name"
-msgid "WPSSO Core"
+msgid "WooCommerce"
 msgstr ""
 
 #: lib/woocommerce-admin.php:41 lib/woocommerce-admin.php:64
