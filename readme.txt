@@ -10,8 +10,8 @@ Tags: woocommerce, shipping, delivery, schema, schema.org, OfferShippingDetails,
 Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.2
-Tested Up To: 5.9.1
-WC Tested Up To: 6.3.0
+Tested Up To: 5.9.2
+WC Tested Up To: 6.3.1
 Stable Tag: 2.7.1
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
