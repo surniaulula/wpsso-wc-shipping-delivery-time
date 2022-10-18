@@ -8,6 +8,7 @@ License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wc-shipping-delivery-time/assets/
 Tags: woocommerce, shipping, delivery, schema, schema.org, OfferShippingDetails, deliveryTime, ShippingDeliveryTime
 Contributors: jsmoriss
+Requires Plugins: wpsso, woocommerce
 Requires PHP: 7.2
 Requires At Least: 5.2
 Tested Up To: 6.1.0
