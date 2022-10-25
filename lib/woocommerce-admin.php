@@ -427,7 +427,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 			if ( empty( $shipping_methods ) ) {
 
 				echo '<tr>';
-				echo '<td colspan="5" style="text-align:center;">' . 
+				echo '<td colspan="5" style="text-align:center;">' .
 					// translators: Please ignore - translation uses a different text domain.
 					__( 'No shipping methods offered to this zone.', 'woocommerce' ) . '</td>' . "\n";
 				echo '</tr>' . "\n";
