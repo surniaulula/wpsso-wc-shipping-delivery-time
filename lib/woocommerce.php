@@ -221,7 +221,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 			}
 
 			/**
-			 * UN/CEFACT Common Code (3 characters).
+			 * See http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes.
 			 */
 			switch ( $unit_code ) {
 
@@ -356,7 +356,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 			}
 
 			/**
-			 * UN/CEFACT Common Code (3 characters).
+			 * See http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes.
 			 */
 			switch ( $unit_code ) {
 
@@ -380,7 +380,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 			}
 
 			/**
-			 * UN/CEFACT Common Code (3 characters).
+			 * See http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes.
 			 */
 			switch ( $unit_code ) {
 
