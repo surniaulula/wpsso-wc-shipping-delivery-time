@@ -13,7 +13,7 @@ Requires PHP: 7.2
 Requires At Least: 5.2
 Tested Up To: 6.1.1
 WC Tested Up To: 7.3.0
-Stable Tag: 2.7.1
+Stable Tag: 2.8.0
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
 
