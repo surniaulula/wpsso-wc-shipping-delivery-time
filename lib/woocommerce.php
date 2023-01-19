@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2020-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -18,7 +18,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 		private $a;     // WpssoWcsdt class object.
 		private $admin;	// WpssoWcsdtWoocommerceAdmin class object.
 
-		/**
+		/*
 		 * Instantiated by WpssoWcsdt->init_objects().
 		 */
 		public function __construct( &$plugin, &$addon ) {
@@ -101,7 +101,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 			$pkg_max_val   = '';
 			$pkg_unit_code = '';
 
-			/**
+			/*
 			 * Determine the $pkg_min_val and $pkg_max_val values.
 			 */
 			foreach ( $package[ 'contents' ] as $item_id => $values ) {
@@ -139,7 +139,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 			echo $handling_label;
 		}
 
-		/**
+		/*
 		 * $method is a WC_Shipping_Rate object.
 		 */
 		public function add_transit_time_label( $method_label, $method_obj ) {
@@ -198,7 +198,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 
 		private function get_times_label( $min_val, $max_val, $unit_code ) {
 
-			/**
+			/*
 			 * Format the $min_val and $max_val strings using the localized PHP decimal separators.
 			 *
 			 * See https://www.php.net/manual/en/function.setlocale.php.
@@ -220,7 +220,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 				setlocale( LC_NUMERIC, $php_locale );			// Restore the original PHP decimal separators.
 			}
 
-			/**
+			/*
 			 * See http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes.
 			 */
 			switch ( $unit_code ) {
@@ -337,7 +337,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 			return array( $pkg_min_val, $pkg_max_val, $pkg_unit_code );
 		}
 
-		/**
+		/*
 		 * Is unit code $a greater than unit code $b?
 		 */
 		private function is_unit_code_greater( $a, $b ) {
@@ -355,7 +355,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 				return $val;
 			}
 
-			/**
+			/*
 			 * See http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes.
 			 */
 			switch ( $unit_code ) {
@@ -379,7 +379,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 				return $val;
 			}
 
-			/**
+			/*
 			 * See http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes.
 			 */
 			switch ( $unit_code ) {

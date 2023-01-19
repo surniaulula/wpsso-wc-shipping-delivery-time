@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2020-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -18,7 +18,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 		private $a;     // WpssoWcsdt class object.
 		private $form;	// SucomForm class object.
 
-		/**
+		/*
 		 * Instantiated by WpssoWcsdtWoocommerce->__construct().
 		 */
 		public function __construct( &$plugin ) {
@@ -56,7 +56,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 
 			$this->form = new SucomForm( $this->p, WPSSO_OPTIONS_NAME, $this->p->options, $def_opts, $this->p->id );
 
-			/**
+			/*
 			 * See woocommerce/includes/admin/settings/class-wc-settings-shipping.php for examples.
 			 */
 			$settings = array(
@@ -68,7 +68,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 				array(
 					'title'         => __( 'Show shipping estimates', 'wpsso-wc-shipping-delivery-time' ),
 
-					/**
+					/*
 					 * Start of 'Show delivery estimates' checkbox group.
 					 */
 					'desc'          => __( 'Show handling and packaging times in the cart and checkout pages.', 'wpsso-wc-shipping-delivery-time' ),
@@ -198,7 +198,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
 
-			/**
+			/*
 			 * Example $weekdays = array(
 			 *	'sunday'         => 'Sunday',
 			 *	'monday'         => 'Monday',
@@ -368,7 +368,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 				$this->show_transit_time_table_rows( $zone_label_transl, $zone_id, $zone_methods );
 			}
 
-			/**
+			/*
 			 * Locations not covered by your other zones.
 			 */
 			$world_zone_id      = 0;
@@ -498,7 +498,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
 			echo '</select>' . "\n";
 		}
 
-		/**
+		/*
 		 * Action called by WC_Admin_Settings->save() in woocommerce/includes/admin/class-wc-admin-settings.php.
 		 */
 		public function save_settings() {

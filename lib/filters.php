@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2020-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 		private $p;	// Wpsso class object.
 		private $a;     // WpssoWcsdt class object.
 
-		/**
+		/*
 		 * Instantiated by WpssoWcsdt->init_objects().
 		 */
 		public function __construct( &$plugin, &$addon ) {
@@ -40,7 +40,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 			), $prio = -1000 );	// Run first.
 		}
 
-		/**
+		/*
 		 * Returns shipping department, handling, and transit options for $shipping_class_id and $method_inst_id.
 		 *
 		 * Array (
@@ -114,7 +114,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 				$sdt_opts[ $sdt_type . '_rel' ] = $parent_url;
 
-			 	/**
+			 	/*
 				 * Get handling options for the $shipping_class_id, or transit options for the $method_inst_id.
 				 */
 				$sdt_type_opts = SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts );
@@ -123,7 +123,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 					if ( '' !== $val ) {	// Allow for 0.
 
-						/**
+						/*
 						 * Create and delivery time option key name from the handling / transit options key prefix.
 						 *
 						 * Example: 'wcsdt_handling_c136_minimum' to 'handling_minimum'.
@@ -132,7 +132,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 						$sdt_opts[ $time_key ] = $val;
 
-						/**
+						/*
 						 * If this is a unit code, add the name and unit text.
 						 */
 						if ( false !== strpos( $time_key, '_unit_code' ) ) {
