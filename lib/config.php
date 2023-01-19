@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2020-2022 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowcsdt' => array(			// Plugin acronym.
-					'version'     => '2.8.0-rc.1',	// Plugin version.
+					'version'     => '2.8.0-rc.2',	// Plugin version.
 					'opt_version' => '1',		// Increment when changing default option values.
 					'short'       => 'WPSSO WCSDT',	// Short plugin name.
 					'name'        => 'WPSSO Shipping Delivery Time for WooCommerce SEO',
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 					'text_domain' => 'wpsso-wc-shipping-delivery-time',
 					'domain_path' => '/languages',
 
-					/**
+					/*
 					 * Required plugin and its version.
 					 */
 					'req' => array(
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '14.5.0-rc.1',
+							'min_version'   => '14.5.0-rc.2',
 						),
 						'woocommerce' => array(
 							'name'          => 'WooCommerce',
@@ -48,12 +48,12 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 						),
 					),
 
-					/**
+					/*
 					 * URLs or relative paths to plugin banners and icons.
 					 */
 					'assets' => array(
 
-						/**
+						/*
 						 * Icon image array keys are '1x' and '2x'.
 						 */
 						'icons' => array(
@@ -62,7 +62,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 						),
 					),
 
-					/**
+					/*
 					 * Library files loaded and instantiated by WPSSO.
 					 */
 					'lib' => array(
@@ -90,7 +90,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 
 			$info =& self::$cf[ 'plugin' ][ 'wpssowcsdt' ];
 
-			/**
+			/*
 			 * Define fixed constants.
 			 */
 			define( 'WPSSOWCSDT_FILEPATH', $plugin_file );
