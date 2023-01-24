@@ -70,6 +70,15 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 							'wcsdt-general' => 'WC Shipping',
 						),
 					),
+
+					/*
+					 * Declare compatibility with WooCommerce HPOS.
+					 *
+					 * See https://github.com/woocommerce/woocommerce/wiki/High-Performance-Order-Storage-Upgrade-Recipe-Book.
+					 */
+					'wc_compat' => array(
+						'custom_order_tables',
+					),
 				),
 			),
 		);
