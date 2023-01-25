@@ -81,7 +81,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.8.1-dev.4 (2023/01/24)**
+**Version 2.8.1-dev.5 (2023/01/25)**
 
 * **New Features**
 	* None.
@@ -95,7 +95,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.4.
-	* WPSSO Core v14.6.1-dev.4.
+	* WPSSO Core v14.6.1-dev.5.
 	* WooCommerce v5.0.
 
 **Version 2.8.0 (2023/01/20)**
@@ -315,9 +315,9 @@ Maintenance release for WPSSO Core v9.0.0.
 
 == Upgrade Notice ==
 
-= 2.8.1-dev.4 =
+= 2.8.1-dev.5 =
 
-(2023/01/24) Added compatibility declaration for WooCommerce HPOS. Updated the `WpssoAbstractAddOn` library class.
+(2023/01/25) Added compatibility declaration for WooCommerce HPOS. Updated the minimum WordPress version from v5.2 to v5.4.
 
 = 2.8.0 =
 
