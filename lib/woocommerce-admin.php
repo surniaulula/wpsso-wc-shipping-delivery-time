@@ -10,16 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'These aren\'t the droids you\'re looking for.' );
 }
 
-if ( ! class_exists( 'WpssoWcsdtWoocommerceAdmin' ) ) {
+if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
-	class WpssoWcsdtWoocommerceAdmin {
+	class WpssoWcsdtWooCommerceAdmin {
 
 		private $p;	// Wpsso class object.
 		private $a;     // WpssoWcsdt class object.
 		private $form;	// SucomForm class object.
 
 		/*
-		 * Instantiated by WpssoWcsdtWoocommerce->__construct().
+		 * Instantiated by WpssoWcsdtWooCommerce->__construct().
 		 */
 		public function __construct( &$plugin ) {
 

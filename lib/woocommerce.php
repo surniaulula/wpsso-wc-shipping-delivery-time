@@ -10,13 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'These aren\'t the droids you\'re looking for.' );
 }
 
-if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
+if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
-	class WpssoWcsdtWoocommerce {
+	class WpssoWcsdtWooCommerce {
 
 		private $p;	// Wpsso class object.
 		private $a;     // WpssoWcsdt class object.
-		private $admin;	// WpssoWcsdtWoocommerceAdmin class object.
+		private $admin;	// WpssoWcsdtWooCommerceAdmin class object.
 
 		/*
 		 * Instantiated by WpssoWcsdt->init_objects().
@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoWcsdtWoocommerce' ) ) {
 
 				require_once WPSSOWCSDT_PLUGINDIR . 'lib/woocommerce-admin.php';
 
-				$this->admin = new WpssoWcsdtWoocommerceAdmin( $plugin, $addon );
+				$this->admin = new WpssoWcsdtWooCommerceAdmin( $plugin, $addon );
 			}
 		}
 
