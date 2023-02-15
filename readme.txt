@@ -21,18 +21,18 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 <!-- about -->
 
-Integrates and extends the *WooCommerce &gt; Settings &gt; Shipping* page with additional shipping delivery times:
+<strong>Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.</strong>
 
-* Optionally show handling and packaging times in the cart and checkout pages.
-* Optionally show transit times in the cart and checkout pages.
+The WPSSO Shipping Delivery Time for WooCommerce SEO add-on integrates and extends the *WooCommerce &gt; Settings &gt; Shipping* page with additional shipping delivery times:
+
+* Choose to show handling and packaging times in the cart and checkout pages.
+* Choose to show transit times in the cart and checkout pages.
 * Select shipping department hours (cutoff time for new orders and business hours).
 * Select min / max handling times for WooCommerce shipping classes.
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
 
 Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/) for Schema (aka Schema.org) ShippingDeliveryTime markup.
-
-Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.
 
 <!-- /about -->
 
