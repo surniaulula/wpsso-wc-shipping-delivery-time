@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wc-shipping-delivery-time/assets/
-Tags: woocommerce, schema, shippingDetails, OfferShippingDetails, ShippingDeliveryTime, deliveryTime, shipping, delivery, schema.org
+Tags: woocommerce, schema, shipping, shippingDetails, OfferShippingDetails, ShippingDeliveryTime, deliveryTime, delivery, schema.org
 Contributors: jsmoriss
 Requires Plugins: wpsso, woocommerce
 Requires PHP: 7.2.5
@@ -32,7 +32,7 @@ The WPSSO Shipping Delivery Time for WooCommerce SEO add-on integrates and exten
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
 
-Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/) for Schema (aka Schema.org) shippingDetails, OfferShippingDetails, and ShippingDeliveryTime markup.
+<strong>Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/) for Schema shippingDetails, OfferShippingDetails, and ShippingDeliveryTime markup.</strong>
 
 <!-- /about -->
 
