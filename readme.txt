@@ -51,7 +51,7 @@ WPSSO Shipping Delivery Time for WooCommerce SEO (WPSSO WCSDT) is an add-on for 
 
 <h3 class="top">Frequently Asked Questions</h3>
 
-* [How do I exclude shipping details from JSON-LD markup?](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/faqs/how-do-i-exclude-offer-shipping-details-from-the-markup/)
+* [How do I exclude shipping details from the Schema markup?](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/faqs/how-do-i-exclude-offer-shipping-details-from-the-markup/)
 
 == Screenshots ==
 

@@ -52,6 +52,6 @@
 <h3 class="top">Frequently Asked Questions</h3>
 
 <ul>
-<li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/faqs/how-do-i-exclude-offer-shipping-details-from-the-markup/">How do I exclude shipping details from JSON-LD markup?</a></li>
+<li><a href="https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/faqs/how-do-i-exclude-offer-shipping-details-from-the-markup/">How do I exclude shipping details from the Schema markup?</a></li>
 </ul>
 
