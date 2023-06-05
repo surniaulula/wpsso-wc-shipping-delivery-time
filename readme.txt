@@ -89,7 +89,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 * **Improvements**
 	* Added compatibility declaration for WooCommerce HPOS.
-	* Updated the minimum WordPress version from v5.2 to v5.4.
+	* Updated the minimum WordPress version from v5.2 to v5.5.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
@@ -183,143 +183,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.14.0.
 	* WooCommerce v5.0.
 
-**Version 2.4.1 (2021/11/16)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Refactored the `SucomAddOn->get_missing_requirements()` method.
-* **Requires At Least**
-	* PHP v7.2.
-	* WordPress v5.2.
-	* WPSSO Core v9.8.0.
-	* WooCommerce v5.0.
-
-**Version 2.4.0 (2021/10/22)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Changed the shipping and handling time container from '&lt;label&gt;&lt;/label&gt;' to '&lt;span class="shipping-handling-time"&gt;&lt;/span&gt;'.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.0.
-	* WordPress v5.0.
-	* WPSSO Core v9.0.0.
-	* WooCommerce v3.8.0.
-
-**Version 2.3.0 (2021/09/24)**
-
-Maintenance release for WPSSO Core v9.0.0.
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.0.
-	* WordPress v5.0.
-	* WPSSO Core v9.0.0.
-	* WooCommerce v3.8.0.
-
-**Version 2.2.1 (2021/02/25)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Updated the banners and icons of WPSSO Core and its add-ons.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.0.
-	* WordPress v5.0.
-	* WPSSO Core v8.34.0.
-	* WooCommerce v3.8.0.
-
-**Version 2.2.0 (2020/11/30)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Included the `$addon` argument for library class constructors.
-* **Requires At Least**
-	* PHP v7.0.
-	* WordPress v4.5.
-	* WPSSO Core v8.16.0.
-	* WooCommerce v3.8.0.
-
-**Version 2.1.0 (2020/11/07)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* Moved the activation of shipping offers for Schema JSON-LD from WPSSO JSON to WPSSO WCSDT.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v5.6.
-	* WordPress v4.4.
-	* WPSSO Core v8.13.0.
-	* WooCommerce v3.6.4.
-
-**Version 2.0.1 (2020/10/29)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* Fixed incorrect WPSSOWCSDT_FILEPATH constant reference in WpssoWcsdtRegister.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v5.6.
-	* WordPress v4.4.
-	* WPSSO Core v8.10.0
-	* WooCommerce v3.6.4.
-
-**Version 2.0.0 (2020/10/28)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Moved the "Shipping delivery times" settings to a new WooCommerce Shipping section.
-	* Added a "Shipping department hours" section to the "Shipping delivery times" settings.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Added a new lib/woocommerce-admin.php library file.
-	* Moved the 'wcsdt_handling_time' and 'wcsdt_transit_time' options to the WPSSO Core settings array.
-* **Requires At Least**
-	* PHP v5.6.
-	* WordPress v4.4.
-	* WPSSO Core v8.10.0
-	* WooCommerce v3.6.4.
-
 == Upgrade Notice ==
 
 = 2.8.1 =
 
-(2023/01/26) Added compatibility declaration for WooCommerce HPOS. Updated the minimum WordPress version from v5.2 to v5.4.
+(2023/01/26) Added compatibility declaration for WooCommerce HPOS. Updated the minimum WordPress version from v5.2 to v5.5.
 
 = 2.8.0 =
 
@@ -340,36 +208,4 @@ Maintenance release for WPSSO Core v9.0.0.
 = 2.5.0 =
 
 (2022/01/19) Renamed the lib/abstracts/ folder and its classes.
-
-= 2.4.1 =
-
-(2021/11/16) Refactored the `SucomAddOn->get_missing_requirements()` method.
-
-= 2.4.0 =
-
-(2021/10/22) Changed the shipping and handling time container from '&lt;label&gt;&lt;/label&gt;' to '&lt;span class="shipping-handling-time"&gt;&lt;/span&gt;'.
-
-= 2.3.0 =
-
-(2021/09/24) Maintenance release for WPSSO Core v9.0.0.
-
-= 2.2.1 =
-
-(2021/02/25) Updated the banners and icons of WPSSO Core and its add-ons.
-
-= 2.2.0 =
-
-(2020/11/30) Included the `$addon` argument for library class constructors.
-
-= 2.1.0 =
-
-(2020/11/07) Moved the activation of shipping offers for Schema JSON-LD from WPSSO JSON to WPSSO WCSDT.
-
-= 2.0.1 =
-
-(2020/10/29) Fixed incorrect WPSSOWCSDT_FILEPATH constant reference in WpssoWcsdtRegister.
-
-= 2.0.0 =
-
-(2020/10/28) Added a "Shipping department hours" section to the "Shipping delivery times" settings.
 
