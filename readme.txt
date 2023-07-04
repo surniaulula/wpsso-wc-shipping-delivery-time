@@ -9,10 +9,10 @@ Assets URI: https://surniaulula.github.io/wpsso-wc-shipping-delivery-time/assets
 Tags: woocommerce, schema, shipping, shippingDetails, OfferShippingDetails, ShippingDeliveryTime, deliveryTime, delivery, schema.org
 Contributors: jsmoriss
 Requires Plugins: wpsso, woocommerce
-Requires PHP: 7.2.5
+Requires PHP: 7.2.34
 Requires At Least: 5.5
 Tested Up To: 6.2.2
-WC Tested Up To: 7.8.0
+WC Tested Up To: 7.8.2
 Stable Tag: 2.8.1
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
@@ -95,7 +95,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Developer Notes**
 	* Updated the `WpssoAbstractAddOn` library class.
 * **Requires At Least**
-	* PHP v7.2.5.
+	* PHP v7.2.34.
 	* WordPress v5.5.
 	* WPSSO Core v14.7.0.
 	* WooCommerce v5.0.
