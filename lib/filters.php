@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 	class WpssoWcsdtFilters {
 
 		private $p;	// Wpsso class object.
-		private $a;     // WpssoWcsdt class object.
+		private $a;	// WpssoWcsdt class object.
 
 		/*
 		 * Instantiated by WpssoWcsdt->init_objects().

@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 	class WpssoWcsdtWooCommerce {
 
 		private $p;	// Wpsso class object.
-		private $a;     // WpssoWcsdt class object.
+		private $a;	// WpssoWcsdt class object.
 		private $admin;	// WpssoWcsdtWooCommerceAdmin class object.
 
 		/*
