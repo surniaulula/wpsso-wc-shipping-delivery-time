@@ -32,7 +32,7 @@ The WPSSO Shipping Delivery Time for WooCommerce SEO add-on integrates and exten
 * Select min / max transit times for WooCommerce shipping zones and methods.
 * Increment handling and transit times in half-hours and/or half-days.
 
-<strong>Provides shipping delivery time information to the [WPSSO Core Premium plugin](https://wpsso.com/) for Schema shippingDetails, OfferShippingDetails, and ShippingDeliveryTime markup.</strong>
+Provides additional shipping information to the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/) for Schema **shippingDetails**, **OfferShippingDetails**, and **ShippingDeliveryTime** markup.
 
 <!-- /about -->
 
