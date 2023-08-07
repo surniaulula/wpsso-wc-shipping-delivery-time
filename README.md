@@ -19,7 +19,7 @@
 
 <p><strong>Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.</strong></p>
 
-<p>The WPSSO Shipping Delivery Time for WooCommerce SEO add-on integrates and extends the <em>WooCommerce &gt; Settings &gt; Shipping</em> page with additional shipping delivery times:</p>
+<p><strong>The WPSSO Shipping Delivery Time for WooCommerce SEO (WCSDT) add-on integrates and extends the <em>WooCommerce &gt; Settings &gt; Shipping</em> page with additional shipping delivery times:</strong></p>
 
 <ul>
 <li>Choose to show handling and packaging times in the cart and checkout pages.</li>
@@ -30,7 +30,7 @@
 <li>Increment handling and transit times in half-hours and/or half-days.</li>
 </ul>
 
-<p>Provides additional shipping information to the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a> for Schema <strong>shippingDetails</strong>, <strong>OfferShippingDetails</strong>, and <strong>ShippingDeliveryTime</strong> markup.</p>
+<p>The WPSSO WCSDT add-on provides this additional shipping information to the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a> for complete Schema <strong>shippingDetails</strong>, <strong>OfferShippingDetails</strong>, and <strong>ShippingDeliveryTime</strong> markup.</p>
 
 <!-- /about -->
 
