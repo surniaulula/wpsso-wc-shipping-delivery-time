@@ -83,6 +83,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.9.0-dev.1 (TBD)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Added support for the new `WpssoAdmin->settings_saved_notice()` method.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.5.
+	* WPSSO Core v15.19.0-dev.1.
+	* WooCommerce v5.0.
+
 **Version 2.8.1 (2023/01/26)**
 
 * **New Features**
@@ -184,6 +200,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v5.0.
 
 == Upgrade Notice ==
+
+= 2.9.0-dev.1 =
+
+(TBD) Added support for the new `WpssoAdmin->settings_saved_notice()` method.
 
 = 2.8.1 =
 
