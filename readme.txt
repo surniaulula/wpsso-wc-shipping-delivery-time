@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.0-dev.1 (TBD)**
+**Version 2.9.0-dev.1 (2023/08/08)**
 
 * **New Features**
 	* None.
@@ -92,7 +92,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* Added support for the new `WpssoAdmin->settings_saved_notice()` method.
+	* Added support for the `WpssoAdmin->settings_saved_notice()` method.
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
@@ -203,7 +203,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.9.0-dev.1 =
 
-(TBD) Added support for the new `WpssoAdmin->settings_saved_notice()` method.
+(2023/08/08) Added support for the new `WpssoAdmin->settings_saved_notice()` method.
 
 = 2.8.1 =
 
