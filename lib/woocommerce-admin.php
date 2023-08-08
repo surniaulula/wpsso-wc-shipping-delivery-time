@@ -537,6 +537,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 			$saved = update_option( WPSSO_OPTIONS_NAME, $opts, $autoload = true );
 
+			$this->p->admin->settings_saved_notice();
+
 			if ( $saved ) {	// Just in case.
 
 				$this->p->options = $opts;
