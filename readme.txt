@@ -83,6 +83,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.10.0-dev.8 (2021/11/03)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Refactored the settings page load process.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.5.
+	* WPSSO Core v16.7.0-dev.8.
+	* WooCommerce v5.0.
+
 **Version 2.9.0 (2023/08/09)**
 
 * **New Features**
@@ -200,6 +216,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v5.0.
 
 == Upgrade Notice ==
+
+= 2.10.0-dev.8 =
+
+(2021/11/03) Refactored the settings page load process.
 
 = 2.9.0 =
 
