@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 2.10.0-"
-"dev.9\n"
+"dev.10\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
