@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.10.0-dev.11 (2021/11/04)**
+**Version 2.10.0-dev.11 (2021/11/05)**
 
 * **New Features**
 	* None.
@@ -219,7 +219,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.10.0-dev.11 =
 
-(2021/11/04) Refactored the settings page load process.
+(2021/11/05) Refactored the settings page load process.
 
 = 2.9.0 =
 
