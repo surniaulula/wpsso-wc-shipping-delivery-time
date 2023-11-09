@@ -14,7 +14,7 @@
  * Requires Plugins: wpsso, woocommerce
  * Requires PHP: 7.2.34
  * Requires At Least: 5.5
- * Tested Up To: 6.4.0
+ * Tested Up To: 6.4.1
  * WC Tested Up To: 8.2.1
  * Version: 3.0.0
  *
