@@ -323,10 +323,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			echo '<td class="shipping-class">' . $shipping_class_name . '</td>' . "\n";
 			echo '<td class="class-description">' . $shipping_class_desc . '</td>' . "\n";
 			echo '<td class="minimum-time">';
-			echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
+			echo '<input type="number" step="1" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 			echo '</td>' . "\n";
 			echo '<td class="maximum-time">';
-			echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
+			echo '<input type="number" step="1" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 			echo '</td>' . "\n";
 			echo '<td class="unit-of-time">' . "\n";
 
@@ -462,10 +462,10 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					echo '<td class="shipping-method">' . $method_name . '</td>' . "\n";
 					echo '<td class="shipping-rate">' . $rate_type . '</td>' . "\n";
 					echo '<td class="minimum-time">';
-					echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
+					echo '<input type="number" step="1" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_min . ']" value="' . $min_val . '"/>';
 					echo '</td>' . "\n";
 					echo '<td class="maximum-time">';
-					echo '<input type="number" step="0.5" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
+					echo '<input type="number" step="1" min="0" name="' . WPSSO_OPTIONS_NAME . '[' . $opt_key_max . ']" value="' . $max_val . '"/>';
 					echo '</td>' . "\n";
 					echo '<td class="unit-of-time">' . "\n";
 
