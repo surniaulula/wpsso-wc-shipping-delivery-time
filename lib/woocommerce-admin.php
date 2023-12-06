@@ -315,8 +315,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			$opt_key_max  = $opt_key_pre . '_maximum';
 			$opt_key_unit = $opt_key_pre . '_unit_code';
 
-			$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
-			$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+			$min_val   = isset( $opts[ $opt_key_min ] ) ? round( $opts[ $opt_key_min ] ) : '';
+			$max_val   = isset( $opts[ $opt_key_max ] ) ? round( $opts[ $opt_key_max ] ) : '';
 			$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : 'DAY';
 
 			echo '<tr>' . "\n";
@@ -454,8 +454,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 					$opt_key_max  = $opt_key_pre . '_maximum';
 					$opt_key_unit = $opt_key_pre . '_unit_code';
 
-					$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
-					$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+					$min_val   = isset( $opts[ $opt_key_min ] ) ? round( $opts[ $opt_key_min ] ) : '';
+					$max_val   = isset( $opts[ $opt_key_max ] ) ? round( $opts[ $opt_key_max ] ) : '';
 					$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : 'DAY';
 
 					echo '<tr>' . "\n";

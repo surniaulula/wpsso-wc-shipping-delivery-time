@@ -114,8 +114,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 					$opt_key_max  = $opt_key_pre . '_maximum';
 					$opt_key_unit = $opt_key_pre . '_unit_code';
 
-					$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
-					$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+					$min_val   = isset( $opts[ $opt_key_min ] ) ? round( $opts[ $opt_key_min ] ) : '';
+					$max_val   = isset( $opts[ $opt_key_max ] ) ? round( $opts[ $opt_key_max ] ) : '';
 					$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : '';
 
 					list( $pkg_min_val, $pkg_max_val, $pkg_unit_code ) = $this->get_package_times( $min_val, $max_val, $unit_code );
@@ -175,8 +175,8 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			$opt_key_max  = $opt_key_pre . '_maximum';
 			$opt_key_unit = $opt_key_pre . '_unit_code';
 
-			$min_val   = isset( $opts[ $opt_key_min ] ) ? $opts[ $opt_key_min ] : '';
-			$max_val   = isset( $opts[ $opt_key_max ] ) ? $opts[ $opt_key_max ] : '';
+			$min_val   = isset( $opts[ $opt_key_min ] ) ? round( $opts[ $opt_key_min ] ) : '';
+			$max_val   = isset( $opts[ $opt_key_max ] ) ? round( $opts[ $opt_key_max ] ) : '';
 			$unit_code = isset( $opts[ $opt_key_unit ] ) ? $opts[ $opt_key_unit ] : '';
 
 			if ( empty( $min_val ) && empty( $max_val ) ) {	// Nothing to do.

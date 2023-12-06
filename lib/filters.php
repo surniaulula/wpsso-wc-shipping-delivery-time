@@ -124,13 +124,13 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 					if ( '' !== $val ) {	// Allow for 0.
 
 						/*
-						 * Create and delivery time option key name from the handling / transit options key prefix.
+						 * Create delivery time option key name from the handling / transit options key prefix.
 						 *
 						 * Example: 'wcsdt_handling_c136_minimum' to 'handling_minimum'.
 						 */
 						$time_key = str_replace( $opt_key_pre, $sdt_type, $opt_key );
 
-						$sdt_opts[ $time_key ] = $val;
+						$sdt_opts[ $time_key ] = round( $val );
 
 						/*
 						 * If this is a unit code, add the name and unit text.
