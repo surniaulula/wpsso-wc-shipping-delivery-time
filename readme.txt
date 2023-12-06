@@ -83,7 +83,23 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.0.0 (2021/11/08)**
+**Version 3.1.0-dev.1 (2023/12/06)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* Fixed minimum and maximum time units to use whole numbers.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.5.
+	* WPSSO Core v17.0.0.
+	* WooCommerce v5.0.
+
+**Version 3.0.0 (2023/11/08)**
 
 * **New Features**
 	* None.
@@ -117,9 +133,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
+= 3.1.0-dev.1 =
+
+(2023/12/06) Fixed minimum and maximum time units to use whole numbers.
+
 = 3.0.0 =
 
-(2021/11/08) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
+(2023/11/08) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
 
 = 2.9.0 =
 
