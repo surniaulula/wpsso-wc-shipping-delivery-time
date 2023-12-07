@@ -126,14 +126,17 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 						/*
 						 * Create delivery time option key name from the handling / transit options key prefix.
 						 *
-						 * Example: 'wcsdt_handling_c136_minimum' to 'handling_minimum'.
+						 * Example replace 'wcsdt_handling_c136_unit_code' to 'handling_unit_code'.
 						 */
 						$time_key = str_replace( $opt_key_pre, $type_key, $opt_key );
 
+						/*
+						 * Example $time_key = 'handling_minimum', 'handling_maximum', 'handling_unit_code', 
+						 */
 						$sdt_opts[ $time_key ] = $val;
 
 						/*
-						 * If this is a unit code, add the name and unit text.
+						 * If this is a unit code, add its name and unit text.
 						 */
 						if ( false !== strpos( $time_key, '_unit_code' ) ) {
 
@@ -142,7 +145,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 								case 'HUR':
 
 									/*
-									 * Example: 'wcsdt_handling_c136_unit_text'
+									 * Example $type_key = 'handling'
 									 */
 									 $sdt_opts[ $type_key . '_unit_text' ] = 'h';
 									 $sdt_opts[ $type_key . '_name' ]      = 'Hours';
@@ -157,6 +160,9 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 									 break;
 							}
 
+						/*
+						 * Example $time_key = 'handling_minimum', 'handling_maximum'.
+						 */
 						} elseif ( false !== strpos( $time_key, '_minimum' ) || false !== strpos( $time_key, '_maximum' ) ) {
 						
 							$sdt_opts[ $time_key ] = round( $sdt_opts[ $time_key ] );
