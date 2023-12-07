@@ -104,22 +104,22 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 				}
 			}
 
-			$std_type_keys = array(
+			$type_keys = array(
 				'shipdept' => 'wcsdt_shipdept',
 				'handling' => 'wcsdt_handling_c' . $shipping_class_id,
 				'transit'  => 'wcsdt_transit_m' . $method_inst_id,
 			);
 
-			foreach ( $std_type_keys as $sdt_type => $opt_key_pre ) {
+			foreach ( $type_keys as $type_key => $opt_key_pre ) {
 
-				$sdt_opts[ $sdt_type . '_rel' ] = $parent_url;
+				$sdt_opts[ $type_key . '_rel' ] = $parent_url;
 
 			 	/*
 				 * Get handling options for the $shipping_class_id, or transit options for the $method_inst_id.
 				 */
-				$sdt_type_opts = SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts );
+				$type_opts = SucomUtil::preg_grep_keys( '/^' . $opt_key_pre . '_/', $opts );
 
-				foreach ( $sdt_type_opts as $opt_key => $val ) {
+				foreach ( $type_opts as $opt_key => $val ) {
 
 					if ( '' !== $val ) {	// Allow for 0.
 
@@ -128,7 +128,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 						 *
 						 * Example: 'wcsdt_handling_c136_minimum' to 'handling_minimum'.
 						 */
-						$time_key = str_replace( $opt_key_pre, $sdt_type, $opt_key );
+						$time_key = str_replace( $opt_key_pre, $type_key, $opt_key );
 
 						$sdt_opts[ $time_key ] = $val;
 
@@ -141,18 +141,25 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 
 								case 'HUR':
 
-									 $sdt_opts[ $sdt_type . '_unit_text' ] = 'h';
-									 $sdt_opts[ $sdt_type . '_name' ]      = 'Hours';
+									/*
+									 * Example: 'wcsdt_handling_c136_unit_text'
+									 */
+									 $sdt_opts[ $type_key . '_unit_text' ] = 'h';
+									 $sdt_opts[ $type_key . '_name' ]      = 'Hours';
 
 									 break;
 
 								case 'DAY':
 
-									 $sdt_opts[ $sdt_type . '_unit_text' ] = 'd';
-									 $sdt_opts[ $sdt_type . '_name' ]      = 'Days';
+									 $sdt_opts[ $type_key . '_unit_text' ] = 'd';
+									 $sdt_opts[ $type_key . '_name' ]      = 'Days';
 
 									 break;
 							}
+
+						} elseif ( false !== strpos( $time_key, '_minimum' ) || false !== strpos( $time_key, '_maximum' ) ) {
+						
+							$sdt_opts[ $time_key ] = round( $sdt_opts[ $time_key ] );
 						}
 					}
 				}
