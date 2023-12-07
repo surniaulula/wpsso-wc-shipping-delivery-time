@@ -130,7 +130,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 						 */
 						$time_key = str_replace( $opt_key_pre, $sdt_type, $opt_key );
 
-						$sdt_opts[ $time_key ] = round( $val );
+						$sdt_opts[ $time_key ] = $val;
 
 						/*
 						 * If this is a unit code, add the name and unit text.
