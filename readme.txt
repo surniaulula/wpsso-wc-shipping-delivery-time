@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.0.1-dev.3 (2023/12/07)**
+**Version 3.0.1-dev.4 (2023/12/07)**
 
 * **New Features**
 	* None.
@@ -133,7 +133,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 3.0.1-dev.3 =
+= 3.0.1-dev.4 =
 
 (2023/12/07) Fixed minimum and maximum time units to use whole numbers.
 
