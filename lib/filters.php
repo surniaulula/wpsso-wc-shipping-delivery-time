@@ -164,7 +164,7 @@ if ( ! class_exists( 'WpssoWcsdtFilters' ) ) {
 						 * Example $time_key = 'handling_minimum', 'handling_maximum'.
 						 */
 						} elseif ( false !== strpos( $time_key, '_minimum' ) || false !== strpos( $time_key, '_maximum' ) ) {
-						
+
 							$sdt_opts[ $time_key ] = round( $sdt_opts[ $time_key ] );
 						}
 					}
