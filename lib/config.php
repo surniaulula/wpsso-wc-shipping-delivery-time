@@ -44,7 +44,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/woocommerce/',
 							'plugin_class'  => 'WooCommerce',
 							'version_const' => 'WC_VERSION',
-							'min_version'   => '5.0.0',
+							'min_version'   => '6.0.0',
 						),
 					),
 
