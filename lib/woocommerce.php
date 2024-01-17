@@ -204,7 +204,7 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 			 * See https://www.php.net/manual/en/function.setlocale.php.
 			 * See https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-formatting-functions.html#source-view.353.
 			 */
-			$wp_locale  = SucomUtil::get_locale( 'current' );		// Get the current WordPress locale.
+			$wp_locale  = SucomUtilWP::get_locale( 'current' );		// Get the current WordPress locale.
 			$php_locale = setlocale( LC_NUMERIC, 0 );			// Get the current PHP locale.
 
 			if ( $wp_locale !== $php_locale ) {				// Check if we're already using the WordPress locale.
