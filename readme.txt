@@ -12,8 +12,8 @@ Requires Plugins: wpsso, woocommerce
 Requires PHP: 7.2.34
 Requires At Least: 5.8
 Tested Up To: 6.4.2
-WC Tested Up To: 8.4.0
-Stable Tag: 3.0.1
+WC Tested Up To: 8.5.1
+Stable Tag: 3.1.0
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
 
@@ -83,6 +83,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 3.1.0 (2024/01/12)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.8.
+	* WPSSO Core v17.8.0.
+	* WooCommerce v6.0.0.
+
 **Version 3.0.1 (2023/12/08)**
 
 * **New Features**
@@ -115,23 +131,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v17.0.0.
 	* WooCommerce v5.0.
 
-**Version 2.9.0 (2023/08/09)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Added support for the `WpssoAdmin->settings_saved_notice()` method.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.5.
-	* WPSSO Core v15.19.0.
-	* WooCommerce v5.0.
-
 == Upgrade Notice ==
+
+= 3.1.0 =
+
+(2024/01/12) Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
 
 = 3.0.1 =
 
@@ -140,8 +144,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 3.0.0 =
 
 (2023/11/08) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
-
-= 2.9.0 =
-
-(2023/08/09) Added support for the new `WpssoAdmin->settings_saved_notice()` method.
 
