@@ -83,6 +83,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 3.2.0-dev.1 (2024/08/24)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Changed the main instantiation action hook from 'init_objects' to 'init_objects_preloader'.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.8.
+	* WPSSO Core v18.4.1-dev.1.
+	* WooCommerce v6.0.0.
+
 **Version 3.1.0 (2024/01/12)**
 
 * **New Features**
@@ -132,6 +148,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v5.0.
 
 == Upgrade Notice ==
+
+= 3.2.0-dev.1 =
+
+(2024/08/24) Changed the main instantiation action hook from 'init_objects' to 'init_objects_preloader'.
 
 = 3.1.0 =
 
