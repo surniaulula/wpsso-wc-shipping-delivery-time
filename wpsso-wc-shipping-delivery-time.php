@@ -16,7 +16,7 @@
  * Requires At Least: 5.8
  * Tested Up To: 6.6.1
  * WC Tested Up To: 9.2.2
- * Version: 3.1.0
+ * Version: 3.2.0-dev.1
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -42,8 +42,7 @@ if ( ! class_exists( 'WpssoWcsdt' ) ) {
 
 	class WpssoWcsdt extends WpssoAbstractAddOn {
 
-		public $filters;	// WpssoWcsdtFilters class object.
-		public $wc;		// WpssoWcsdtWooCommerce class object.
+		public $wc;	// WpssoWcsdtWooCommerce class object.
 
 		protected $p;	// Wpsso class object.
 
@@ -72,7 +71,7 @@ if ( ! class_exists( 'WpssoWcsdt' ) ) {
 		/*
 		 * Called by Wpsso->set_objects() which runs at init priority 10.
 		 */
-		public function init_objects() {
+		public function init_objects_preloader() {
 
 			$this->p =& Wpsso::get_instance();
 
@@ -86,8 +85,9 @@ if ( ! class_exists( 'WpssoWcsdt' ) ) {
 				return;	// Stop here.
 			}
 
-			$this->filters = new WpssoWcsdtFilters( $this->p, $this );
-			$this->wc      = new WpssoWcsdtWooCommerce( $this->p, $this );
+			new WpssoWcsdtFilters( $this->p, $this );
+
+			$this->wc = new WpssoWcsdtWooCommerce( $this->p, $this );
 		}
 	}
 
