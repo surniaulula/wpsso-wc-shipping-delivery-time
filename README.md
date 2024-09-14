@@ -4,8 +4,8 @@
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Shipping Delivery Time for WooCommerce SEO</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>3.2.0</td></tr>
-<tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2.34 or newer</td></tr>
-<tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.8 or newer</td></tr>
+<tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.4.33 or newer</td></tr>
+<tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.9 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WordPress</th><td>6.6.2</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WooCommerce</th><td>9.3.1</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>

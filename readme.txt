@@ -9,8 +9,8 @@ Assets URI: https://surniaulula.github.io/wpsso-wc-shipping-delivery-time/assets
 Tags: schema, shippingDetails, OfferShippingDetails, ShippingDeliveryTime, deliveryTime
 Contributors: jsmoriss
 Requires Plugins: wpsso, woocommerce
-Requires PHP: 7.2.34
-Requires At Least: 5.8
+Requires PHP: 7.4.33
+Requires At Least: 5.9
 Tested Up To: 6.6.2
 WC Tested Up To: 9.3.1
 Stable Tag: 3.2.0
@@ -94,74 +94,14 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Developer Notes**
 	* Changed the main instantiation action hook from 'init_objects' to 'init_objects_preloader'.
 * **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.8.
-	* WPSSO Core v18.5.0.
+	* PHP v7.4.33.
+	* WordPress v5.9.
+	* WPSSO Core v18.7.3.
 	* WooCommerce v6.0.0.
-
-**Version 3.1.0 (2024/01/12)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.8.
-	* WPSSO Core v17.18.0.
-	* WooCommerce v6.0.0.
-
-**Version 3.0.1 (2023/12/08)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* Fixed minimum and maximum time units to use whole numbers.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.8.
-	* WPSSO Core v17.3.1.
-	* WooCommerce v6.0.0.
-
-**Version 3.0.0 (2023/11/08)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.5.
-	* WPSSO Core v17.0.0.
-	* WooCommerce v5.0.
 
 == Upgrade Notice ==
 
 = 3.2.0 =
 
 (2024/08/25) Changed the main instantiation action hook from 'init_objects' to 'init_objects_preloader'.
-
-= 3.1.0 =
-
-(2024/01/12) Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
-
-= 3.0.1 =
-
-(2023/12/08) Fixed minimum and maximum time units to use whole numbers.
-
-= 3.0.0 =
-
-(2023/11/08) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
 
