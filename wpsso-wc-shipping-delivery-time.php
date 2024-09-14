@@ -12,8 +12,8 @@
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Description: Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
  * Requires Plugins: wpsso, woocommerce
- * Requires PHP: 7.2.34
- * Requires At Least: 5.8
+ * Requires PHP: 7.4.33
+ * Requires At Least: 5.9
  * Tested Up To: 6.6.2
  * WC Tested Up To: 9.3.1
  * Version: 3.2.0
