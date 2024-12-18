@@ -254,20 +254,11 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerce' ) ) {
 
 						$times_label = $times_transl[ 'equal' ];
 
-					} else {
+					} else $times_label = $times_transl[ 'min_max' ];
 
-						$times_label = $times_transl[ 'min_max' ];
-					}
+				} else $times_label = $times_transl[ 'min' ];
 
-				} else {
-
-					$times_label = $times_transl[ 'min' ];
-				}
-
-			} else {
-
-				$times_label = $times_transl[ 'max' ];
-			}
+			} else $times_label = $times_transl[ 'max' ];
 
 			$times_label = apply_filters( 'wpsso_wcsdt_shipping_times_label', $times_label, $min_val, $max_val, $unit_code );
 
