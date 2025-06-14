@@ -1,5 +1,5 @@
-=== WPSSO Shipping Delivery Time for WooCommerce SEO ===
-Plugin Name: WPSSO Shipping Delivery Time for WooCommerce SEO
+=== WPSSO Schema Shipping Delivery Time for WooCommerce ===
+Plugin Name: WPSSO Schema Shipping Delivery Time for WooCommerce
 Plugin Slug: wpsso-wc-shipping-delivery-time
 Text Domain: wpsso-wc-shipping-delivery-time
 Domain Path: /languages
@@ -23,7 +23,7 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 **Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.**
 
-**The WPSSO Shipping Delivery Time for WooCommerce SEO (WCSDT) add-on integrates and extends the *WooCommerce &gt; Settings &gt; Shipping* page with additional shipping delivery times:**
+**The WPSSO Schema Shipping Delivery Time for WooCommerce (WCSDT) add-on integrates and extends the *WooCommerce &gt; Settings &gt; Shipping* page with additional shipping delivery times:**
 
 * Choose to show handling and packaging times in the cart and checkout pages.
 * Choose to show transit times in the cart and checkout pages.
@@ -38,14 +38,14 @@ The WPSSO WCSDT add-on provides this additional shipping information to the [WPS
 
 <h3>WPSSO Core Required</h3>
 
-WPSSO Shipping Delivery Time for WooCommerce SEO (WPSSO WCSDT) is an add-on for [WooCommerce](https://wordpress.org/plugins/woocommerce/) and the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
+WPSSO Schema Shipping Delivery Time for WooCommerce (WPSSO WCSDT) is an add-on for [WooCommerce](https://wordpress.org/plugins/woocommerce/) and the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
 
 == Installation ==
 
 <h3 class="top">Install and Uninstall</h3>
 
-* [Install the WPSSO Shipping Delivery Time for WooCommerce SEO add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/install-the-plugin/).
-* [Uninstall the WPSSO Shipping Delivery Time for WooCommerce SEO add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/).
+* [Install the WPSSO Schema Shipping Delivery Time for WooCommerce add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/install-the-plugin/).
+* [Uninstall the WPSSO Schema Shipping Delivery Time for WooCommerce add-on](https://wpsso.com/docs/plugins/wpsso-wc-shipping-delivery-time/installation/uninstall-the-plugin/).
 
 == Frequently Asked Questions ==
 
@@ -83,6 +83,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 4.0.0-dev.4 (2025/06/14)**
+
+* **New Features**
+	* Renamed the add-on to "WPSSO Schema Shipping Delivery Time for WooCommerce".
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.4.33.
+	* WordPress v5.9.
+	* WPSSO Core v20.0.0-dev.4.
+	* WooCommerce v6.0.0.
+
 **Version 3.2.0 (2024/08/25)**
 
 * **New Features**
@@ -100,6 +116,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WooCommerce v6.0.0.
 
 == Upgrade Notice ==
+
+= 4.0.0-dev.4 =
+
+(2025/06/14) Renamed the add-on to "WPSSO Schema Shipping Delivery Time for WooCommerce".
 
 = 3.2.0 =
 
