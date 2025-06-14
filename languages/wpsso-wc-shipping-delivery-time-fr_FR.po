@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 3.0.1\n"
+"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce 4.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-delivery-time\n"
-"POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-12-07 10:04-0800\n"
+"POT-Creation-Date: 2025-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-06-14 07:35-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -11,14 +11,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: .\n"
 
-#: gettext/gettext-lib-abstract-com.php:5 lib/abstract/com/add-on.php:243
+#: gettext/gettext-lib-abstract-com.php:5 lib/abstract/com/add-on.php:235
 msgid "The %1$s add-on requires the %2$s plugin."
 msgstr "L'ajout %1$s requiert l'extension %2$s."
 
-#: gettext/gettext-lib-abstract-com.php:6 lib/abstract/com/add-on.php:262
+#: gettext/gettext-lib-abstract-com.php:6 lib/abstract/com/add-on.php:254
 msgid "The %1$s add-on requires %2$s version %3$s or newer (version %4$s is currently installed)."
 msgstr "L'ajout %1$s nécessite %2$s version %3$s ou plus récente (la version %4$s est installée actuellement)."
 
@@ -29,8 +29,8 @@ msgstr "Expédition WC"
 
 #: gettext/gettext-lib-config.php:6
 msgctxt "plugin name"
-msgid "WPSSO Shipping Delivery Time for WooCommerce SEO"
-msgstr "WPSSO Délai de livraison d'expédition pour le SEO WooCommerce"
+msgid "WPSSO Schema Shipping Delivery Time for WooCommerce"
+msgstr "WPSSO Schéma Shipping Delivery Time pour WooCommerce"
 
 #: gettext/gettext-lib-config.php:7
 msgctxt "plugin description"
@@ -196,62 +196,62 @@ msgstr "Heures"
 msgid "Days"
 msgstr "Jours"
 
-#: lib/woocommerce.php:133
+#: lib/woocommerce.php:130
 msgid "Add %s for handling &amp; packaging."
 msgstr "Ajoutez %s pour la manutention et l'emballage."
 
 #. translators: Shipping transit time in the shipping method label.
-#: lib/woocommerce.php:190
+#: lib/woocommerce.php:187
 msgid "(%s)"
 msgstr "(%s)"
 
-#: lib/woocommerce.php:231
+#: lib/woocommerce.php:228
 msgid "%1$s hour"
 msgid_plural "%1$s hours"
 msgstr[0] "%1$s heures"
 msgstr[1] "%1$s hours"
 
-#: lib/woocommerce.php:232
+#: lib/woocommerce.php:229
 msgid "%1$s - %2$s hours"
 msgstr "%1$s - %2$s heures"
 
-#: lib/woocommerce.php:233
+#: lib/woocommerce.php:230
 msgid "%1$s or more hours"
 msgid_plural "%1$s or more hours"
 msgstr[0] "%1$s heur ou plus"
 msgstr[1] "%1$s heures ou plus"
 
-#: lib/woocommerce.php:234
+#: lib/woocommerce.php:231
 msgid "up to %2$s hour"
 msgid_plural "up to %2$s hours"
 msgstr[0] "jusqu'à %2$s heure"
 msgstr[1] "jusqu'à %2$s heures"
 
-#: lib/woocommerce.php:243
+#: lib/woocommerce.php:240
 msgid "%1$s day"
 msgid_plural "%1$s days"
 msgstr[0] "%1$s jour"
 msgstr[1] "%1$s days"
 
-#: lib/woocommerce.php:244
+#: lib/woocommerce.php:241
 msgid "%1$s - %2$s days"
 msgstr "%1$s - %2$s jours"
 
-#: lib/woocommerce.php:245
+#: lib/woocommerce.php:242
 msgid "%1$s or more days"
 msgid_plural "%1$s or more days"
 msgstr[0] "%1$s jour ou plus"
 msgstr[1] "%1$s jours ou plus"
 
-#: lib/woocommerce.php:246
+#: lib/woocommerce.php:243
 msgid "up to %2$s day"
 msgid_plural "up to %2$s days"
 msgstr[0] "jusqu'à %2$s jour"
 msgstr[1] "jusqu'à %2$s jours"
 
 #. Plugin Name of the plugin/theme
-msgid "WPSSO Shipping Delivery Time for WooCommerce SEO"
-msgstr "WPSSO Délai de livraison d'expédition pour le SEO WooCommerce"
+msgid "WPSSO Schema Shipping Delivery Time for WooCommerce"
+msgstr "WPSSO Schéma Shipping Delivery Time pour WooCommerce"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wpsso.com/extend/plugins/wpsso-wc-shipping-delivery-time/"
