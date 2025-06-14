@@ -36,7 +36,7 @@
 
 <h3>WPSSO Core Required</h3>
 
-<p>WPSSO Schema Shipping Delivery Time for WooCommerce (WPSSO WCSDT) is an add-on for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> and the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>.</p>
+<p>WPSSO Schema Shipping Delivery Time for WooCommerce is an add-on for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> and the <a href="https://wordpress.org/plugins/wpsso/">WPSSO Core plugin</a>, which creates extensive and complete structured data to present your content at its best for social sites and search results – no matter how URLs are shared, reshared, messaged, posted, embedded, or crawled.</p>
 
 <h2>Installation</h2>
 
