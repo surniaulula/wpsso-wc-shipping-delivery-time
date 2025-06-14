@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: WPSSO Shipping Delivery Time for WooCommerce SEO
+ * Plugin Name: WPSSO Schema Shipping Delivery Time for WooCommerce
  * Plugin Slug: wpsso-wc-shipping-delivery-time
  * Text Domain: wpsso-wc-shipping-delivery-time
  * Domain Path: /languages
@@ -16,7 +16,7 @@
  * Requires At Least: 5.9
  * Tested Up To: 6.8.1
  * WC Tested Up To: 9.9.3
- * Version: 3.2.0
+ * Version: 4.0.0-dev.4
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *

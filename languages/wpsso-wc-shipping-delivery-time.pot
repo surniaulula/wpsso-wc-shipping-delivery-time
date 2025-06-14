@@ -1,8 +1,9 @@
-# Copyright (C) 2025 WPSSO Shipping Delivery Time for WooCommerce SEO
-# This file is distributed under the same license as the WPSSO Shipping Delivery Time for WooCommerce SEO package.
+# Copyright (C) 2025 WPSSO Schema Shipping Delivery Time for WooCommerce
+# This file is distributed under the same license as the WPSSO Schema Shipping Delivery Time for WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Shipping Delivery Time for WooCommerce SEO 3.2.0\n"
+"Project-Id-Version: WPSSO Schema Shipping Delivery Time for WooCommerce "
+"4.0.0-dev.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wc-shipping-"
 "delivery-time\n"
 "POT-Creation-Date: 2025-MO-DA HO:MI+ZONE\n"
@@ -30,7 +31,7 @@ msgstr ""
 
 #: gettext/gettext-lib-config.php:6
 msgctxt "plugin name"
-msgid "WPSSO Shipping Delivery Time for WooCommerce SEO"
+msgid "WPSSO Schema Shipping Delivery Time for WooCommerce"
 msgstr ""
 
 #: gettext/gettext-lib-config.php:7
@@ -257,7 +258,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Plugin Name of the plugin/theme
-msgid "WPSSO Shipping Delivery Time for WooCommerce SEO"
+msgid "WPSSO Schema Shipping Delivery Time for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
