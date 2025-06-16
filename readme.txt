@@ -23,7 +23,7 @@ Shipping delivery time estimates for WooCommerce shipping zones, methods, and cl
 
 **Adding shipping details to your Schema Product markup is important if you offer free or low-cost shipping options, as this will make your products more appealing in Google search results.**
 
-**The WPSSO Schema Shipping Delivery Time for WooCommerce (WCSDT) add-on integrates and extends the *WooCommerce &gt; Settings &gt; Shipping* page with additional shipping delivery times:**
+**The WPSSO Schema Shipping Delivery Time for WooCommerce (WPSSO WCSDT) add-on integrates and extends the *WooCommerce &gt; Settings &gt; Shipping* page with additional shipping delivery times:**
 
 * Choose to show handling and packaging times in the cart and checkout pages.
 * Choose to show transit times in the cart and checkout pages.
