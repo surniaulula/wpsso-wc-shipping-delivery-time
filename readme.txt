@@ -11,8 +11,8 @@ Contributors: jsmoriss
 Requires Plugins: wpsso, woocommerce
 Requires PHP: 7.4.33
 Requires At Least: 5.9
-Tested Up To: 6.8.3
-WC Tested Up To: 10.2.2
+Tested Up To: 6.9
+WC Tested Up To: 10.3.5
 Stable Tag: 4.0.0
 
 Shipping delivery time estimates for WooCommerce shipping zones, methods, and classes.
