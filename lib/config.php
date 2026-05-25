@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWcsdtConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowcsdt' => array(			// Plugin acronym.
-					'version'     => '4.0.0',	// Plugin version.
+					'version'     => '4.1.0-dev.3',	// Plugin version.
 					'opt_version' => '1',		// Increment when changing default option values.
 					'short'       => 'WPSSO WCSDT',	// Short plugin name.
 					'name'        => 'WPSSO Schema Shipping Delivery Time for WooCommerce',
