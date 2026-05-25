@@ -183,8 +183,6 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 
 		public function show_shipping_dept_hours_table() {
 
-			$weekdays =& $this->p->cf[ 'form' ][ 'weekdays' ];
-
 			echo '<table class="wc_shipping wp-list-table" cellspacing="0">' . "\n";
 			echo '<thead>' . "\n";
 			echo '<tr style="background:#e9e9e9;">' . "\n";
@@ -198,21 +196,9 @@ if ( ! class_exists( 'WpssoWcsdtWooCommerceAdmin' ) ) {
 			echo '</tr>' . "\n";
 			echo '</thead>' . "\n";
 
-			/*
-			 * Example $weekdays = array(
-			 *	'sunday'         => 'Sunday',
-			 *	'monday'         => 'Monday',
-			 *	'tuesday'        => 'Tuesday',
-			 *	'wednesday'      => 'Wednesday',
-			 *	'thursday'       => 'Thursday',
-			 *	'friday'         => 'Friday',
-			 *	'saturday'       => 'Saturday',
-			 *	'publicholidays' => 'Public Holidays',
-			 * );
-			 */
-			foreach ( $weekdays as $day_name => $day_label ) {
+			foreach ( $this->p->cf[ 'form' ][ 'weekdays' ] as $day_key => $day_label ) {
 
-				$day_opt_pre   = 'wcsdt_shipdept_day_' . $day_name;
+				$day_opt_pre   = 'wcsdt_shipdept_day_' . $day_key;
 				$open_opt_key  = $day_opt_pre . '_open';
 				$close_opt_key = $day_opt_pre . '_close';
 
