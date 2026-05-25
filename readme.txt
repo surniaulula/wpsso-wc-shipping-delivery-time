@@ -83,6 +83,24 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 4.1.0-dev.3 (2026/05/25)**
+
+Maintenance release.
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.4.33.
+	* WordPress v6.0.
+	* WPSSO Core v20.0.0.
+	* WooCommerce v6.0.0.
+
 **Version 4.0.0 (2025/06/14)**
 
 * **New Features**
@@ -99,29 +117,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v20.0.0.
 	* WooCommerce v6.0.0.
 
-**Version 3.2.0 (2024/08/25)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Changed the main instantiation action hook from 'init_objects' to 'init_objects_preloader'.
-* **Requires At Least**
-	* PHP v7.4.33.
-	* WordPress v5.9.
-	* WPSSO Core v18.20.0.
-	* WooCommerce v6.0.0.
-
 == Upgrade Notice ==
+
+= 4.1.0-dev.3 =
+
+(2026/05/25) Maintenance release.
 
 = 4.0.0 =
 
 (2025/06/14) Renamed the add-on to "WPSSO Schema Shipping Delivery Time for WooCommerce".
-
-= 3.2.0 =
-
-(2024/08/25) Changed the main instantiation action hook from 'init_objects' to 'init_objects_preloader'.
 
