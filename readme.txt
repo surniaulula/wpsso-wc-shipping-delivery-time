@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.1.0-rc.1 (2026/05/26)**
+**Version 4.1.0 (2026/05/26)**
 
 Maintenance release.
 
@@ -119,7 +119,7 @@ Maintenance release.
 
 == Upgrade Notice ==
 
-= 4.1.0-rc.1 =
+= 4.1.0 =
 
 (2026/05/26) Maintenance release.
 
